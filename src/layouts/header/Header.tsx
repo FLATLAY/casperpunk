@@ -9,6 +9,7 @@ import {
 } from "./Header-style";
 
 import headerLogo from "../../assets/images/header-logo.svg";
+import Profile from "./components/profile/Profile";
 
 const Header = () => {
   return (
@@ -20,8 +21,8 @@ const Header = () => {
         <Flex alignItems="center">
           {/* <SearchIcon src={seacrhIcon} />
         <NotificationIcon />
-        <Cart />
-        <WalletIcon /> */}
+        <Cart />*/}
+        <Profile /> 
         </Flex>
       </HeaderContentWrapper>
     </HeaderWrapper>
