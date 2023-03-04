@@ -1,6 +1,6 @@
 import axios from "axios";
 
-//import { useToastify } from "../../context/toastify/ToastifyContext";
+import { useToastify } from "../../context/ToastifyContext/ToastifyContext";
 //import { ApiServiceType } from "../../types/api-types/api-service-type";
 
 
@@ -14,7 +14,8 @@ type HookProps = {
 const BASE_URL = "https://apiv2.droplinked.com";
 
 export function useApi() {
-//  const { errorToast } = useToastify();
+
+  const { errorToast } = useToastify();
 
   const postApi = async ({ url, token, body }:HookProps) => {
     try {
@@ -31,15 +32,15 @@ export function useApi() {
       return res.data.data;
     } catch (err:any) {
       if (err.response) {
-       // errorToast(err.response.data.message);
+        errorToast(err.response.data.message);
       } else {
-      //  errorToast(err.message);
+        errorToast(err.message);
       }
-      return undefined;
+      return false;
     }
   };
 
-  const patchApi = async ({ url, token, body }:HookProps) => {
+  const putApi = async ({ url, token, body }:HookProps) => {
     try {
       const res = await axios.put(
         `${BASE_URL}/${url}`,
@@ -54,9 +55,9 @@ export function useApi() {
       return res.data.data;
     } catch (err:any) {
       if (err.response) {
-      //  errorToast(err.response.data.message);
+        errorToast(err.response.data.message);
       } else {
-     //   errorToast(err.message);
+        errorToast(err.message);
       }
    //   return;
       return false;
@@ -76,11 +77,11 @@ export function useApi() {
       return res.data.data;
     } catch (err:any) {
       if (err.response) {
-        //errorToast(err.response.data.message);
+        errorToast(err.response.data.message);
       } else {
-      //  errorToast(err.message);
+        errorToast(err.message);
       }
-      return undefined;
+      return false;
     }
   };
 
@@ -96,17 +97,17 @@ export function useApi() {
       return res.data.data;
     } catch (err:any) {
       if (err.response) {
-      //  errorToast(err.response.data.message);
+        errorToast(err.response.data.message);
       } else {
-      //  errorToast(err.message);
+        errorToast(err.message);
       }
-      return undefined;
+      return false;
     }
   };
 
   return {
     postApi,
-    patchApi,
+    putApi,
     getApi,
     deleteApi,
   };
