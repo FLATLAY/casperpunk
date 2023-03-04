@@ -8,7 +8,7 @@ import {
 } from "./Cart-style";
 //import { useCart } from "../../../../../../hooks/useCart/useCart";
 
-//import CartDropdown from "./CartDropdown";
+import CartDropdown from "./CartDropdown";
 
 import cartIcon from "../../../../assets/icons/cart-icon.svg";
 
