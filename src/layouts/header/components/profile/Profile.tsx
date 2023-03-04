@@ -3,6 +3,7 @@ import { useState } from "react";
 import { WalletIconWrapper, WalletIconComponent } from "./Profile-style";
 
 import ProfileDropdown from "./ProfileDropdown";
+import WalletModal from "../../../../modals/wallet-modal/WalletModal";
 import profileIcon from "../../../../assets/icons/profile-icon.svg";
 
 const Profile = () => {
@@ -19,7 +20,7 @@ const Profile = () => {
       >
         <WalletIconComponent src={profileIcon} />
       </WalletIconWrapper>
-      <ProfileDropdown show={showModal} close={toggleModal} />
+      <WalletModal show={showModal} close={toggleModal} />
       {/* {user ? (
       <WalletDropdown show={showModal} close={toggleModal} />
     ) : (
