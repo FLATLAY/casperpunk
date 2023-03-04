@@ -1,12 +1,13 @@
 import { createBrowserRouter } from "react-router-dom";
 
-import PageWrapper from "./pages/page-wrapper/PageWrapper";
+
 import Landing from "./pages/landing/Landing";
+import App from "./App";
 
 export const router = createBrowserRouter([
     {
       path: "/",
-      element: <PageWrapper />,
+      element: <App />,
       children: [
         {
           index: true,

@@ -1,12 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 
 import { RouterProvider } from "react-router-dom";
+import { ChakraProvider } from "@chakra-ui/react";
 
 import { router } from "./router";
+import { theme } from "./chakra-theme";
 
 import ToastifyProvider from "./context/ToastifyContext/ToastifyContext";
 
@@ -15,9 +16,11 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <ToastifyProvider>
-      <RouterProvider router={router} />
-    </ToastifyProvider>
+    <ChakraProvider theme={theme}>
+      <ToastifyProvider>
+        <RouterProvider router={router} />
+      </ToastifyProvider>
+    </ChakraProvider>
   </React.StrictMode>
 );
 
