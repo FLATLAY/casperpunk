@@ -10,6 +10,7 @@ import {
 
 import headerLogo from "../../assets/images/header-logo.svg";
 import Profile from "./components/profile/Profile";
+import Notification from "./components/notification/Notification";
 
 const Header = () => {
   return (
@@ -20,8 +21,9 @@ const Header = () => {
         </Flex>
         <Flex alignItems="center">
           {/* <SearchIcon src={seacrhIcon} />
-        <NotificationIcon />
+     
         <Cart />*/}
+           <Notification />
         <Profile /> 
         </Flex>
       </HeaderContentWrapper>
