@@ -1,7 +1,7 @@
 
 
  const PageWrapper = () => {
-    return <></>
+    return <><h1>page wrapper</h1></>
 }
 
 export default PageWrapper

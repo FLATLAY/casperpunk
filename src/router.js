@@ -10,7 +10,7 @@ export const router = createBrowserRouter([
       children: [
         {
           index: true,
-          element: <Landing/>,
+          element: <Landing />,
         },
         // {
         //   path: ":shopName",
