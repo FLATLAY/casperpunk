@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import reportWebVitals from "./reportWebVitals";
+import * as MicroStacks from "@micro-stacks/react";
 
 import { RouterProvider } from "react-router-dom";
 import { ChakraProvider } from "@chakra-ui/react";
@@ -17,9 +18,14 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <ChakraProvider theme={theme}>
-      <ToastifyProvider>
-        <RouterProvider router={router} />
-      </ToastifyProvider>
+      <MicroStacks.ClientProvider
+        appName="My sick app"
+        appIconUrl="APP_ICON.png"
+      >
+        <ToastifyProvider>
+          <RouterProvider router={router} />
+        </ToastifyProvider>
+      </MicroStacks.ClientProvider>
     </ChakraProvider>
   </React.StrictMode>
 );
