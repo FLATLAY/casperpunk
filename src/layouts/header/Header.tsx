@@ -11,6 +11,7 @@ import {
 import headerLogo from "../../assets/images/header-logo.svg";
 import Profile from "./components/profile/Profile";
 import Notification from "./components/notification/Notification";
+import Cart from "./components/cart/Cart";
 
 const Header = () => {
   return (
@@ -22,9 +23,10 @@ const Header = () => {
         <Flex alignItems="center">
           {/* <SearchIcon src={seacrhIcon} />
      
-        <Cart />*/}
-           <Notification />
-        <Profile /> 
+       */}
+          <Notification />
+          <Cart />
+          <Profile />
         </Flex>
       </HeaderContentWrapper>
     </HeaderWrapper>
