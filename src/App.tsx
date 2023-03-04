@@ -11,10 +11,10 @@ function App() {
       h="auto"
       minH="100vh"
       overflowX="hidden"
-      border='1px solid blue'
     >
-      <Box w="100%" h="auto">
-        <Header />
+       <Header />
+      <Box w="100%" h="auto" minH='calc(100vh-300px)'>
+       
         <Outlet />
       </Box>
     </Box>

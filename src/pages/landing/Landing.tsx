@@ -1,9 +1,13 @@
+import { Box } from "@chakra-ui/react";
 
+import Banner from "./components/banner/Banner";
 
 const Landing = () => {
+  return (
+    <Box w="100%">
+      <Banner />
+    </Box>
+  );
+};
 
-    console.log('landing page')
-    return <><h2>landing page</h2></>
-}
-
-export default Landing
+export default Landing;
