@@ -2,7 +2,7 @@ import { useMemo } from "react";
 import { Image } from "@chakra-ui/react";
 
 import { ImageWrapper } from "./ProductPage-style";
-import { getProductImage } from "../../../../utils/product-utils";
+import { getProductImage } from "../../utils/product/product-utils";
 
 const ProductImage = ({ product }: { product: any }) => {
   const productImage = useMemo(() => getProductImage(product), []);

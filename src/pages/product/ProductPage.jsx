@@ -2,11 +2,11 @@ import { useParams } from "react-router-dom";
 import { Flex, Box, Image } from "@chakra-ui/react";
 import { useState, useEffect , useMemo } from "react";
 
-import { useApi } from "../../../../hooks/useApi/useApi";
-import { getProductById } from "../../../../apis/productsApi";
-import { ProductPage, ProductDetialWrapper ,ImageWrapper } from "./ProductPage-style";
+import { useApi } from "../../hooks/useApi/useApi";
+import { getProductById } from "../../apis/productsApi";
+//import { ProductPageWrapper, ProductDetialWrapper ,ImageWrapper } from "./ProductPage-style";
 
-import Loading, { LOADING_SIZE } from "../../../../components/loading/Loading";
+import Loading, { LOADING_SIZE } from "../../components/loading/Loading";
 import ProductImage from "./ProductImage";
 import Detail from "./component/detail/Detail";
 

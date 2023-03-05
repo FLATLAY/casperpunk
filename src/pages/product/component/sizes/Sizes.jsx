@@ -1,5 +1,5 @@
 import { Box, Text, Flex } from "@chakra-ui/react";
-import { IMS_TYPES } from "../../../../../../constant/ims-types";
+import { IMS_TYPES } from "../../../../constant/ims-types";
 
 const Sizes = ({ imsType, selectedSku, changeOption, option }) => {
 

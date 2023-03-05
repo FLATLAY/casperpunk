@@ -1,17 +1,17 @@
 import { chakra } from "@chakra-ui/react";
 
-export const ProductPage = chakra("div", {
-  baseStyle: {
-    w: "100%",
-    h: "auto",
-    bg: "#F9F9F6",
-    // pt: "100px",
-    display: "flex",
-    justifyContent: "center",
-    // pb: "90px",
-    p: { base: "20px 21px 50px 21px", lg: "100px 20px 90px 20px" },
-  },
-});
+// export const ProductPageWrapper = chakra("div", {
+//   baseStyle: {
+//     w: "100%",
+//     h: "auto",
+//     bg: "#F9F9F6",
+//     // pt: "100px",
+//     display: "flex",
+//     justifyContent: "center",
+//     // pb: "90px",
+//     p: { base: "20px 21px 50px 21px", lg: "100px 20px 90px 20px" },
+//   },
+// });
 
 export const ProductDetialWrapper = chakra("div", {
   baseStyle: {

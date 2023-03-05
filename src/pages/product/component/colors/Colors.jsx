@@ -1,6 +1,6 @@
 import { Box, Text, Flex, Image } from "@chakra-ui/react";
 
-import { IMS_TYPES } from "../../../../../../constant/ims-types";
+import { IMS_TYPES } from "../../../../constant/ims-types";
 import tickIcon from "../../../../assets/icons/tik-icon.svg";
 
 const Colors = ({ imsType, selectedSku, changeOption, option }) => {
