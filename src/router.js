@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 
 
 import Landing from "./pages/landing/Landing";
+import ProductPage from "./pages/product/ProductPage";
 import App from "./App";
 
 export const router = createBrowserRouter([
@@ -13,17 +14,10 @@ export const router = createBrowserRouter([
           index: true,
           element: <Landing />,
         },
-        // {
-        //   path: ":shopName",
-        //   element: <ShopWrapper />,
-        //   children: [
-        //     {
-        //       index: true,
-        //       element: <ShopLanding />,
-        //     },
-  
-        //   ],
-        // },
+        {
+          path: "product/:productId",
+          element: <ProductPage />,
+        },
       ],
     },
   ]);
