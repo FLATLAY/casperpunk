@@ -10,7 +10,7 @@ import {
   Text14W400,
 } from "./Footer-style";
 
-import shopIcon from "../../assets/icons/shop-name-icon.svg";
+import shopIcon from "../../assets/images/header-logo.svg";
 
 const Footer = () => {
 

@@ -2,6 +2,7 @@ import { Outlet } from "react-router-dom";
 import { Box } from "@chakra-ui/react";
 
 import Header from "./layouts/header/Header";
+import Footer from "./layouts/footer/Footer";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
       <Box w="100%" h="auto" minH="calc(100vh-300px)">
         <Outlet />
       </Box>
+      <Footer />
     </Box>
   );
 }

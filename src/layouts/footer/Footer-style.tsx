@@ -6,6 +6,7 @@ export const FooterComponentWrapper = chakra("footer", {
     p: { base: "48px 32px", lg: "85px 64px", xl: "85px 125px" },
     //  p: { base: "20px", lg: "109px 80px", xl: "85px 125px" },
     bg: "#fff",
+    border:'4px solid red'
   },
 });
 
