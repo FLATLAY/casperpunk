@@ -15,7 +15,7 @@ import {
   getProductTitle,
   getProductPrice,
 } from "./product-utils";
-import { getProductColors } from "../../../../../../utils/product-utils";
+import { getProductColors } from "../../../../utils/product/product-utils";
 
 import ColorComponent from "./ColorComponent";
 

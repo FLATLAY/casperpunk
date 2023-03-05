@@ -26,11 +26,11 @@ import {
 /*components*/
 import SearchBox from "./components/seachBox/SearchBox";
 import Product from "./components/product/Product";
-import Loading, { LOADING_SIZE } from "../../../../components/loading/Loading";
+import Loading, { LOADING_SIZE } from "../../components/loading/Loading";
 
 /*icons*/
-import topsectionImage from "../../assets/images/mechandise-landing-image.svg";
-import mobileTopsectionImage from "../../assets/images/mechandise-landing-image-mobile.svg";
+import topsectionImage from "../../assets/images/banner-desktop.svg";
+import mobileTopsectionImage from "../../assets/images/banner-mobile.svg";
 
 const Landing = () => {
   const { getApi } = useApi();
