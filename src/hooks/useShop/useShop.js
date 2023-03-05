@@ -16,7 +16,7 @@ export function useShop() {
 
   const updateShopData = async () => {
     if (shopName) {
-      let result = await getApi(getShopDataPublic(shopName));
+      let result = await getApi(getShopDataPublic('bedishopify'));
       if (result) dispatch(setCurrentShop(result));
     }
   };

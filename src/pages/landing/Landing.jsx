@@ -1,6 +1,5 @@
 /* dep */
 import { useEffect, useState, useMemo } from "react";
-import { useParams } from "react-router-dom";
 import { Box, Flex } from "@chakra-ui/react";
 /* internal */
 
@@ -34,7 +33,7 @@ import mobileTopsectionImage from "../../assets/images/banner-mobile.svg";
 
 const Landing = () => {
   const { getApi } = useApi();
-  let { shopName } = useParams();
+
   const { shopData } = useShop();
   const { successToast } = useToastify();
 
@@ -63,7 +62,7 @@ const Landing = () => {
 
   const getProducts = async () => {
     setLoadin(true);
-    let result = await getApi(getCollectionsByShopname(shopName));
+    let result = await getApi(getCollectionsByShopname('bedishopify'));
     setLoadin(false);
     if (result) {
       let resultProducts = [];
