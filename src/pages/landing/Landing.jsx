@@ -4,11 +4,11 @@ import { useParams } from "react-router-dom";
 import { Box, Flex } from "@chakra-ui/react";
 /* internal */
 
-import { useApi } from "../../../../hooks/useApi/useApi";
-import { getCollectionsByShopname } from "../../../../apis/collectionsApi";
-import { getProductTitle } from "../../../../utils/product-utils";
-import { useShop } from "../../../../hooks/useShop/useShop";
-import { useToastify } from "../../../../context/toastify/ToastifyContext";
+import { useApi } from "../../hooks/useApi/useApi";
+import { getCollectionsByShopname } from "../../apis/collectionsApi";
+import { getProductTitle } from "../../utils/product/product-utils";
+import { useShop } from "../../hooks/useShop/useShop";
+import { useToastify } from "../../context/ToastifyContext/ToastifyContext";
 import {
   ShopPageWrapper,
   Sidebar,
@@ -21,7 +21,7 @@ import {
   TopSectionButton,
   RightsideImage,
   MobileImageSide,
-} from "./Shop-style";
+} from "./Landing-style";
 
 /*components*/
 import SearchBox from "./components/seachBox/SearchBox";
