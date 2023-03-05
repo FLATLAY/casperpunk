@@ -9,10 +9,10 @@ import {
   CloseIconComponent,
   CloseIconImg,
 } from "./AddressModal-style";
-import { postAddressBook } from "../../../../apis/addressApi";
-import { useApi } from "../../../../hooks/useApi/useApi";
+import { postAddressBook } from "../../apis/addressApi";
+import { useApi } from "../../hooks/useApi/useApi";
 // components
-import ModalWrapper from "../../../../modal/modal-wrapper/ModalWrapper";
+import ModalWrapper from "../modal-wrapper/ModalWrapper";
 import TextInput from "../../components/text-input/TextInput";
 import BasicButton, {
   BUTTON_TYPE,

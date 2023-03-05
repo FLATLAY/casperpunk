@@ -7,7 +7,7 @@ import {
   ModalTitle,
 } from "./AuthModal-style";
 
-import ModalWrapper from "../../../../modal/modal-wrapper/ModalWrapper";
+import ModalWrapper from "../modal-wrapper/ModalWrapper";
 import Signup from "./Signup";
 import Signin from "./Signin";
 
