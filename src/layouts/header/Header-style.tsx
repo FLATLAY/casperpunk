@@ -4,12 +4,13 @@ export const HeaderWrapper = chakra("header", {
   baseStyle: {
     w: "100%",
     px: { base: "21px", xl: "160px" },
+    py: { base: "8px", xl: "0px" },
     h: { base: "50px", xl: "85px" },
     maxH: { base: "50px", xl: "85px" },
     display: "flex",
     alignItems: "center",
     bg: "#fff",
-    boxSize:'border-box'
+    boxSize: "border-box",
   },
 });
 
