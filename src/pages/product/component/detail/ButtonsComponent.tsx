@@ -13,8 +13,8 @@ import { useApi } from "../../../../hooks/useApi/useApi";
 import { hasRule } from "../../../../utils/rules/rules-utils";
 
 // components
-import WalletModal from "../../../../modal/wallet-modal/WalletModal";
-import EmailModal from "../../../../modal/email-modal/EmailModal";
+import WalletModal from "../../../../modals/wallet-modal/WalletModal";
+import EmailModal from "../../../../modals/email-modal/EmailModal";
 
 type Props = {
   product: any;

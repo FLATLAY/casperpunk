@@ -21,7 +21,7 @@ import {
 
 //import { postAddSkuToCart } from "../../../../../../apis/cartApi";
 
-import { hasRule } from "../../../../../../pages/product/product-utils";
+import { hasRule } from "../../../../utils/rules/rules-utils";
 //import { hasRule } from "../../../../../../pages/product/product-utils";
 // import { getMaxDiscount } from "../../../../../../utils/casper/check_nft";
 // import { gatedPassesRules } from "../../../../../../utils/stacks/stacks-rule-utils";

@@ -10,10 +10,10 @@ import {
   CloseIconImg,
 } from "./AddressEmailModal-style";
 import { getShopifyBody } from "./utils";
-import { useCart } from "../../../../hooks/useCart/useCart";
-import { useApi } from "../../../../hooks/useApi/useApi";
-import { postCreatPublicCheckout } from "../../../../apis/shopifyApi";
-import ModalWrapper from "../../../../modal/modal-wrapper/ModalWrapper";
+import { useCart } from "../../hooks/useCart/useCart";
+import { useApi } from "../../hooks/useApi/useApi";
+import { postCreatPublicCheckout } from "../../apis/shopifyApi";
+import ModalWrapper from "../modal-wrapper/ModalWrapper";
 import TextInput from "../../components/text-input/TextInput";
 import closeIcon from "../../assets/icons/multiplied-icon.svg";
 import BasicButton, {

@@ -7,11 +7,12 @@ import {
   CloseIconImg,
   ModalTitle,
 } from "./EmailModal-style";
-import { putUser } from "../../../../apis/userApi";
-import { useApi } from "../../../../hooks/useApi/useApi";
-import { useProfile } from "../../../../hooks/useProfile/useProfile";
-import { useToastify } from "../../../../context/toastify/ToastifyContext";
-import ModalWrapper from "../../../../modal/modal-wrapper/ModalWrapper";
+import { putUser } from "../../apis/userApi";
+import { useApi } from "../../hooks/useApi/useApi";
+import { useProfile } from "../../hooks/useProfile/useProfile";
+import { useToastify } from "../../context/ToastifyContext/ToastifyContext";
+
+import ModalWrapper from "../modal-wrapper/ModalWrapper";
 import TextInput from "../../components/text-input/TextInput";
 import closeIcon from "../../assets/icons/multiplied-icon.svg";
 
@@ -23,7 +24,7 @@ const EmailModal = ({ show, close }: { show: boolean; close: () => void }) => {
   const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const { patchApi } = useApi();
+  const { putApi } = useApi();
   const { updateProfile } = useProfile();
   const { errorToast } = useToastify();
 
@@ -34,7 +35,7 @@ const EmailModal = ({ show, close }: { show: boolean; close: () => void }) => {
     let regx = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,8})+$/;
     if (regx.test(email)) {
       setLoading(true);
-      let result = await patchApi(putUser({ email: email }));
+      let result = await putApi(putUser({ email: email }));
       setLoading(false);
       if (result) {
         updateProfile();

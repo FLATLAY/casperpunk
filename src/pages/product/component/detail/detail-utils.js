@@ -1,4 +1,4 @@
-import { IMS_TYPES } from "../../../../../../constant/ims-types";
+import { IMS_TYPES } from "../../../../constant/ims-types";
 
 export const getOptions = (product) => {
   let optionsArray = [];
