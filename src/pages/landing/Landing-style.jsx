@@ -1,16 +1,5 @@
 import { chakra } from "@chakra-ui/react";
 
-
-export const BannerButton = chakra("button", {
-    baseStyle: {
-      w: "100%",
-      h: "auto",
-      bg: "#F9F9F6",
-      p: { base: "25px 20px 90px 20px", xl: "109px 160px 100px 160px" },
-      display: "flex",
-    },
-  });
-
 export const ShopPageWrapper = chakra("div", {
   baseStyle: {
     w: "100%",
