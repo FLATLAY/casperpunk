@@ -12,9 +12,8 @@ function App() {
       minH="100vh"
       overflowX="hidden"
     >
-       <Header />
-      <Box w="100%" h="auto" minH='calc(100vh-300px)'>
-       
+      <Header />
+      <Box w="100%" h="auto" minH="calc(100vh-300px)">
         <Outlet />
       </Box>
     </Box>
