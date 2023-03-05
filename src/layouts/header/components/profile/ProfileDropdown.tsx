@@ -1,6 +1,6 @@
 
 import { Box } from "@chakra-ui/react";
-//import { useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useAuth } from "@micro-stacks/react";
 import { useNavigate } from "react-router-dom";
 import { useMemo } from "react";
@@ -10,8 +10,8 @@ import {
   WalletDropdownComponent,
   DropdownButton,
 } from "./Profile-style";
-//import { setLogoutUser } from "../../../../../../../../store/user/user.action";
-//import { useProfile } from "../../../../../../../../hooks/useProfile/useProfile";
+import { setLogoutUser } from "../../../../store/user/user.action";
+import { useProfile } from "../../../../hooks/useProfile/useProfile";
 
 interface Props {
   close: () => void;
@@ -20,21 +20,21 @@ interface Props {
 
 
  const ProfileDropdown = ({ close, show }: Props) => {
-  //  const dispatch = useDispatch();
+    const dispatch = useDispatch();
     const navigate = useNavigate();
     const { signOut } = useAuth();
-   // const { stackAddress, walletAddress } = useProfile();
+    const { stackAddress, walletAddress } = useProfile();
   
-    // const walletAddressText = useMemo(() => {
-    //   let result = "";
-    //   if (walletAddress != "") {
-    //     result =
-    //       walletAddress.slice(0, 4) +
-    //       "...." +
-    //       walletAddress.slice(walletAddress.length - 4, walletAddress.length);
-    //   }
-    //   return result;
-    // }, []);
+    const walletAddressText = useMemo(() => {
+      let result = "";
+      if (walletAddress != "") {
+        result =
+          walletAddress.slice(0, 4) +
+          "...." +
+          walletAddress.slice(walletAddress.length - 4, walletAddress.length);
+      }
+      return result;
+    }, []);
   
     const handleChildClick = (event: React.MouseEvent<HTMLInputElement>) =>
       event.stopPropagation();
@@ -42,10 +42,10 @@ interface Props {
     if (!show) return null;
   
     const logout = () => {
-    //   dispatch(setLogoutUser());
-    //   signOut();
-    //   close();
-    //   window.location.reload();
+      dispatch(setLogoutUser());
+      signOut();
+      close();
+      window.location.reload();
     };
   
     const navigateToSetting = () => navigate("settings");
@@ -53,7 +53,7 @@ interface Props {
     return (
       <WalletDropdownBgLayout onClick={close}>
         <WalletDropdownComponent onClick={handleChildClick}>
-          {/* <DropdownButton>{walletAddressText}</DropdownButton> */}
+          <DropdownButton>{walletAddressText}</DropdownButton>
           <Box mb="8px"></Box>
           <DropdownButton>Purchase History</DropdownButton>
           <Box mb="8px"></Box>
