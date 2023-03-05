@@ -9,7 +9,6 @@ export const HeaderWrapper = chakra("header", {
     display: "flex",
     alignItems: "center",
     bg: "#fff",
-    border:'1px solid red',
     boxSize:'border-box'
   },
 });
