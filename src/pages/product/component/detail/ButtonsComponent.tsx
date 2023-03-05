@@ -5,12 +5,12 @@ import { Box, Spinner } from "@chakra-ui/react";
 
 // internall dependency
 import { BuyButton } from "./Detail-style";
-import { useToastify } from "../../../../../../context/toastify/ToastifyContext";
-import { IMS_TYPES } from "../../../../../../constant/ims-types";
-import { useProfile } from "../../../../../../hooks/useProfile/useProfile";
-import { useCart } from "../../../../../../hooks/useCart/useCart";
-import { useApi } from "../../../../../../hooks/useApi/useApi";
-import { hasRule } from "../../../../../../pages/product/product-utils";
+import { useToastify } from "../../../../context/ToastifyContext/ToastifyContext";
+import { IMS_TYPES } from "../../../../constant/ims-types";
+import { useProfile } from "../../../../hooks/useProfile/useProfile";
+import { useCart } from "../../../../hooks/useCart/useCart";
+import { useApi } from "../../../../hooks/useApi/useApi";
+import { hasRule } from "../../../../utils/rules/rules-utils";
 
 // components
 import WalletModal from "../../../../modal/wallet-modal/WalletModal";
