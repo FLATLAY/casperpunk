@@ -25,11 +25,12 @@ import {
 /*components*/
 import SearchBox from "./components/seachBox/SearchBox";
 import Product from "./components/product/Product";
+import Banner from "./components/banner/Banner";
 import Loading, { LOADING_SIZE } from "../../components/loading/Loading";
 
 /*icons*/
-import topsectionImage from "../../assets/images/banner-desktop.svg";
-import mobileTopsectionImage from "../../assets/images/banner-mobile.svg";
+import desktopBanner from "../../assets/images/banner-desktop.svg";
+import mobileBanner from "../../assets/images/banner-mobile.svg";
 
 const Landing = () => {
   const { getApi } = useApi();
@@ -41,28 +42,14 @@ const Landing = () => {
   const [loading, setLoadin] = useState(false);
   const [filterText, setFilterText] = useState("");
 
-  const getBackgroundImage = () =>
-    shopData && shopData.backgroundImage
-      ? shopData.backgroundImage
-      : topsectionImage;
-
-  const getBackgroundImageSecondary = () =>
-    shopData && shopData.backgroundImageSecondary
-      ? shopData.backgroundImageSecondary
-      : mobileTopsectionImage;
-
   const getBackgroundText = () =>
     shopData && shopData.backgroundText ? shopData.backgroundText : "";
 
-  const backgroundImage = useMemo(getBackgroundImage, [shopData]);
-  const backgroundImageSecondary = useMemo(getBackgroundImageSecondary, [
-    shopData,
-  ]);
   const backgroundText = useMemo(getBackgroundText, [shopData]);
 
   const getProducts = async () => {
     setLoadin(true);
-    let result = await getApi(getCollectionsByShopname('bedishopify'));
+    let result = await getApi(getCollectionsByShopname("bedishopify"));
     setLoadin(false);
     if (result) {
       let resultProducts = [];
@@ -93,18 +80,8 @@ const Landing = () => {
 
   return (
     <>
-      <TopSection bg={shopData.primaryColor}>
-        <LeftSide>
-          <TopSectionText
-            dangerouslySetInnerHTML={{ __html: backgroundText }}
-            color={shopData.secondryColor}
-          ></TopSectionText>
-          <Box mb="32px"></Box>
-          <TopSectionButton>SEE THIS PRODUCT</TopSectionButton>
-        </LeftSide>
-        <RightsideImage src={backgroundImage} />
-        <MobileImageSide src={backgroundImageSecondary} />
-      </TopSection>
+      <Banner />
+
       <ShopPageWrapper>
         <Sidebar>
           <SearchBox value={filterText} setValue={setFilterText} />
@@ -129,7 +106,6 @@ const Landing = () => {
           )}
         </ProductsWrapper>
       </ShopPageWrapper>
-     
     </>
   );
 };
