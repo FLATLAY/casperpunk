@@ -7,6 +7,7 @@ import { getProductById } from "../../apis/productsApi";
 //import { ProductPageWrapper, ProductDetialWrapper ,ImageWrapper } from "./ProductPage-style";
 
 import Loading, { LOADING_SIZE } from "../../components/loading/Loading";
+import PageContainer from "../../components/page-container/PageContainer";
 import ProductImage from "./ProductImage";
 import Detail from "./component/detail/Detail";
 
@@ -27,7 +28,7 @@ const ProductPage = () => {
   }, []);
 
   return (
-    <>
+    <PageContainer>
       {product ? (
         <>
           <Flex flexDir={{base:'column' , md:'row'}}>
@@ -43,7 +44,7 @@ const ProductPage = () => {
           <Loading size={LOADING_SIZE.LARGE} />
         </Flex>
       )}
-    </>
+    </PageContainer>
   );
 };
 export default ProductPage;

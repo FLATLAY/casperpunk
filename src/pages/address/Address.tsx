@@ -11,6 +11,7 @@ import AddressComponent from "./components/AddressComponent";
 import AddressPageButtons from "./components/AddressPageButtons";
 import AddressModal from "../../modals/address-modal/AddressModal";
 import Loading, { LOADING_SIZE } from "../../components/loading/Loading";
+import PageContainer from "../../components/page-container/PageContainer";
 
 const AddressPage = () => {
   const { getApi } = useApi();
@@ -50,6 +51,7 @@ const AddressPage = () => {
   }
 
   return (
+    <PageContainer>
     <Flex justifyContent="center" alignItems="center" flexDir="column" w="100%">
       {addressList.map((address) => (
         <>
@@ -71,6 +73,7 @@ const AddressPage = () => {
       <AddressPageButtons   selectedAddress={selectedAddress}/>
       <AddressModal show={showAddressModal} close={toggleModal} />
     </Flex>
+    </PageContainer>
   );
 };
 

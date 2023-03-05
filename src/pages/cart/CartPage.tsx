@@ -19,6 +19,7 @@ import { useProfile } from "../../hooks/useProfile/useProfile";
 
 import ItemComponent from "./components/item-component/ItemComponent";
 import AddressEmailModal from "../../modals/address-email-modal/AddressEmailModal";
+import PageContainer from "../../components/page-container/PageContainer";
 
 const CartPage = () => {
   
@@ -60,7 +61,7 @@ const CartPage = () => {
   };
 
   return (
-    <>
+    <PageContainer>
       {cartItems.length > 0 ? (
         <>
           <Flex
@@ -141,7 +142,7 @@ const CartPage = () => {
         </Flex>
       )}
       <AddressEmailModal show={showAddressModal} close={toggleAddressModal} />
-    </>
+    </PageContainer>
   );
 };
 
