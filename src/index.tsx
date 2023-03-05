@@ -6,9 +6,11 @@ import * as MicroStacks from "@micro-stacks/react";
 
 import { RouterProvider } from "react-router-dom";
 import { ChakraProvider } from "@chakra-ui/react";
+import { Provider } from "react-redux";
 
 import { router } from "./router";
 import { theme } from "./chakra-theme";
+import { store } from "./store/store";
 
 import ToastifyProvider from "./context/ToastifyContext/ToastifyContext";
 
@@ -23,7 +25,9 @@ root.render(
         appIconUrl="APP_ICON.png"
       >
         <ToastifyProvider>
-          <RouterProvider router={router} />
+          <Provider store={store}>
+            <RouterProvider router={router} />
+          </Provider>
         </ToastifyProvider>
       </MicroStacks.ClientProvider>
     </ChakraProvider>
