@@ -10,15 +10,12 @@ import { selectCurrentShop } from "../../store/shop/shop.selector";
 export function useShop() {
   const dispatch = useDispatch();
   const { getApi } = useApi();
-  const { shopName } = useParams();
 
   const shopData = useSelector(selectCurrentShop);
 
   const updateShopData = async () => {
-    if (shopName) {
-      let result = await getApi(getShopDataPublic('bedishopify'));
-      if (result) dispatch(setCurrentShop(result));
-    }
+    let result = await getApi(getShopDataPublic("testmerchproof"));
+    if (result) dispatch(setCurrentShop(result));
   };
 
   return {
