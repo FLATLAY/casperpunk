@@ -166,33 +166,33 @@ export function useCart() {
 
   const continueShopping = () => navigate(`/${shopName}`);
 
-  // const checkout = async () => {
-  //   if (cartType == IMS_TYPES.SHOPIFY) {
-  //     //   setLoading(true);
-  //     await client.checkout
-  //       .create()
-  //       .then((res) => {
-  //         // setCheckout(res);
-  //         const checkoutId = res.id;
-  //         const lineItemsToAdd = [];
-  //         cartItems.forEach((item) => {
-  //           lineItemsToAdd.push({
-  //             variantId: `gid://shopify/ProductVariant/${item.variant.id}`,
-  //             quantity: item.quantity,
-  //           });
-  //         });
-  //         // Add an item to the checkout
-  //         client.checkout
-  //           .addLineItems(checkoutId, lineItemsToAdd)
-  //           .then((check) => {
-  //             window.open(check.webUrl);
-  //             // setLoading(false);
-  //           })
-  //           .catch((error) => console.log("product not added"));
-  //       })
-  //       .catch((error) => {});
-  //   }
-  // };
+  const checkout = async () => {
+    // if (cartType == IMS_TYPES.SHOPIFY) {
+    //   //   setLoading(true);
+    //   await client.checkout
+    //     .create()
+    //     .then((res) => {
+    //       // setCheckout(res);
+    //       const checkoutId = res.id;
+    //       const lineItemsToAdd = [];
+    //       cartItems.forEach((item) => {
+    //         lineItemsToAdd.push({
+    //           variantId: `gid://shopify/ProductVariant/${item.variant.id}`,
+    //           quantity: item.quantity,
+    //         });
+    //       });
+    //       // Add an item to the checkout
+    //       client.checkout
+    //         .addLineItems(checkoutId, lineItemsToAdd)
+    //         .then((check) => {
+    //           window.open(check.webUrl);
+    //           // setLoading(false);
+    //         })
+    //         .catch((error) => console.log("product not added"));
+    //     })
+    //     .catch((error) => {});
+    // }
+  };
 
   const discardCart = () => {
     dispatch(clearCurrentCart());
@@ -211,7 +211,7 @@ export function useCart() {
     addShopifyItemToCart,
     addDroplinkedItemToCart,
     continueShopping,
-    //checkout,
+    checkout,
     discardCart,
   };
 }

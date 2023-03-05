@@ -1,20 +1,21 @@
 import { useMemo } from "react";
 import { Box, Flex, Image, Text } from "@chakra-ui/react";
 
-// import {
-//   getProductImage,
-//   getProductTitle,
-// } from "../../../../../../utils/product-utils";
-// import { IMS_TYPES } from "../../../../../../constant/ims-types";
+import {
+  getProductImage,
+  getProductTitle,
+} from "../../../../utils/product/product-utils";
+import { IMS_TYPES } from "../../../../constant/ims-types";
+
 const ProductComponent = ({ item }: any) => {
 
- // const productTitle = useMemo(() => getProductTitle(item.product), [item]);
+  const productTitle = useMemo(() => getProductTitle(item.product), [item]);
 
- // const productImage = useMemo(() => getProductImage(item.product), [item]);
+  const productImage = useMemo(() => getProductImage(item.product), [item]);
 
   return (
     <Flex w="100%" mb="8px">
-      {/* <Image src={productImage} w="50%" h="auto" minH="160px" /> */}
+      <Image src={productImage} w="50%" h="auto" minH="160px" />
       <Box h="100%" pt="37px" w="50%" pl="8px">
         <Text
           fontSize="16px"
@@ -23,9 +24,9 @@ const ProductComponent = ({ item }: any) => {
           fontFamily="Manrope"
           mb="8px"
         >
-          {/* <b> {productTitle}</b> */}
+          <b> {productTitle}</b>
         </Text>
-        {/* {item.product.type == IMS_TYPES.DROPLINKED && (
+        {item.product.type == IMS_TYPES.DROPLINKED && (
           <>
             {item.skuID.options.map((option: any, i: number) => {
               return (
@@ -40,9 +41,9 @@ const ProductComponent = ({ item }: any) => {
               );
             })}
           </>
-        )} */}
+        )}
 
-        {/* {item.product.type == IMS_TYPES.SHOPIFY && (
+        {item.product.type == IMS_TYPES.SHOPIFY && (
           <>
             {item.variant.option_values.map((option: any, i: number) => {
               return (
@@ -54,7 +55,7 @@ const ProductComponent = ({ item }: any) => {
               );
             })}
           </>
-        )} */}
+        )}
       </Box>
     </Flex>
   );

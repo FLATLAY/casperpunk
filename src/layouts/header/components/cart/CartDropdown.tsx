@@ -11,7 +11,7 @@ import {
   NoItemWrapper,
   NoItemText,
 } from "./Cart-style";
-//import { useCart } from "../../../../../../hooks/useCart/useCart";
+import { useCart } from "../../../../hooks/useCart/useCart";
 
 import multipliedIcon from "../../../../assets/icons/multiplied-icon.svg";
 import ProductComponent from "./ProductComponent";
@@ -24,7 +24,7 @@ interface Props {
 
 const CartDropdown = ({ close, show, cartItems }: Props) => {
   const navigate = useNavigate();
-  //const { numberOfItems, continueShopping, checkout } = useCart();
+  const { numberOfItems, continueShopping, checkout } = useCart();
 
   const [loading, setLoading] = useState(false);
 
@@ -40,9 +40,9 @@ const CartDropdown = ({ close, show, cartItems }: Props) => {
   };
 
   const onClickCheckout = async () => {
-    // setLoading(true);
-    // await checkout();
-    // setLoading(false);
+    setLoading(true);
+    await checkout();
+    setLoading(false);
   };
 
   return (
@@ -59,13 +59,13 @@ const CartDropdown = ({ close, show, cartItems }: Props) => {
           </NoItemWrapper>
         )}
         <Box w="100%" border="1px solid #121314" mb="24px"></Box>
-        {/* {cartItems.map((item: any) => {
+        {cartItems.map((item: any) => {
           return <ProductComponent item={item} key={item._id} />;
-        })} */}
+        })}
         <Box mb="16px"></Box>
-        {/* <CartButton bg="#fff" color="#121314" onClick={navigateToCart}>
+        <CartButton bg="#fff" color="#121314" onClick={navigateToCart}>
           View My Cart ({numberOfItems})
-        </CartButton> */}
+        </CartButton>
         <Box mb="24px"></Box>
         <CartButton
           bg="#121314"
@@ -80,9 +80,9 @@ const CartDropdown = ({ close, show, cartItems }: Props) => {
           )}
         </CartButton>
         <Box mb="24px"></Box>
-        {/* <ContinueText onClick={continueShopping}>
+        <ContinueText onClick={continueShopping}>
           Continue Shopping
-        </ContinueText> */}
+        </ContinueText>
       </CartDropdownComponent>
     </CartDropdownBgLayout>
   );
