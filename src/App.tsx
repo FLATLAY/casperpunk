@@ -36,7 +36,7 @@ function App() {
       overflowX="hidden"
     >
       <Header />
-      <Box w="100%" h="auto" minH="calc(100vh-300px)">
+      <Box w="100%" h="auto" minH="calc(100vh - 200px)">
         <Outlet />
       </Box>
       <Footer />
