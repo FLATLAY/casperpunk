@@ -31,10 +31,10 @@ const ProductPage = () => {
     <PageContainer>
       {product ? (
         <>
-          <Flex flexDir={{base:'column' , md:'row'}}>
+          <Flex flexDir={{base:'column' , lg:'row'}}>
             <ProductImage product={product} /> 
 
-            <Box w={{base:'100%',lg:"calc(100% - 575px)"}}>
+            <Box w={{base:'100%',xl:"calc(100% - 575px)"}}>
                <Detail product={product} />
             </Box>
           </Flex>

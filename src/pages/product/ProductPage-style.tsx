@@ -23,7 +23,6 @@ export const ProductDetialWrapper = chakra("div", {
 export const Imagewrapper = chakra("div", {
   baseStyle: {
     w: "570px",
-    p: "",
   },
 });
 
@@ -60,7 +59,33 @@ export const AdsText = chakra("p", {
 export const ImageWrapper = chakra("div", {
   baseStyle: {
     w: { base: "100%", lg: "520px" },
-    mr: { base: "0px", md: "28px" , lg:'55px' },
+    h: "auto",
+    mr: { base: "0px", md: "28px", lg: "55px" },
     mb: { base: "24px", md: "0px" },
+    p: { base: "48px", md: "60px 39px" },
+    position: "relative",
+  },
+});
+
+export const ImagesFlex = chakra("div", {
+  baseStyle: {
+    pos: "absolute",
+    top: "0px",
+    left: "0px",
+    display: "flex",
+    w: "auto",
+    h: "auto",
+    flexDir: "column",
+    gap: "8px",
+  },
+});
+
+export const ImageComponent = chakra("img", {
+  baseStyle: {
+    w: "68px",
+    h: "68px",
+    borderRadius: "8px",
+    cursor: "pointer",
+    borderColor:'#121314'
   },
 });
