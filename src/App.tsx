@@ -8,6 +8,7 @@ import { useCart } from "./hooks/useCart/useCart";
 
 import Header from "./layouts/header/Header";
 import Footer from "./layouts/footer/Footer";
+import Event from "./layouts/Event/Event";
 
 function App() {
 
@@ -35,6 +36,7 @@ function App() {
       minH="100vh"
       overflowX="hidden"
     >
+      <Event />
       <Header />
       <Box w="100%" h="auto" minH="calc(100vh - 200px)">
         <Outlet />
