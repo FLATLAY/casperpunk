@@ -35,18 +35,19 @@ const Event = () => {
   return (
     <Flex
       w="100%"
-      bgImage={{ base: bannerMobile, md: bannerDesktop }}
-      h={{ base: "100px", md: "80px" }}
+      bgImage={{ base: bannerMobile, xl: bannerDesktop }}
+      flexDir={{base:'column' , xl:'row'}}
+      h={{ base: "100px", xl: "80px" }}
       backgroundSize="cover"
       px={{ base: "21px", xl: "160px" }}
       py={{ base: "8px", xl: "0px" }}
-      alignItems="center"
+      alignItems={{base:'start',xl:"center"}}
       justifyContent="space-between"
       position="relative"
     >
       <Text
         fontFamily="Helvetica"
-        fontSize="48px"
+        fontSize={{ base: "28px", xl: "48px" }}
         fontWeight="500"
         color="#F9F9F6"
         css={{
@@ -55,7 +56,8 @@ const Event = () => {
       >
         Limited Drop Alert!
       </Text>
-      <Flex gap="16px">
+
+      <Flex gap={{base:'4px',xl:"16px"}}>
         <Flex gap="4px">
           <DigitComponent digit={Math.floor(days / 10)} />{" "}
           <DigitComponent digit={Math.floor(days % 10)} />
@@ -101,15 +103,15 @@ const Event = () => {
 const DigitComponent = ({ digit }: { digit: number }) => {
   return (
     <Flex
-      w="38px"
-      h="48px"
+      w={{base:'24px',xl:"38px"}}
+      h={{base:'32px',xl:"48px"}}
       bg="#FFFFFF"
       border="2px solid #121314"
       borderRadius="8px"
       justifyContent="center"
       alignItems="center"
     >
-      <Text fontSize="24px" fontWeight="700" color="#121314">
+      <Text fontSize={{base:'16px',xl:"24px"}} fontWeight="700" color="#121314">
         {digit}
       </Text>
     </Flex>
