@@ -70,7 +70,7 @@ const Landing = () => {
       <Banner />
 
       <ShopPageWrapper>
-        <Sidebar />
+        <Sidebar filterText={filterText} setFilterText={setFilterText}  />
         <ProductsWrapper>
           <TopComponent itemInRow={itemInRow} setItemInRow={setItemInRow} />
           {products != null ? (

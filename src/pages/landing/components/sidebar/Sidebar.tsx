@@ -19,8 +19,7 @@ import webIcon from "../../../../assets/icons/web-icon.svg";
 import instagramIcon from "../../../../assets/icons/instagram-icon.svg";
 import twitterIcon from "../../../../assets/icons/twitter-icon.svg";
 
-const Sidebar = () => {
-  const [filterText, setFilterText] = useState("");
+const Sidebar = ({filterText , setFilterText}:{filterText:string , setFilterText:(arg1:string)=>void}) => {
 
   return (
     <SidebarWrapper>
