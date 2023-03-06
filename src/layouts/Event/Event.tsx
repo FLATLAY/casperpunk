@@ -1,10 +1,10 @@
 import { useMemo, useState, useEffect } from "react";
-import { Flex, Text } from "@chakra-ui/react";
+import { Flex, Text, Image } from "@chakra-ui/react";
 
 // const currentTime = new Date(2023, 2, 8, 21, 30, 0);
 import bannerDesktop from "../../assets/images/banner-desktop-image.svg";
 import bannerMobile from "../../assets/images/banner-mobile-image.svg";
-import textImage from "./text-icon.svg";
+import dotIcon from "../../assets/icons/dot-dot.svg";
 
 const Event = () => {
   const [diffrence, setDiffrence] = useState(
@@ -37,6 +37,8 @@ const Event = () => {
       backgroundSize="cover"
       px={{ base: "21px", xl: "160px" }}
       py={{ base: "8px", xl: "0px" }}
+      alignItems="center"
+      justifyContent="space-between"
     >
       <Text
         fontFamily="Helvetica"
@@ -48,6 +50,46 @@ const Event = () => {
         }}
       >
         Limited Drop Alert!
+      </Text>
+      <Flex gap="16px">
+        <Flex gap="4px">
+          <DigitComponent digit={Math.floor(days / 10)} />{" "}
+          <DigitComponent digit={Math.floor(days % 10)} />
+        </Flex>
+
+        <Image src={dotIcon} />
+        <Flex gap="4px">
+          <DigitComponent digit={Math.floor(hours / 10)} />{" "}
+          <DigitComponent digit={Math.floor(hours % 10)} />
+        </Flex>
+        <Image src={dotIcon} />
+        <Flex gap="4px">
+          <DigitComponent digit={Math.floor(minutes / 10)} />{" "}
+          <DigitComponent digit={Math.floor(minutes % 10)} />
+        </Flex>
+        <Image src={dotIcon} />
+        <Flex gap="4px">
+          <DigitComponent digit={Math.floor(seconds / 10)} />{" "}
+          <DigitComponent digit={Math.floor(seconds % 10)} />
+        </Flex>
+      </Flex>
+    </Flex>
+  );
+};
+
+const DigitComponent = ({ digit }: { digit: number }) => {
+  return (
+    <Flex
+      w="38px"
+      h="48px"
+      bg="#FFFFFF"
+      border="2px solid #121314"
+      borderRadius="8px"
+      justifyContent="center"
+      alignItems="center"
+    >
+      <Text fontSize="24px" fontWeight="700" color="#121314">
+        {digit}
       </Text>
     </Flex>
   );
