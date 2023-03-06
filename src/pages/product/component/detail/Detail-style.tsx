@@ -3,20 +3,20 @@ import { chakra } from "@chakra-ui/react";
 export const ProductTitle = chakra("p", {
   baseStyle: {
     color: "#121314",
-    fontSize:{base:'32px' ,lg:"48px"},
+    fontSize: { base: "32px", lg: "48px" },
     fontWeight: "800",
     fontFamily: "Montserrat",
-    mb: {base:'8px' ,lg:"24px"},
+    mb: { base: "8px", lg: "24px" },
   },
 });
 
 export const ProductPrice = chakra("p", {
   baseStyle: {
     color: "#121314",
-    fontSize:{base:'24px' ,lg:"48px"},
+    fontSize: { base: "24px", lg: "48px" },
     fontWeight: "500",
     fontFamily: "Manrope",
-    mb: {base:'6px' ,lg:"32px"},
+    mb: { base: "6px", lg: "32px" },
   },
 });
 
@@ -26,7 +26,7 @@ export const AdsText = chakra("p", {
     fontSize: "16px",
     fontWeight: "400",
     fontFamily: "Manrope",
-    mb: {base:'24px' ,lg:"32px"},
+    mb: { base: "24px", lg: "32px" },
   },
 });
 
@@ -52,7 +52,7 @@ export const QuantityCounter = chakra("div", {
     justifyContent: "space-between",
     alignItems: "center",
     gap: "25px",
-    mb:{base:'24px' ,lg:"32px"},
+    mb: { base: "24px", lg: "32px" },
   },
 });
 
@@ -78,13 +78,42 @@ export const BuyButton = chakra("div", {
     w: "100%",
     py: "13px",
     fontSize: "16px",
-    fontWeight:{base:'400' ,lg:"700"},
+    fontWeight: { base: "400", lg: "700" },
     border: "1px solid ",
     borderColor: "#121314",
     borderRadius: "60px",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    cursor:'pointer'
+    cursor: "pointer",
+  },
+});
+
+export const IconsGrid = chakra("div", {
+  baseStyle: {
+    w: "100%",
+    display: "grid",
+    gap: {
+      base: "16px 16px",
+      lg: "8px",
+    },
+    gridTemplateColumns: { base: "1fr", md: "1fr 1fr" },
+    mb: { base: "6px", lg: "32px" },
+  },
+});
+
+export const FeatureText = chakra("p", {
+  baseStyle: {
+    fontSize: "16px",
+    fontWeight: "400",
+    color: "#6B6B61",
+  },
+});
+
+export const FeatureComponent = chakra("div", {
+  baseStyle: {
+    display: "flex",
+   // gap: "16px",
+    alignItems:'center'
   },
 });

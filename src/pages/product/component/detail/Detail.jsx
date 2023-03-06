@@ -1,4 +1,4 @@
-import { Box } from "@chakra-ui/react";
+import { Box, Image } from "@chakra-ui/react";
 import { useState, useMemo } from "react";
 
 import {
@@ -9,7 +9,9 @@ import {
   QuantityCounter,
   QuantityIcons,
   QuantityNumber,
-  BuyButton,
+  IconsGrid,
+  FeatureText,
+  FeatureComponent,
 } from "./Detail-style";
 import {
   getOptions,
@@ -19,13 +21,6 @@ import {
   getProductTitle,
 } from "./detail-utils";
 
-//import { postAddSkuToCart } from "../../../../../../apis/cartApi";
-
-import { hasRule } from "../../../../utils/rules/rules-utils";
-//import { hasRule } from "../../../../../../pages/product/product-utils";
-// import { getMaxDiscount } from "../../../../../../utils/casper/check_nft";
-// import { gatedPassesRules } from "../../../../../../utils/stacks/stacks-rule-utils";
-
 import Colors from "../colors/Colors";
 import Sizes from "../sizes/Sizes";
 
@@ -33,36 +28,25 @@ import ButtonsComponent from "./ButtonsComponent";
 
 import minusIcon from "../../../../assets/icons/minus-icon.svg";
 import plusIcon from "../../../../assets/icons/plus-icon.svg";
+import madeIcon from "../../../../assets/icons/made-icon.svg";
+import leafIcon from "../../../../assets/icons/leaf-icon.svg";
+import sizeIcon from "../../../../assets/icons/size-icon.svg";
+import ultraIcon from "../../../../assets/icons/ultra-icon.svg";
 
 const Detail = ({ product }) => {
   // states
   const [selectedSku, setSelectedSku] = useState(getFirstSku(product));
   const [quantity, setQuantity] = useState(1);
 
-
   // hooks
 
   // constants
   const options = useMemo(() => getOptions(product), []);
-  const productHasRule = useMemo(() => hasRule(product.ruleSet), []);
   const productTitle = useMemo(() => getProductTitle(product), []);
   const productPrice = useMemo(
     () => getPrice(product.type, selectedSku),
     [selectedSku]
   );
-
-  // const checkRuleFunc = async () => {
-  //   console.log("walletAddress", walletAddress);
-  //   console.log("ruleset", product.ruleSet);
-  //   let check = await getMaxDiscount(walletAddress, product.ruleSet);
-  //   console.log("check", check);
-  // };
-
-  // useEffect(() => {
-  //   checkRuleFunc();
-  // }, []);
-
-
 
   // change quantity
   const increaseQuantity = () => setQuantity((p) => p + 1);
@@ -79,10 +63,30 @@ const Detail = ({ product }) => {
     <Box w="100%">
       <ProductTitle>{productTitle}</ProductTitle>
       <ProductPrice>{productPrice}</ProductPrice>
-      <AdsText>
+
+      <IconsGrid>
+        <FeatureComponent>
+          <Image w='24px' h='24x' src={madeIcon} mr='16px' />
+          <FeatureText>Made in Los Angeles</FeatureText>
+        </FeatureComponent>
+        <FeatureComponent>
+          <Image w='16px' h='16px' src={ultraIcon} mr='16px' />
+          <FeatureText>Ultra Premium Fabrics</FeatureText>
+        </FeatureComponent>
+        <FeatureComponent>
+          <Image w='16px' h='16px'  src={leafIcon} mr='16px' />
+          <FeatureText>Sustainability Made</FeatureText>
+        </FeatureComponent>
+        <FeatureComponent>
+          <Image w='16px' h='16px'  src={sizeIcon} mr='16px' />
+          <FeatureText>Inclusive sizing</FeatureText>
+        </FeatureComponent>
+      </IconsGrid>
+
+      {/* <AdsText>
         Pay in 4 interest-free installments of $16.25 with ShopPay.
         <b style={{ cursor: "pointer" }}>Learn more</b>
-      </AdsText>
+      </AdsText> */}
       {options.length > 0 &&
         options.map((option, i) => {
           return (
@@ -112,9 +116,11 @@ const Detail = ({ product }) => {
         <QuantityIcons src={plusIcon} onClick={increaseQuantity} />
       </QuantityCounter>
 
-      <ButtonsComponent product={product} selectedSku={selectedSku} quantity={quantity} />
-
-     
+      <ButtonsComponent
+        product={product}
+        selectedSku={selectedSku}
+        quantity={quantity}
+      />
     </Box>
   );
 };
