@@ -10,8 +10,6 @@ export const ShopPageWrapper = chakra("div", {
   },
 });
 
-
-
 export const ProductsWrapper = chakra("div", {
   baseStyle: {
     w: { base: "100%", xl: "calc(100% - 296px)" },
@@ -23,7 +21,7 @@ export const CollectionNameText = chakra("p", {
     color: "#262626",
     fontSize: { base: "25px", xl: "32px" },
     fontWeight: "700",
-    mb: { base: "25px", xl: "50px" },
+   
   },
 });
 
@@ -38,7 +36,7 @@ export const FlexProducts = chakra("div", {
       xl: "60px 10px",
       "2xl": "60px 30px",
     },
-    gridTemplateColumns: { base: "1fr 1fr", md: "1fr 1fr 1fr" },
+    // gridTemplateColumns: { base: "1fr 1fr", md: "1fr 1fr 1fr" },
   },
 });
 
@@ -54,7 +52,7 @@ export const TopSection = chakra("div", {
     w: "100%",
     h: "495px",
     pos: "relative",
-  //  bg: "#D8D3C5",
+    //  bg: "#D8D3C5",
   },
 });
 
@@ -120,5 +118,16 @@ export const MobileImageSide = chakra("img", {
     right: "0px",
     top: "0px",
     display: { base: "block", xl: "none" },
+  },
+});
+
+export const InRowIcon = chakra("img", {
+  baseStyle: {
+    w: "43px",
+    h: "43px",
+    border: "1px solid black",
+    borderRadius: "8px",
+    padding: "8px",
+    cursor:'pointer'
   },
 });

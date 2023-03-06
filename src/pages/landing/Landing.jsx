@@ -16,19 +16,21 @@ import {
 } from "./Landing-style";
 
 /*components*/
-import SearchBox from "./components/seachBox/SearchBox";
+//import SearchBox from "./components/seachBox/SearchBox";
 import Product from "./components/product/Product";
 import Banner from "./components/banner/Banner";
 import Sidebar from "./components/sidebar/Sidebar";
+import TopComponent from "./TopComponent";
 import Loading, { LOADING_SIZE } from "../../components/loading/Loading";
 
 const Landing = () => {
+  //hooks
   const { getApi } = useApi();
-
   const { shopData } = useShop();
   const { successToast } = useToastify();
-
+  //states
   const [products, setProducts] = useState([]);
+  const [itemInRow, setItemInRow] = useState(3);
   const [loading, setLoadin] = useState(false);
   const [filterText, setFilterText] = useState("");
 
@@ -70,15 +72,22 @@ const Landing = () => {
       <ShopPageWrapper>
         <Sidebar />
         <ProductsWrapper>
+          <TopComponent itemInRow={itemInRow} setItemInRow={setItemInRow} />
           {products != null ? (
             <>
-              <CollectionNameText>Some nice title</CollectionNameText>
+             
               {loading && (
                 <Flex w="100%" justifyContent="center" mb="50px">
                   <Loading size={LOADING_SIZE.LARGE} />
                 </Flex>
               )}
-              <FlexProducts>
+              <FlexProducts
+                gridTemplateColumns={
+                  itemInRow == 3
+                    ? { base: "1fr 1fr", md: "1fr 1fr 1fr" }
+                    : { base: "1fr 1fr", md: "1fr 1fr 1fr 1fr" }
+                }
+              >
                 {products.length > 0 && <ProductsComponent />}
               </FlexProducts>
             </>
