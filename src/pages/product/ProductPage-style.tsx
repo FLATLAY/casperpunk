@@ -89,3 +89,14 @@ export const ImageComponent = chakra("img", {
     borderColor:'#121314'
   },
 });
+
+
+export const LineComponent = chakra("div", {
+  baseStyle: {
+    w: "100%",
+    my:'64px',
+    display:{base:'none' , lg:'block'},
+    border:'1px solid',
+    borderColor:'#E9E9E2'
+  },
+});

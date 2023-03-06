@@ -1,9 +1,10 @@
 import { useParams } from "react-router-dom";
 import { Flex, Box, Image } from "@chakra-ui/react";
-import { useState, useEffect , useMemo } from "react";
+import { useState, useEffect, useMemo } from "react";
 
 import { useApi } from "../../hooks/useApi/useApi";
 import { getProductById } from "../../apis/productsApi";
+import { LineComponent } from "./ProductPage-style";
 //import { ProductPageWrapper, ProductDetialWrapper ,ImageWrapper } from "./ProductPage-style";
 
 import Loading, { LOADING_SIZE } from "../../components/loading/Loading";
@@ -16,7 +17,6 @@ const ProductPage = () => {
   const { getApi } = useApi();
 
   const [product, setProduct] = useState(null);
-
 
   const getProduct = async () => {
     let result = await getApi(getProductById(productId));
@@ -31,13 +31,13 @@ const ProductPage = () => {
     <PageContainer>
       {product ? (
         <>
-          <Flex flexDir={{base:'column' , lg:'row'}}>
-            <ProductImage product={product} /> 
-
-            <Box w={{base:'100%',xl:"calc(100% - 575px)"}}>
-               <Detail product={product} />
+          <Flex flexDir={{ base: "column", lg: "row" }}>
+            <ProductImage product={product} />
+            <Box w={{ base: "100%", xl: "calc(100% - 575px)" }}>
+              <Detail product={product} />
             </Box>
           </Flex>
+          <LineComponent />
         </>
       ) : (
         <Flex w="100%" justifyContent="center" alignItems="center">
