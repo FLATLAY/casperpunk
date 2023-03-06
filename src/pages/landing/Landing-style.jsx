@@ -10,13 +10,7 @@ export const ShopPageWrapper = chakra("div", {
   },
 });
 
-export const Sidebar = chakra("div", {
-  baseStyle: {
-    w: "256px",
-    mr: "40px",
-    display: { base: "none", xl: "block" },
-  },
-});
+
 
 export const ProductsWrapper = chakra("div", {
   baseStyle: {
