@@ -34,7 +34,7 @@ const Landing = () => {
 
   const getProducts = async () => {
     setLoadin(true);
-    let result = await getApi(getCollectionsByShopname("bedishopify"));
+    let result = await getApi(getCollectionsByShopname("testmerchproof"));
     setLoadin(false);
     if (result) {
       let resultProducts = [];
