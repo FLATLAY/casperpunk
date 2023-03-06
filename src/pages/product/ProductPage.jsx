@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import { Flex, Box, Image } from "@chakra-ui/react";
+import { Flex, Box } from "@chakra-ui/react";
 import { useState, useEffect, useMemo } from "react";
 
 import { useApi } from "../../hooks/useApi/useApi";
@@ -9,6 +9,7 @@ import { LineComponent } from "./ProductPage-style";
 
 import Loading, { LOADING_SIZE } from "../../components/loading/Loading";
 import PageContainer from "../../components/page-container/PageContainer";
+import Maylike from "./component/may-like/Maylike";
 import ProductImage from "./ProductImage";
 import Detail from "./component/detail/Detail";
 
@@ -27,23 +28,27 @@ const ProductPage = () => {
     getProduct();
   }, []);
 
-  return (
-    <PageContainer>
-      {product ? (
-        <>
-          <Flex flexDir={{ base: "column", lg: "row" }}>
-            <ProductImage product={product} />
-            <Box w={{ base: "100%", xl: "calc(100% - 575px)" }}>
-              <Detail product={product} />
-            </Box>
-          </Flex>
-          <LineComponent />
-        </>
-      ) : (
+  if (!product)
+    return (
+      <PageContainer>
         <Flex w="100%" justifyContent="center" alignItems="center">
           <Loading size={LOADING_SIZE.LARGE} />
         </Flex>
-      )}
+      </PageContainer>
+    );
+
+  return (
+    <PageContainer>
+      <Box w="100%">
+        <Flex flexDir={{ base: "column", lg: "row" }}>
+          <ProductImage product={product} />
+          <Box w={{ base: "100%", xl: "calc(100% - 575px)" }}>
+            <Detail product={product} />
+          </Box>
+        </Flex>
+        <LineComponent />
+        <Maylike />
+      </Box>
     </PageContainer>
   );
 };
