@@ -7,6 +7,7 @@ import {
   LogoComponent,
   SocialIconsWrapper,
   IconComponent,
+  Line
 } from "./Sidebar-style";
 
 import SearchBox from "../seachBox/SearchBox";
@@ -36,6 +37,7 @@ const Sidebar = () => {
           <IconComponent src={twitterIcon} />
         </SocialIconsWrapper>
       </InformationWrapper>
+      <Line />
       <SearchBox value={filterText} setValue={setFilterText} />
     </SidebarWrapper>
   );

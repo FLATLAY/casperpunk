@@ -5,7 +5,6 @@ export const SidebarWrapper = chakra("div", {
     w: "256px",
     mr: "40px",
     display: { base: "none", xl: "block" },
-    border: "1px solid red",
   },
 });
 
@@ -43,5 +42,16 @@ export const IconComponent = chakra("img", {
     w: "32px",
     h: "32px",
     cursor:'pointer'
+  },
+});
+
+
+
+export const Line = chakra("div", {
+  baseStyle: {
+   my:'32px',
+   w:'100%',
+   border:'1px solid',
+   borderColor:'#EFECDC'
   },
 });
