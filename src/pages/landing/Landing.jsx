@@ -10,27 +10,17 @@ import { useShop } from "../../hooks/useShop/useShop";
 import { useToastify } from "../../context/ToastifyContext/ToastifyContext";
 import {
   ShopPageWrapper,
-  Sidebar,
   ProductsWrapper,
   CollectionNameText,
   FlexProducts,
-  TopSection,
-  LeftSide,
-  TopSectionText,
-  TopSectionButton,
-  RightsideImage,
-  MobileImageSide,
 } from "./Landing-style";
 
 /*components*/
 import SearchBox from "./components/seachBox/SearchBox";
 import Product from "./components/product/Product";
 import Banner from "./components/banner/Banner";
+import Sidebar from "./components/sidebar/Sidebar";
 import Loading, { LOADING_SIZE } from "../../components/loading/Loading";
-
-/*icons*/
-import desktopBanner from "../../assets/images/banner-desktop.svg";
-import mobileBanner from "../../assets/images/banner-mobile.svg";
 
 const Landing = () => {
   const { getApi } = useApi();
@@ -41,11 +31,6 @@ const Landing = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoadin] = useState(false);
   const [filterText, setFilterText] = useState("");
-
-  const getBackgroundText = () =>
-    shopData && shopData.backgroundText ? shopData.backgroundText : "";
-
-  const backgroundText = useMemo(getBackgroundText, [shopData]);
 
   const getProducts = async () => {
     setLoadin(true);
@@ -83,9 +68,7 @@ const Landing = () => {
       <Banner />
 
       <ShopPageWrapper>
-        <Sidebar>
-          <SearchBox value={filterText} setValue={setFilterText} />
-        </Sidebar>
+        <Sidebar />
         <ProductsWrapper>
           {products != null ? (
             <>

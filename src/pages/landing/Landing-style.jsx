@@ -15,7 +15,6 @@ export const Sidebar = chakra("div", {
     w: "256px",
     mr: "40px",
     display: { base: "none", xl: "block" },
-    // border: "1px solid blue",
   },
 });
 
