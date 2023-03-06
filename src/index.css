@@ -1,3 +1,9 @@
+@font-face {
+  font-family: "Helvetica";
+  src: local("Helvetica-VariableFont_wght"),
+    url("./assets/fonts/Helvetica.ttf") format("truetype");
+}
+
 body{
   box-sizing: border-box;
 }
