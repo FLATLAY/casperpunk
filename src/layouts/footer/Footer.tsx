@@ -1,5 +1,5 @@
 import { Flex, Box } from "@chakra-ui/react";
-import { useMemo } from "react";
+
 
 import { useShop } from "../../hooks/useShop/useShop";
 import {
@@ -14,15 +14,6 @@ import shopIcon from "../../assets/images/header-logo.svg";
 
 const Footer = () => {
 
-  const { shopData } = useShop();
-
-  const getIcon = () => ((shopData && shopData.headerIcon) ? shopData.headerIcon : shopIcon);
-  const getEmail = () => ((shopData && shopData.infoEmail )? shopData.infoEmail : '');
-
-  const footerIcon = useMemo(getIcon, [shopData]);
-  const infoEmail = useMemo(getEmail, [shopData]);
-  if(shopData == null) return null
-
   
   return (
     <FooterComponentWrapper>
@@ -33,14 +24,14 @@ const Footer = () => {
         pb="24px"
         borderBottom="1px solid #E9E9E2"
       >
-        <FooterIcon src={footerIcon} />
+        <FooterIcon src={shopIcon} />
         <Flex
           flexDir={{ base: "column", md: "row" }}
           alignItems={{ base: "start", md: "center" }}
           gap={{ base: "24px", md: "8px", xl: "20px" }}
         >
           <Text16W400>
-            Any questions? Contact us at {infoEmail}
+            Any questions? Contact us at support@merchproof.com
           </Text16W400>
           <VerticalLine />
           <Text16W400>Terms & Conditions</Text16W400>
