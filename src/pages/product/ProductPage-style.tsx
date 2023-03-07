@@ -31,7 +31,7 @@ export const ProductTitle = chakra("p", {
     color: "#121314",
     fontSize: "48px",
     fontWeight: "800",
-    fontFamily: "Montserrat",
+    fontFamily: "Helvetica",
     mb: "24px",
   },
 });

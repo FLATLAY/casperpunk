@@ -5,7 +5,7 @@ export const ProductTitle = chakra("p", {
     color: "#121314",
     fontSize: { base: "32px", lg: "48px" },
     fontWeight: "800",
-    fontFamily: "Montserrat",
+    fontFamily: "Helvetica",
     mb: { base: "8px", lg: "24px" },
   },
 });

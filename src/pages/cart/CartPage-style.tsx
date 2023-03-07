@@ -24,7 +24,7 @@ export const PageTitle = chakra("p", {
     fontSize: "26px",
     fontWeight: "700",
     color: "#27262B",
-    fontFamily: "Montserrat",
+    fontFamily: "Helveticas",
   },
 });
 

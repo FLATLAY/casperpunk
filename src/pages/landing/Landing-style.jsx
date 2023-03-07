@@ -73,7 +73,7 @@ export const LeftSide = chakra("div", {
 export const TopSectionText = chakra("p", {
   baseStyle: {
     //maxW:'510px',
-    fontFamily: "Montserrat",
+    fontFamily: "Helvetica",
     fontSize: { base: "23px", xl: "56px" },
     fontWeight: "800",
     color: "#262626",

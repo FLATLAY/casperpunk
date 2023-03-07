@@ -28,7 +28,7 @@ export const ModalTitle = chakra("p", {
     baseStyle: {
       w: "100%",
       textAlign: "center",
-      fontFamily: "Montserrat",
+      fontFamily: "Helvetica",
       fontWeight: "700",
       fontSize: "32px",
       color: "#150132",
