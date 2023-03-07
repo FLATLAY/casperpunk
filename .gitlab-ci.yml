@@ -1,0 +1,36 @@
+build_prod:
+  stage: build
+  image: node:lts-alpine3.11
+  script:
+
+    - export REACT_APP_BASE_API_URL=$REACT_APP_BASE_API_URL
+    - export REACT_APP_STRIPE_KEY=$REACT_APP_STRIPE_KEY
+    - "npm install"
+    - CI=false npm run build
+      
+  artifacts:
+    paths:
+      # Build folder
+      - build/
+    expire_in: 1 hour
+  only:
+    - main
+
+deploy_prod:
+  stage: deploy
+  image: registry.gitlab.com/gitlab-org/cloud-deploy/aws-base:latest
+  dependencies:
+    - build_prod
+  script:
+    - echo "copying files to s3://supercute.droplinked.com/"
+    - aws s3 cp ./build s3://supercute.droplinked.com/ --recursive
+    - aws cloudfront create-invalidation --distribution-id=E399JPI7RMFKB5 --paths /
+    - echo "Copying files complete"
+  only:
+    - main
+
+
+
+stages:
+  - build
+  - deploy
