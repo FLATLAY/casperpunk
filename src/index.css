@@ -1,7 +1,11 @@
 @font-face {
   font-family: "Helvetica";
-  src: local("Helvetica-VariableFont_wght"),
-    url("./assets/fonts/Helvetica.ttf") format("truetype");
+  src: url("./assets/fonts/Helvetica-Bold-Font.ttf") format("woff");
+}
+
+@font-face {
+  font-family: "Manrope";
+  src: url("./assets/fonts/Manrope-VariableFont_wght.ttf") format("woff");
 }
 
 body{
