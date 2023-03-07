@@ -9,7 +9,7 @@ import { useCart } from "./hooks/useCart/useCart";
 import Header from "./layouts/header/Header";
 import Footer from "./layouts/footer/Footer";
 import Event from "./layouts/Event/Event";
-
+// install again
 function App() {
 
   const { updateShopData } = useShop();
