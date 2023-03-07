@@ -1,7 +1,5 @@
 import { Flex, Box } from "@chakra-ui/react";
 
-
-import { useShop } from "../../hooks/useShop/useShop";
 import {
   FooterComponentWrapper,
   FooterIcon,
