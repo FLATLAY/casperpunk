@@ -22,7 +22,6 @@ import AddressEmailModal from "../../modals/address-email-modal/AddressEmailModa
 import PageContainer from "../../components/page-container/PageContainer";
 
 const CartPage = () => {
-  
   const { cartItems, cartType, continueShopping, discardCart } = useCart();
   const { shopName } = useParams();
   const { profile } = useProfile();
@@ -37,26 +36,19 @@ const CartPage = () => {
     if (cartItems.length == 0) return 0.0;
 
     let total = 0;
-    if (cartType == IMS_TYPES.DROPLINKED) {
-      cartItems.forEach((item: any) => (total += item.totalPriceItem));
-    } else {
-      cartItems.forEach(
-        (item: any) => (total += parseFloat(item.variant.price) * item.quantity)
-      );
-    }
+
+    cartItems.forEach(
+      (item: any) => (total += parseFloat(item.variant.price) * item.quantity)
+    );
 
     return total.toFixed(2);
   };
 
   const onClickCheckout = async () => {
-    if (cartType == IMS_TYPES.DROPLINKED && cartItems.length > 0) {
-      navigate(`/${shopName}/address`);
+    if (!profile) {
+      toggleAddressModal();
     } else {
-      if (!profile) {
-        toggleAddressModal();
-      } else {
-        navigate(`/${shopName}/address`);
-      }
+      navigate(`/address`);
     }
   };
 

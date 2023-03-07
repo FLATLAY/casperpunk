@@ -12,8 +12,10 @@ import {
   NoItemText,
 } from "./Cart-style";
 import { useCart } from "../../../../hooks/useCart/useCart";
+import { useProfile } from "../../../../hooks/useProfile/useProfile";
 
 import multipliedIcon from "../../../../assets/icons/multiplied-icon.svg";
+import AddressEmailModal from "../../../../modals/address-email-modal/AddressEmailModal";
 import ProductComponent from "./ProductComponent";
 
 interface Props {
@@ -23,10 +25,15 @@ interface Props {
 }
 
 const CartDropdown = ({ close, show, cartItems }: Props) => {
+
   const navigate = useNavigate();
-  const { numberOfItems, continueShopping, checkout } = useCart();
+  const { numberOfItems, continueShopping } = useCart();
+  const { profile } = useProfile();
 
   const [loading, setLoading] = useState(false);
+  const [showAddressModal, setShowAddressModal] = useState<boolean>(false);
+
+  const toggleAddressModal = () => setShowAddressModal((p) => !p);
 
   const handleChildClick = (event: React.MouseEvent<HTMLInputElement>) => {
     event.stopPropagation();
@@ -40,9 +47,12 @@ const CartDropdown = ({ close, show, cartItems }: Props) => {
   };
 
   const onClickCheckout = async () => {
-    setLoading(true);
-    await checkout();
-    setLoading(false);
+    if (!profile) {
+      toggleAddressModal();
+    } else {
+      navigate(`/address`);
+    }
+    close();
   };
 
   return (
@@ -84,6 +94,7 @@ const CartDropdown = ({ close, show, cartItems }: Props) => {
           Continue Shopping
         </ContinueText>
       </CartDropdownComponent>
+      <AddressEmailModal show={showAddressModal} close={toggleAddressModal} />
     </CartDropdownBgLayout>
   );
 };
