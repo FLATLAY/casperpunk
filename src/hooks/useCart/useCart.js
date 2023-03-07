@@ -40,75 +40,31 @@ export function useCart() {
   const updateCart = async () => {
     //  let localCart = JSON.parse(localStorage.getItem("cart"));
     //  if (!localCart) {
-    let result = await getApi(getCart());
-    if (result && Object.keys(result).length > 0){
-      dispatch(setCurrentCart({ ...result, type: IMS_TYPES.DROPLINKED }));
-    }else{
-      dispatch(setCurrentCart({ items:[], type: IMS_TYPES.DROPLINKED }));
-    }
-    
     //  }
   };
 
   const deleteItemFromCart = async (skuId) => {
-    if (cartType == IMS_TYPES.DROPLINKED) {
-      let result = await deleteApi(deleteSkuFromCart(skuId));
-      if (result) updateCart();
-    } else {
-      let newCartItems = cartItems.filter((item) => item.variant.id != skuId);
-      dispatch(
-        setCurrentCart({ items: newCartItems, type: IMS_TYPES.SHOPIFY })
-      );
-    }
+    let newCartItems = cartItems.filter((item) => item.variant.id != skuId);
+    dispatch(setCurrentCart({ items: newCartItems, type: IMS_TYPES.SHOPIFY }));
   };
 
   const increaseItemQuantity = async (item) => {
-    if (cartType == IMS_TYPES.DROPLINKED) {
-      let result = await patchApi(
-        putUpdateCart(item.skuID._id, ++item.quantity)
-      );
-      if (result) updateCart();
-    } else {
-      let newCartItems = cartItems.map((currentItem) =>
-        currentItem.variant.id == item.variant.id
-          ? { ...currentItem, quantity: ++currentItem.quantity }
-          : { ...currentItem }
-      );
-      dispatch(
-        setCurrentCart({ items: newCartItems, type: IMS_TYPES.SHOPIFY })
-      );
-    }
+    let newCartItems = cartItems.map((currentItem) =>
+      currentItem.variant.id == item.variant.id
+        ? { ...currentItem, quantity: ++currentItem.quantity }
+        : { ...currentItem }
+    );
+    dispatch(setCurrentCart({ items: newCartItems, type: IMS_TYPES.SHOPIFY }));
   };
 
   const decreaseItemQuantity = async (item) => {
-    if (cartType == IMS_TYPES.DROPLINKED) {
-      let result;
-      if (item.quantity > 1)
-        result = await patchApi(putUpdateCart(item.skuID._id, --item.quantity));
-      else result = await deleteItemFromCart(item.skuID._id);
-    } else {
-      let newCartItems = cartItems.map((currentItem) =>
-        currentItem.variant.id == item.variant.id
-          ? { ...currentItem, quantity: --currentItem.quantity }
-          : { ...currentItem }
-      );
-      newCartItems = newCartItems.filter((element) => element.quantity > 0);
-      dispatch(
-        setCurrentCart({ items: newCartItems, type: IMS_TYPES.SHOPIFY })
-      );
-    }
-  };
-
-  const addDroplinkedItemToCart = async (skuId, quantity, wallet) => {
-    console.log('wallet address : ' ,wallet)
-    const result = await postApi(postAddSkuToCart(skuId, quantity, wallet));
-    console.log('function result : ' ,result)
-    if (result) {
-      updateCart();
-      return true;
-    } else {
-      return false;
-    }
+    let newCartItems = cartItems.map((currentItem) =>
+      currentItem.variant.id == item.variant.id
+        ? { ...currentItem, quantity: --currentItem.quantity }
+        : { ...currentItem }
+    );
+    newCartItems = newCartItems.filter((element) => element.quantity > 0);
+    dispatch(setCurrentCart({ items: newCartItems, type: IMS_TYPES.SHOPIFY }));
   };
 
   const addShopifyItemToCart = async (product, variant, quantity) => {
@@ -122,34 +78,27 @@ export function useCart() {
       });
     };
 
-    if (cartType == IMS_TYPES.DROPLINKED) {
-      if (cartItems.length > 0) deleteApi(deleteCart());
+    if (cartItems.length == 0) {
       pushFirstProduct();
     } else {
-      if (cartItems.length == 0) {
+      if (cartItems[0].product.shopifyShopDomain != product.shopifyShopDomain) {
         pushFirstProduct();
       } else {
-        if (
-          cartItems[0].product.shopifyShopDomain != product.shopifyShopDomain
-        ) {
-          pushFirstProduct();
-        } else {
-          let newCartItems = cartItems.map((item) =>
-            item.variant.id == variant.id
-              ? { ...item, quantity: quantity }
-              : { ...item }
-          );
+        let newCartItems = cartItems.map((item) =>
+          item.variant.id == variant.id
+            ? { ...item, quantity: quantity }
+            : { ...item }
+        );
 
-          if (!cartItems.find((item) => item.variant.id == variant.id)) {
-            newCartItems.push({
-              product: product,
-              variant: variant,
-              quantity: quantity,
-            });
-          }
-
-          itemsArray = newCartItems;
+        if (!cartItems.find((item) => item.variant.id == variant.id)) {
+          newCartItems.push({
+            product: product,
+            variant: variant,
+            quantity: quantity,
+          });
         }
+
+        itemsArray = newCartItems;
       }
     }
 
@@ -162,7 +111,7 @@ export function useCart() {
     );
   };
 
-  const isShopifyCart = () => cartType == IMS_TYPES.SHOPIFY;
+  const isShopifyCart = () => true
 
   const continueShopping = () => navigate(`/${shopName}`);
 
@@ -209,7 +158,6 @@ export function useCart() {
     cart,
     isShopifyCart,
     addShopifyItemToCart,
-    addDroplinkedItemToCart,
     continueShopping,
     checkout,
     discardCart,
