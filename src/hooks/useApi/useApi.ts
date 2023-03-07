@@ -10,8 +10,8 @@ type HookProps = {
  body?:any;
 };
 
-// const BASE_URL = process.env.REACT_APP_BASE_API_URL
-const BASE_URL = "https://apiv2.droplinked.com";
+ const BASE_URL = process.env.REACT_APP_BASE_API_URL
+//const BASE_URL = "https://apiv2.droplinked.com";
 
 export function useApi() {
 

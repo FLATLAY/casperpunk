@@ -19,7 +19,7 @@ export async function connectWalletLogin() {
     // "eip155:42220",
   ];
   const web3Modal = new Web3Modal({
-    projectId: "9ab28bd9133b1678f9cb98e48abc3cc7",
+    projectId: process.env.REACT_APP_CONNECT_WALLET_PROJECT_ID,
     standaloneChains: DEFAULT_MAIN_CHAINS,
   });
   const proposalNamespace = {
@@ -37,7 +37,7 @@ export async function connectWalletLogin() {
   };
   let account = null;
   const signClient = await SignClient.init({
-    projectId: "9ab28bd9133b1678f9cb98e48abc3cc7",
+    projectId: process.env.REACT_APP_CONNECT_WALLET_PROJECT_ID,
   });
   const { uri, approval } = await signClient.connect({
     requiredNamespaces: proposalNamespace,
