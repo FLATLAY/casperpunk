@@ -86,7 +86,7 @@ const AddressEmailModal = ({
     if(result){
         discardCart()
         window.open(result.checkout.checkout.web_url)
-        navigate(`/${shopName}`);
+        navigate(`/`);
     }
 
  

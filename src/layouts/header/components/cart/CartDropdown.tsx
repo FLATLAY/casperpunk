@@ -51,8 +51,9 @@ const CartDropdown = ({ close, show, cartItems }: Props) => {
       toggleAddressModal();
     } else {
       navigate(`/address`);
+      close();
     }
-    close();
+  
   };
 
   return (
@@ -93,8 +94,10 @@ const CartDropdown = ({ close, show, cartItems }: Props) => {
         <ContinueText onClick={continueShopping}>
           Continue Shopping
         </ContinueText>
+
+        <AddressEmailModal show={showAddressModal} close={toggleAddressModal} />
       </CartDropdownComponent>
-      <AddressEmailModal show={showAddressModal} close={toggleAddressModal} />
+      
     </CartDropdownBgLayout>
   );
 };

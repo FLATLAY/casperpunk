@@ -68,7 +68,7 @@ const ButtonsComponent = ({ product, selectedSku, quantity }: Props) => {
 
   const buy = async () => {
     let resutl = await addSkuToCart();
-    if (resutl) navigate(`/${shopName}/cart`);
+    if (resutl) navigate(`/cart`);
   };
 
   const addToCart = () => addSkuToCart();
