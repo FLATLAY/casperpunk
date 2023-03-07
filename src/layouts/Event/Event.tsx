@@ -34,7 +34,7 @@ const Event = () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setDiffrence(+new Date(2023, 2, 8, 21, 30, 0) - +new Date());
+      setDiffrence(+new Date(2023, 2, 14, 21, 30, 0) - +new Date());
     }, 1000);
 
     return () => clearInterval(interval);
