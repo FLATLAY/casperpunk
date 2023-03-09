@@ -4,7 +4,7 @@ import { Text700, NormalText, LineComponent } from "../../PoliciesPage-style";
 const TermsOfServiseComponent = () => {
   return (
     <Box w="100%">
-      <Text700 fontSize="32px">Terms of Service</Text700>
+      <Text700 fontSize="32px" id="policies-terms-section">Terms of Service</Text700>
       <Box mb="16px" />
       <Text700 fontSize="24px">Overview</Text700>
       <Box mb="8px" />

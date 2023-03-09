@@ -4,7 +4,7 @@ import { Text700, NormalText ,LineComponent } from "../../PoliciesPage-style";
 const RefundPolicyComponent = () => {
   return (
     <Box w="100%">
-      <Text700 fontSize="32px">Refund Policy</Text700>
+      <Text700 fontSize="32px" id="policies-refund-section" >Refund Policy</Text700>
       <Box mb="24px" />
       <NormalText>
         All items are made to order and are non-refundable. Please check the

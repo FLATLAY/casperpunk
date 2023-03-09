@@ -4,7 +4,7 @@ import { Text700, NormalText, LineComponent } from "../../PoliciesPage-style";
 const FaqComponent = () => {
   return (
     <Box w="100%">
-      <Text700 fontSize="32px">FAQ’s</Text700>
+      <Text700 fontSize="32px" id="policies-faq-section">FAQ’s</Text700>
       <Box mb="16px" />
       <Text700 fontSize="24px">
         1. How long will it take for my order to be produced and shipped?

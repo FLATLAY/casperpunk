@@ -7,7 +7,7 @@ import { cookies_list, reporting_list } from "./cookies";
 const PrivacyComponent = () => {
   return (
     <Box w="100%">
-      <Text700 fontSize="32px">Privacy Policy</Text700>
+      <Text700 fontSize="32px" id="policies-privacy-section">Privacy Policy</Text700>
       <Box mb="16px" />
       <NormalText>
         This Privacy Policy describes how this website and Merchadise, Inc (the
