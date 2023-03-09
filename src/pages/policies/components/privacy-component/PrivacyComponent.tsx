@@ -2,6 +2,8 @@ import { Box } from "@chakra-ui/react";
 
 import { Text700, NormalText, LineComponent } from "../../PoliciesPage-style";
 
+import { cookies_list } from "./cookies";
+
 const PrivacyComponent = () => {
   return (
     <Box w="100%">
@@ -68,11 +70,11 @@ const PrivacyComponent = () => {
           <li>
             Disclosure for a business purpose: shared with our processor
             Shopify 
-            </li>
+          </li>
           <li>
             Personal Information collected: name, billing address, shipping
             address, payment information including credit card numbers, email
-            address, and phone number. 
+            address, and phone number.
           </li>
         </ul>
         <br />
@@ -290,8 +292,28 @@ const PrivacyComponent = () => {
         experience on our Site and to provide our services.
       </NormalText>
       <Box mb="16px" />
-      <Text700 fontSize="24px">Cookies Necessary for the Functioning of the Store</Text700>
+      <Text700 fontSize="24px">
+        Cookies Necessary for the Functioning of the Store
+      </Text700>
       <Box mb="8px" />
+      <NormalText>
+        <table style={{ width: "100%" }}>
+          <tr>
+            <th>Name</th>
+            <th>Function</th>
+            <th>Duration</th>
+          </tr>
+          {cookies_list.map((cookieItem: any) => {
+            return (
+              <tr>
+                <td>{cookieItem.name}</td>
+                <td>{cookieItem.functin}</td>
+                <td>{cookieItem.duration}</td>
+              </tr>
+            );
+          })}
+        </table>
+      </NormalText>
     </Box>
   );
 };
