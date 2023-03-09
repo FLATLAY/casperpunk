@@ -44,7 +44,7 @@ function App() {
     >
       <Event />
       <Header />
-      <Box w="100%" h="auto" minH="calc(100vh - 200px)">
+      <Box w="100%" h="auto" minH="calc(100vh - 400px)" bg='#F9F9F6' >
         <Outlet />
       </Box>
       <Footer />
