@@ -1,4 +1,4 @@
-import { Box, Image } from "@chakra-ui/react";
+import { Box, Text } from "@chakra-ui/react";
 import { useState, useMemo } from "react";
 
 import {
@@ -96,7 +96,9 @@ const Detail = ({ product }) => {
         <QuantityNumber>{quantity}</QuantityNumber>
         <QuantityIcons src={plusIcon} onClick={increaseQuantity} />
       </QuantityCounter>
-
+      <Box w='100%' maxW='100%' p='20px 10px' display={{ base: "block", lg: "none" }} mb='24px' >
+        <Text color='#121314' fontSize='16px' fontWeight='400'  maxW='100%'   dangerouslySetInnerHTML={{ __html: product.shopifyData.body_html }}></Text>
+      </Box>
       <ButtonsComponent
         product={product}
         selectedSku={selectedSku}
