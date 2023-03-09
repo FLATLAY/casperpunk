@@ -64,29 +64,10 @@ const Detail = ({ product }) => {
       <ProductTitle>{productTitle}</ProductTitle>
       <ProductPrice>{productPrice}</ProductPrice>
 
-      <IconsGrid>
-        <FeatureComponent>
-          <Image w='24px' h='24x' src={madeIcon} mr='16px' />
-          <FeatureText>Made in Los Angeles</FeatureText>
-        </FeatureComponent>
-        <FeatureComponent>
-          <Image w='16px' h='16px' src={ultraIcon} mr='16px' />
-          <FeatureText>Ultra Premium Fabrics</FeatureText>
-        </FeatureComponent>
-        <FeatureComponent>
-          <Image w='16px' h='16px'  src={leafIcon} mr='16px' />
-          <FeatureText>Sustainability Made</FeatureText>
-        </FeatureComponent>
-        <FeatureComponent>
-          <Image w='16px' h='16px'  src={sizeIcon} mr='16px' />
-          <FeatureText>Inclusive sizing</FeatureText>
-        </FeatureComponent>
-      </IconsGrid>
-
-      {/* <AdsText>
+      <AdsText>
         Pay in 4 interest-free installments of $16.25 with ShopPay.
         <b style={{ cursor: "pointer" }}>Learn more</b>
-      </AdsText> */}
+      </AdsText>
       {options.length > 0 &&
         options.map((option, i) => {
           return (
@@ -126,3 +107,5 @@ const Detail = ({ product }) => {
 };
 
 export default Detail;
+
+
