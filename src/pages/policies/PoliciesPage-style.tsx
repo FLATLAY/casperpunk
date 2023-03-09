@@ -1,6 +1,6 @@
 import { chakra } from "@chakra-ui/react";
 
-export const PageTitle = chakra("div", {
+export const PageTitle = chakra("p", {
   baseStyle: {
     fontFamily: "Helvetica",
     fontStyle: "normal",
