@@ -2,14 +2,12 @@ import { useMemo , useState } from "react";
 import { Image , Box ,Text } from "@chakra-ui/react";
 
 import { ImageWrapper , ImagesFlex , ImageComponent} from "./ProductPage-style";
-import { getProductImage } from "../../utils/product/product-utils";
+//import { getProductImage } from "../../utils/product/product-utils";
 
 const ProductImage = ({ product }: { product: any }) => {
 
   const [mainImage , setMainImage] = useState(product.shopifyData.images[0].src)
   const images = useMemo(() => product.shopifyData.images.map((item:any) => item.src), []);
-  console.log('product ' ,product.shopifyData.body_html  )
-
   //body_html
   const clickOnImage = (selectedImage:string) => setMainImage(selectedImage)
   return (
