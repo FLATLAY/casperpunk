@@ -2,7 +2,7 @@ import { Box } from "@chakra-ui/react";
 
 import { Text700, NormalText, LineComponent } from "../../PoliciesPage-style";
 
-import { cookies_list } from "./cookies";
+import { cookies_list, reporting_list } from "./cookies";
 
 const PrivacyComponent = () => {
   return (
@@ -313,6 +313,78 @@ const PrivacyComponent = () => {
             );
           })}
         </table>
+      </NormalText>
+      <Box mb="16px" />
+      <Text700 fontSize="24px">Reporting and Analytics</Text700>
+      <Box mb="8px" />
+      <table style={{ width: "100%" }}>
+        <tr>
+          <th>Name</th>
+          <th>Function</th>
+          <th>Duration</th>
+        </tr>
+        {reporting_list.map((cookieItem: any) => {
+          return (
+            <tr>
+              <td>{cookieItem.name}</td>
+              <td>{cookieItem.functin}</td>
+              <td>{cookieItem.duration}</td>
+            </tr>
+          );
+        })}
+      </table>
+
+      <Box mb="8px" />
+
+      <NormalText>
+        The length of time that a cookie remains on your computer or mobile
+        device depends on whether it is a “persistent” or “session” cookie.
+        Session cookies last until you stop browsing and persistent cookies last
+        until they expire or are deleted. Most of the cookies we use are
+        persistent and will expire between 30 minutes and two years from the
+        date they are downloaded to your device.
+        <br />
+        <br />
+        You can control and manage cookies in various ways. Please keep in mind
+        that removing or blocking cookies can negatively impact your user
+        experience and parts of our website may no longer be fully accessible.
+        Most browsers automatically accept cookies, but you can choose whether
+        or not to accept cookies through your browser controls, often found in
+        your browser’s “Tools” or “Preferences” menu. For more information on
+        how to modify your browser settings or how to block, manage or filter
+        cookies can be found in your browser’s help file or through such sites
+        as: www.allaboutcookies.org. Additionally, please note that blocking
+        cookies may not completely prevent how we share information with third
+        parties such as our advertising partners. To exercise your rights or
+        opt-out of certain uses of your information by these parties, please
+        follow the instructions in the “Behavioural Advertising” section above.
+      </NormalText>
+      <Box mb="8px" />
+      <Text700 fontSize="24px">Do Not Track</Text700>
+      <Box mb="8px" />
+      <NormalText>
+        Please note that because there is no consistent industry understanding
+        of how to respond to “Do Not Track” signals, we do not alter our data
+        collection and usage practices when we detect such a signal from your
+        browser.
+      </NormalText>
+      <Box mb="8px" />
+      <Text700 fontSize="24px">Changes</Text700>
+      <Box mb="8px" />
+      <NormalText>
+        We may update this Privacy Policy from time to time in order to reflect,
+        for example, changes to our practices or for other operational, legal,
+        or regulatory reasons.
+      </NormalText>
+      <Box mb="8px" />
+      <Text700 fontSize="24px">Complaints</Text700>
+      <Box mb="8px" />
+      <NormalText>
+        As noted above, if you would like to make a complaint, please contact us
+        by e-mail or by mail using the details provided under “Contact” above. 
+        If you are not satisfied with our response to your complaint, you have
+        the right to lodge your complaint with the relevant data protection
+        authority.
       </NormalText>
     </Box>
   );

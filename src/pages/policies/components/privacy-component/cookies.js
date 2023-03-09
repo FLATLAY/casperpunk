@@ -136,3 +136,64 @@ export const cookies_list = [
     duration: "session",
   },
 ];
+
+export const reporting_list = [
+  {
+    name: "_landing_page",
+    functin: "Track landing pages.",
+    duration: "2w",
+  },
+  {
+    name: "_orig_referrer",
+    functin: "Track landing pages.",
+    duration: "2w",
+  },
+  {
+    name: "_s",
+    functin: "Shopify analytics.",
+    duration: "30min",
+  },
+  {
+    name: "_shopify_d",
+    functin: "Shopify analytics.",
+    duration: "session",
+  },
+  {
+    name: "_shopify_s",
+    functin: "Shopify analytics.",
+    duration: "30min",
+  },
+  {
+    name: "_shopify_sa_p",
+    functin: "Shopify analytics relating to marketing & referrals.",
+    duration: "30min",
+  },
+
+  {
+    name: "_shopify_sa_t",
+    functin: "Shopify analytics relating to marketing & referrals.",
+    duration: "30min",
+  },
+  {
+    name: "_shopify_y",
+    functin: "Shopify analytics.",
+    duration: "1y",
+  },
+  {
+    name: "_y",
+    functin: "Shopify analytics.",
+    duration: "1y",
+  },
+
+  {
+    name: "_shopify_evids",
+    functin: "Shopify analytics.",
+    duration: "session",
+  },
+
+  {
+    name: "_shopify_ga",
+    functin: "Shopify and Google Analytics.",
+    duration: "session",
+  },
+];
