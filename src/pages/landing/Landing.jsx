@@ -70,12 +70,11 @@ const Landing = () => {
       <Banner />
 
       <ShopPageWrapper>
-        <Sidebar filterText={filterText} setFilterText={setFilterText}  />
-        <ProductsWrapper>
+        <Sidebar filterText={filterText} setFilterText={setFilterText} />
+        <ProductsWrapper id="product-section">
           <TopComponent itemInRow={itemInRow} setItemInRow={setItemInRow} />
           {products != null ? (
             <>
-             
               {loading && (
                 <Flex w="100%" justifyContent="center" mb="50px">
                   <Loading size={LOADING_SIZE.LARGE} />
