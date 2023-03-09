@@ -5,6 +5,7 @@ import Landing from "./pages/landing/Landing";
 import ProductPage from "./pages/product/ProductPage";
 import AddressPage from "./pages/address/Address";
 import CartPage from "./pages/cart/CartPage";
+import PoliciesPage from "./pages/policies/PoliciesPage"
 import App from "./App";
 
 export const router = createBrowserRouter([
@@ -27,6 +28,10 @@ export const router = createBrowserRouter([
         {
           path: "address",
           element: <AddressPage />,
+        },
+        {
+          path: "policies",
+          element: <PoliciesPage />,
         },
       ],
     },

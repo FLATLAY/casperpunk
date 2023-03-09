@@ -4,6 +4,14 @@ import desktopBanner from "../../../../assets/images/banner-desktop.svg";
 import mobileBanner from "../../../../assets/images/banner-mobile.svg";
 
 const Banner = () => {
+  
+  const clickOnButton = () => {
+    const element = document.getElementById("product-section");
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <Box w="100%" h="auto" maxH="470px" position="relative">
       <Image
@@ -26,10 +34,10 @@ const Banner = () => {
         w="256px"
         borderRadius="4px"
         padding="16px"
-        left={{base:'50%',md:"11.04%"}}
-        mr={{base:'50%',md:'0'}}
-        transform={{base:'translate(-50%, -50%)',md:'translate(0%, 0%)'}}
-        top={{base:'400px' ,md:"55%"}}
+        left={{ base: "50%", md: "11.04%" }}
+        mr={{ base: "50%", md: "0" }}
+        transform={{ base: "translate(-50%, -50%)", md: "translate(0%, 0%)" }}
+        top={{ base: "400px", md: "55%" }}
         fontWeight="800"
         fontSize="16px"
         color="white"
@@ -37,6 +45,7 @@ const Banner = () => {
         _hover={{
           bg: "#C00E1A",
         }}
+        onClick={clickOnButton}
       >
         SHOP COLLECTION NOW
       </Button>

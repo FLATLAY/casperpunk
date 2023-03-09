@@ -27,7 +27,7 @@ const Product = ({ product }: { product: any }) => {
   const productImage = useMemo(() => getProductImage(product), []);
   const productTitle = useMemo(() => getProductTitle(product), []);
 
-  const navigateToProductPage = () => navigate(`product/${product._id}`);
+  const navigateToProductPage = () => navigate(`/product/${product._id}`);
 
   return (
     <ProductComponent onClick={navigateToProductPage}>

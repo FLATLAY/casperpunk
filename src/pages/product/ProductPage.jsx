@@ -25,8 +25,9 @@ const ProductPage = () => {
   };
 
   useEffect(() => {
+    setProduct(null);
     getProduct();
-  }, []);
+  }, [productId]);
 
   if (!product)
     return (

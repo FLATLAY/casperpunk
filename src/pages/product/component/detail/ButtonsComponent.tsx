@@ -79,7 +79,7 @@ const ButtonsComponent = ({ product, selectedSku, quantity }: Props) => {
         BUY
       </BuyButton>
       <Box mb={{ base: "18px", lg: "32px" }}></Box>
-      <BuyButton bg="white" color="#121314" onClick={addToCart}>
+      <BuyButton bg="white" color="#121314" onClick={addToCart} mb={{base:'60px' , lg:'0px'}}>
         ADD TO CART
       </BuyButton>
       {showWalletModal && (

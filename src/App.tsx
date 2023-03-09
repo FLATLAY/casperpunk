@@ -1,6 +1,7 @@
 import { useEffect } from "react";
-import { Outlet } from "react-router-dom";
+import { Outlet ,useLocation } from "react-router-dom";
 import { Box } from "@chakra-ui/react";
+
 
 import { useShop } from "./hooks/useShop/useShop";
 import { useProfile } from "./hooks/useProfile/useProfile";
@@ -15,6 +16,7 @@ function App() {
   const { updateShopData } = useShop();
   const { profile } = useProfile();
   const { updateCart } = useCart();
+  const location = useLocation();
 
   const checkCart = () => {
     if (profile) updateCart();
@@ -28,6 +30,10 @@ function App() {
     updateShopData();
   }, []);
 
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [location])
+
   return (
     <Box
       boxSize="border-box"
@@ -38,7 +44,7 @@ function App() {
     >
       <Event />
       <Header />
-      <Box w="100%" h="auto" minH="calc(100vh - 200px)">
+      <Box w="100%" h="auto" minH="calc(100vh - 400px)" bg='#F9F9F6' >
         <Outlet />
       </Box>
       <Footer />
