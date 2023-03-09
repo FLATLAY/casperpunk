@@ -7,6 +7,8 @@ const SideComponent = () => {
     <Box
       w="350px"
       minW="350px"
+      h='270px'
+      maxH='auto'
       borderRadius="8px"
       bgColor="#fff"
       padding="24px 32px"
