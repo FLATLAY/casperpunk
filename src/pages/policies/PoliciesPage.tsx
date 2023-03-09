@@ -6,6 +6,7 @@ import SideComponent from "./components/side-component/SideComponent";
 import RefundPolicyComponent from "./components/refund-policy-component/RefundPolicyComponent";
 import FaqComponent from "./components/faq-component/FaqComponent";
 import TermsOfServiseComponent from "./components/terms-of-service-component/TermsOfServiseComponent";
+import PrivacyComponent from "./components/privacy-component/PrivacyComponent";
 import PageContainer from "../../components/page-container/PageContainer";
 
 const PoliciesPage = () => {
@@ -18,6 +19,7 @@ const PoliciesPage = () => {
           <RefundPolicyComponent />
           <FaqComponent />
           <TermsOfServiseComponent />
+          <PrivacyComponent />
         </Box>
       </Flex>
     </PageContainer>
