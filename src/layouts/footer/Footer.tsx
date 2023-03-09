@@ -1,4 +1,5 @@
 import { Flex, Box } from "@chakra-ui/react";
+import { useNavigate } from "react-router-dom";
 
 import {
   FooterComponentWrapper,
@@ -12,6 +13,9 @@ import shopIcon from "../../assets/images/header-logo.svg";
 
 const Footer = () => {
 
+  const navigate = useNavigate();
+
+  const clickOnFaqText = () => navigate('/policies')
   
   return (
     <FooterComponentWrapper>
@@ -34,7 +38,7 @@ const Footer = () => {
           <VerticalLine />
           <Text16W400>Terms & Conditions</Text16W400>
           <VerticalLine />
-          <Text16W400>Returns & FAQ</Text16W400>
+          <Text16W400 onClick={clickOnFaqText} >Returns & FAQ</Text16W400>
         </Flex>
       </Box>
       <Box mb="24px" />
