@@ -5,6 +5,7 @@ import { PageTitle } from "./PoliciesPage-style";
 import SideComponent from "./components/side-component/SideComponent";
 import RefundPolicyComponent from "./components/refund-policy-component/RefundPolicyComponent";
 import FaqComponent from "./components/faq-component/FaqComponent";
+import TermsOfServiseComponent from "./components/terms-of-service-component/TermsOfServiseComponent";
 import PageContainer from "../../components/page-container/PageContainer";
 
 const PoliciesPage = () => {
@@ -16,6 +17,7 @@ const PoliciesPage = () => {
         <Box w="100%" >
           <RefundPolicyComponent />
           <FaqComponent />
+          <TermsOfServiseComponent />
         </Box>
       </Flex>
     </PageContainer>
