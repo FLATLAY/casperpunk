@@ -1,6 +1,6 @@
 /* dep */
-import { useEffect, useState, useMemo } from "react";
-import { Box, Flex } from "@chakra-ui/react";
+import { useEffect, useState } from "react";
+import {  Flex } from "@chakra-ui/react";
 /* internal */
 
 import { useApi } from "../../hooks/useApi/useApi";

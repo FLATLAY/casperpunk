@@ -21,7 +21,7 @@ export const CollectionNameText = chakra("p", {
     color: "#262626",
     fontSize: { base: "25px", xl: "32px" },
     fontWeight: "700",
-   
+   maxW:{base:'300px',md:'100%'}
   },
 });
 
@@ -77,6 +77,7 @@ export const TopSectionText = chakra("p", {
     fontSize: { base: "23px", xl: "56px" },
     fontWeight: "800",
     color: "#262626",
+  
   },
 });
 
@@ -128,6 +129,53 @@ export const InRowIcon = chakra("img", {
     border: "1px solid black",
     borderRadius: "8px",
     padding: "8px",
+    cursor:'pointer'
+  },
+});
+
+
+export const BurgerIconComponent = chakra("img", {
+  baseStyle: {
+    w: "19px",
+    h: "16px",
+    cursor:'pointer',
+    display:{base:'block' , xl:'none'},
+   
+  },
+});
+
+export const FilterSectionWrapper = chakra("div", {
+  baseStyle: {
+    w: "100%",
+    bg: "#fff",
+    p: "56px 24px",
+    h: "auto",
+    borderRadius: "16px",
+    display:{base:'block' , xl:'none'},
+    position:'absolute',
+    top:'-20px',
+   right:'-20px',
+   width:'100vw'
+  },
+});
+
+
+export const Text24px = chakra("p", {
+  baseStyle: {
+    fontFamily: "Helvetica",
+    fontWeight: "700",
+    fontSize: "24px",
+    color: "#121314",
+  },
+});
+
+export const Text16px = chakra("p", {
+  baseStyle: {
+    fontFamily: "Helvetica",
+    fontWeight: "400",
+    fontSize: "16px",
+    color: "#121314",
+    height: '28px',
     cursor:'pointer'
   },
 });
