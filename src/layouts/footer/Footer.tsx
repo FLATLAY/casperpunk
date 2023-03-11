@@ -33,7 +33,7 @@ const Footer = () => {
           gap={{ base: "24px", md: "8px", xl: "20px" }}
         >
           <Text16W400>
-            Any questions? Contact us at support@merchproof.com
+            Any questions? Contact us at <a href="mailto:support@merchadise.com">support@merchadise.com</a>
           </Text16W400>
           <VerticalLine />
           <Text16W400>Terms & Conditions</Text16W400>
