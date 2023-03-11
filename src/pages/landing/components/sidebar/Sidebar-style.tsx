@@ -31,27 +31,65 @@ export const SocialIconsWrapper = chakra("div", {
     h: "48px",
     display: "flex",
     alignItems: "center",
-    justifyContent:'space-between',
-    pt:'16px'
+    justifyContent: "space-between",
+    pt: "16px",
   },
 });
-
 
 export const IconComponent = chakra("img", {
   baseStyle: {
     w: "32px",
     h: "32px",
+    cursor: "pointer",
+  },
+});
+
+export const Line = chakra("div", {
+  baseStyle: {
+    my: "32px",
+    w: "100%",
+    border: "1px solid",
+    borderColor: "#EFECDC",
+  },
+});
+
+export const FilterSectionWrapper = chakra("div", {
+  baseStyle: {
+    w: "100%",
+    bg: "#fff",
+    p: "24px",
+    h: "auto",
+    borderRadius: "16px",
+  },
+});
+
+export const Text24px = chakra("p", {
+  baseStyle: {
+    fontFamily: "Helvetica",
+    fontWeight: "700",
+    fontSize: "24px",
+    color: "#121314",
+  },
+});
+
+
+export const BurgerIconComponent = chakra("img", {
+  baseStyle: {
+    w: "19px",
+    h: "16px",
     cursor:'pointer'
   },
 });
 
 
 
-export const Line = chakra("div", {
+export const Text16px = chakra("p", {
   baseStyle: {
-   my:'32px',
-   w:'100%',
-   border:'1px solid',
-   borderColor:'#EFECDC'
+    fontFamily: "Helvetica",
+    fontWeight: "400",
+    fontSize: "16px",
+    color: "#121314",
+    height: '28px',
+    cursor:'pointer'
   },
 });
