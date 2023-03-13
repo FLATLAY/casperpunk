@@ -24,7 +24,7 @@ const Header = () => {
           {/* <SearchIcon src={seacrhIcon} />
      
        */}
-          <Notification />
+          {/* <Notification /> */}
           <Cart />
           <Profile />
         </Flex>
