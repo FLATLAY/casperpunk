@@ -1,4 +1,4 @@
-import { useState } from "react";
+//import { useState } from "react";
 import { Flex, Image, Box } from "@chakra-ui/react";
 
 import {
@@ -102,5 +102,3 @@ const Sidebar = ({
 };
 
 export default Sidebar;
-//    color: "#121314",
-//            #b3b3b3

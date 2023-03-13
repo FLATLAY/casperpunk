@@ -62,13 +62,14 @@ const Landing = () => {
   const ProductsComponent = () =>
     products
       .filter((product) => getProductTitle(product).includes(filterText))
+      .filter((product) => product.shopifyData.tags.includes(filterBy))
       .map((product) => <Product product={product} />);
 
   if (!shopData) return <></>;
 
-  // if (products)
-  //   console.log("products tags ", products[0].shopifyData.tags.split(","));
-  console.log('select tag ' ,  filterBy);
+  console.log('test ' , products);
+  products.forEach(pro => console.log('tags ' , pro.shopifyData.tags.split(",")))
+
   return (
     <>
       <Banner />
