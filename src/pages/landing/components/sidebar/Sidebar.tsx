@@ -13,6 +13,7 @@ import {
   BurgerIconComponent,
   Text16px,
 } from "./Sidebar-style";
+import { useShop } from "../../../../hooks/useShop/useShop";
 
 import SearchBox from "../seachBox/SearchBox";
 // assets
@@ -31,6 +32,9 @@ const Sidebar = ({
   filterText: string;
   setFilterText: (arg1: string) => void;
 }) => {
+  const { shopData } = useShop();
+  console.log(" productsTags ", shopData.productsTags);
+
   return (
     <SidebarWrapper>
       <InformationWrapper>
@@ -66,11 +70,10 @@ const Sidebar = ({
           <Text24px>Filter By</Text24px>
           <BurgerIconComponent src={burgerIcon} />
         </Flex>
-        <Text16px>Tops</Text16px>
-        <Text16px>Bottoms</Text16px>
-        <Text16px>Accessories</Text16px>
-        <Text16px>Adults</Text16px>
-        <Text16px>Kids</Text16px>
+        <Text16px>All</Text16px>
+        {shopData.productsTags.map((tag: any, index: number) => {
+          return <Text16px key={index}>{tag}</Text16px>;
+        })}
       </FilterSectionWrapper>
     </SidebarWrapper>
   );
