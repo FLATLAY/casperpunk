@@ -113,7 +113,7 @@ export function useCart() {
 
   const isShopifyCart = () => true
 
-  const continueShopping = () => navigate(`/${shopName}`);
+  const continueShopping = () => navigate(`/`);
 
   const checkout = async () => {
     // if (cartType == IMS_TYPES.SHOPIFY) {
