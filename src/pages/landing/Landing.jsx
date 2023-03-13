@@ -1,6 +1,6 @@
 /* dep */
 import { useEffect, useState } from "react";
-import {  Flex } from "@chakra-ui/react";
+import { Flex } from "@chakra-ui/react";
 /* internal */
 
 import { useApi } from "../../hooks/useApi/useApi";
@@ -33,6 +33,7 @@ const Landing = () => {
   const [itemInRow, setItemInRow] = useState(3);
   const [loading, setLoadin] = useState(false);
   const [filterText, setFilterText] = useState("");
+  const [filterBy, setFilterBy] = useState("");
 
   const getProducts = async () => {
     setLoadin(true);
@@ -65,12 +66,20 @@ const Landing = () => {
 
   if (!shopData) return <></>;
 
+  // if (products)
+  //   console.log("products tags ", products[0].shopifyData.tags.split(","));
+  console.log('select tag ' ,  filterBy);
   return (
     <>
       <Banner />
 
       <ShopPageWrapper>
-        <Sidebar filterText={filterText} setFilterText={setFilterText} />
+        <Sidebar
+          filterText={filterText}
+          setFilterText={setFilterText}
+          filterBy={filterBy}
+          setFilterBy={setFilterBy}
+        />
         <ProductsWrapper id="product-section">
           <TopComponent itemInRow={itemInRow} setItemInRow={setItemInRow} />
           {products != null ? (

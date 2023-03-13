@@ -28,12 +28,19 @@ import burgerIcon from "../../../../assets/icons/burger-icon.svg";
 const Sidebar = ({
   filterText,
   setFilterText,
+  filterBy,
+  setFilterBy,
 }: {
   filterText: string;
   setFilterText: (arg1: string) => void;
+  filterBy:string;
+  setFilterBy:(arg1: string) => void;
 }) => {
   const { shopData } = useShop();
-  console.log(" productsTags ", shopData.productsTags);
+
+  const selectTag = (tag:string) => setFilterBy(tag)
+
+
 
   return (
     <SidebarWrapper>
@@ -70,9 +77,9 @@ const Sidebar = ({
           <Text24px>Filter By</Text24px>
           <BurgerIconComponent src={burgerIcon} />
         </Flex>
-        <Text16px>All</Text16px>
+        <Text16px onClick={()=>{selectTag('')}}>All</Text16px>
         {shopData.productsTags.map((tag: any, index: number) => {
-          return <Text16px key={index}>{tag}</Text16px>;
+          return <Text16px key={index} onClick={()=>{selectTag(tag)}} >{tag}</Text16px>;
         })}
       </FilterSectionWrapper>
     </SidebarWrapper>
