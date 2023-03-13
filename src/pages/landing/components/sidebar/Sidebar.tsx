@@ -41,9 +41,16 @@ const Sidebar = ({
         </Flex>
         <SocialIconsWrapper>
           <IconComponent src={discordIcon} />
-          <IconComponent src={webIcon} />
-          <IconComponent src={instagramIcon} />
-          <IconComponent src={twitterIcon} />
+
+          <a href="https://www.supercuteworld.com" target="_blank">
+            <IconComponent src={webIcon} />
+          </a>
+          <a href="https://www.instagram.com/supercuteofficial" target="_blank">
+            <IconComponent src={instagramIcon} />
+          </a>
+          <a href="https://twitter.com/supercutenft" target="_blank">
+            <IconComponent src={twitterIcon} />
+          </a>
         </SocialIconsWrapper>
       </InformationWrapper>
       <Line />
