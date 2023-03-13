@@ -33,14 +33,12 @@ const Sidebar = ({
 }: {
   filterText: string;
   setFilterText: (arg1: string) => void;
-  filterBy:string;
-  setFilterBy:(arg1: string) => void;
+  filterBy: string;
+  setFilterBy: (arg1: string) => void;
 }) => {
   const { shopData } = useShop();
 
-  const selectTag = (tag:string) => setFilterBy(tag)
-
-
+  const selectTag = (tag: string) => setFilterBy(tag);
 
   return (
     <SidebarWrapper>
@@ -77,9 +75,26 @@ const Sidebar = ({
           <Text24px>Filter By</Text24px>
           <BurgerIconComponent src={burgerIcon} />
         </Flex>
-        <Text16px onClick={()=>{selectTag('')}}>All</Text16px>
+        <Text16px
+          onClick={() => {
+            selectTag("");
+          }}
+          color={filterBy === "" ?"#121314" : "#b3b3b3"  }
+        >
+          All
+        </Text16px>
         {shopData.productsTags.map((tag: any, index: number) => {
-          return <Text16px key={index} onClick={()=>{selectTag(tag)}} >{tag}</Text16px>;
+          return (
+            <Text16px
+              key={index}
+              onClick={() => {
+                selectTag(tag);
+              }}
+              color={filterBy === tag ?"#121314" : "#b3b3b3" }
+            >
+              {tag}
+            </Text16px>
+          );
         })}
       </FilterSectionWrapper>
     </SidebarWrapper>
@@ -87,3 +102,5 @@ const Sidebar = ({
 };
 
 export default Sidebar;
+//    color: "#121314",
+//            #b3b3b3
