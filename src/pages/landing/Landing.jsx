@@ -67,9 +67,6 @@ const Landing = () => {
 
   if (!shopData) return <></>;
 
-  console.log('test ' , products);
-  products.forEach(pro => console.log('tags ' , pro.shopifyData.tags.split(",")))
-
   return (
     <>
       <Banner />
@@ -82,7 +79,10 @@ const Landing = () => {
           setFilterBy={setFilterBy}
         />
         <ProductsWrapper id="product-section">
-          <TopComponent itemInRow={itemInRow} setItemInRow={setItemInRow} />
+          <TopComponent itemInRow={itemInRow} setItemInRow={setItemInRow}
+          filterBy={filterBy}
+          setFilterBy={setFilterBy}
+          />
           {products != null ? (
             <>
               {loading && (

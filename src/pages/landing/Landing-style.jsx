@@ -174,7 +174,6 @@ export const Text16px = chakra("p", {
     fontFamily: "Helvetica",
     fontWeight: "400",
     fontSize: "16px",
-    color: "#121314",
     height: '28px',
     cursor:'pointer'
   },

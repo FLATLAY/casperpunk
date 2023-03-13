@@ -9,6 +9,7 @@ import {
   Text24px,
   Text16px,
 } from "./Landing-style";
+import { useShop } from "../../hooks/useShop/useShop";
 
 import threeInRowIcon from "../../assets/icons/three-in-row-icon.svg";
 import fourInRowIcon from "../../assets/icons/four-in-row-icon.svg";
@@ -17,14 +18,25 @@ import burgerIcon from "../../assets/icons/burger-icon.svg";
 const TopComponent = ({
   itemInRow,
   setItemInRow,
+  filterBy,
+  setFilterBy,
 }: {
   itemInRow: number;
   setItemInRow: (counter: number) => void;
+  filterBy: string;
+  setFilterBy: (arg1: string) => void;
 }) => {
+  const { shopData } = useShop();
+
   const [showFilter, setShowModal] = useState(false);
 
   const changeRowItem = (counter: number) => setItemInRow(counter);
   const toggleFilterComponent = () => setShowModal((p) => !p);
+
+  const selectTag = (tag: string) =>{
+     setFilterBy(tag)
+   // toggleFilterComponent()
+  }
 
   return (
     <Flex
@@ -64,11 +76,27 @@ const TopComponent = ({
             <Text24px>Filter By</Text24px>
             <BurgerIconComponent src={burgerIcon} onClick={toggleFilterComponent} />
           </Flex>
-          <Text16px>Tops</Text16px>
-          <Text16px>Bottoms</Text16px>
-          <Text16px>Accessories</Text16px>
-          <Text16px>Adults</Text16px>
-          <Text16px>Kids</Text16px>
+          <Text16px
+          onClick={() => {
+            selectTag("");
+          }}
+          color={filterBy === "" ?"#121314" : "#b3b3b3"  }
+        >
+          All
+        </Text16px>
+        {shopData.productsTags.map((tag: any, index: number) => {
+          return (
+            <Text16px
+              key={index}
+              onClick={() => {
+                selectTag(tag);
+              }}
+              color={filterBy === tag ?"#121314" : "#b3b3b3" }
+            >
+              {tag}
+            </Text16px>
+          );
+        })}
         </FilterSectionWrapper>
       )}
     </Flex>
