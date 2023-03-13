@@ -29,6 +29,7 @@ export const ShopLogo = chakra("img", {
     w: { base: "62px", xl: "132px" },
     h: { base: "22px", xl: "47px" },
     bg: "#fff",
+    cursor:'pointer'
   },
 });
 
