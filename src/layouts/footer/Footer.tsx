@@ -35,10 +35,10 @@ const Footer = () => {
           <Text16W400>
             Any questions? Contact us at <a href="mailto:support@merchadise.com">support@merchadise.com</a>
           </Text16W400>
+          {/* <VerticalLine />
+          <Text16W400>Terms & Conditions</Text16W400> */}
           <VerticalLine />
-          <Text16W400>Terms & Conditions</Text16W400>
-          <VerticalLine />
-          <Text16W400 onClick={clickOnFaqText} >Returns & FAQ</Text16W400>
+          <Text16W400 onClick={clickOnFaqText} >Store Policies and FAQs</Text16W400>
         </Flex>
       </Box>
       <Box mb="24px" />
