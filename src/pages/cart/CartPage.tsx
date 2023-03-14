@@ -72,7 +72,7 @@ const CartPage = () => {
             <TableHeaderRow>
               <TableHeader>Product</TableHeader>
               <TableHeader>Quantity</TableHeader>
-              <TableHeader>Cost per unity </TableHeader>
+              <TableHeader>Cost per Unit</TableHeader>
               <TableHeader>Total</TableHeader>
               <TableHeader> </TableHeader>
             </TableHeaderRow>
