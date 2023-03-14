@@ -55,8 +55,7 @@ const ButtonsComponent = ({ product, selectedSku, quantity }: Props) => {
 
   const addToCartFunction = async () => {
     addShopifyItemToCart(product, selectedSku, quantity);
-    successToast("Added succeessfully");
-
+    successToast("Added successfully");
     return true;
   };
 
