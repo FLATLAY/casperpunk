@@ -1,7 +1,5 @@
 // global dependency
 import { useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
-import { Box } from "@chakra-ui/react";
 
 // internall dependency
 import { BuyButton } from "./Detail-style";
@@ -26,11 +24,8 @@ const ButtonsComponent = ({ product, selectedSku, quantity }: Props) => {
 
   // hooks
   const { errorToast, successToast } = useToastify();
-  // const { postApi } = useApi();
   const { addShopifyItemToCart } = useCart();
-  const navigate = useNavigate();
   const { profile } = useProfile();
-  const { shopName } = useParams();
 
   // functions
   const toggleModal = () => setShowWalletModal((p) => !p);
@@ -65,20 +60,10 @@ const ButtonsComponent = ({ product, selectedSku, quantity }: Props) => {
     return addToCartFunction();
   };
 
-  const buy = async () => {
-    let resutl = await addSkuToCart();
-    if (resutl) navigate(`/cart`);
-  };
-
-  const addToCart = () => addSkuToCart();
 
   return (
     <>
-      <BuyButton bg="#121314" color="white" onClick={buy}>
-        BUY
-      </BuyButton>
-      <Box mb={{ base: "18px", lg: "32px" }}></Box>
-      <BuyButton bg="white" color="#121314" onClick={addToCart} mb={{base:'60px' , lg:'0px'}}>
+      <BuyButton bg="white" color="#121314" onClick={addSkuToCart} mb={{base:'60px' , lg:'0px'}}>
         ADD TO CART
       </BuyButton>
       {showWalletModal && (
