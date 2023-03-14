@@ -52,7 +52,7 @@ export const putUpdateShopifyCheckout = (
 
 export const postCreatPublicCheckout = (chekcout, shopDomain) => {
   let apiObj = {
-    url: `shopify/public/checkout`,
+    url: `shopify/public/checkout/no-reg`,
     body: {
       shopDomain: shopDomain,
       checkoutItem: chekcout,
