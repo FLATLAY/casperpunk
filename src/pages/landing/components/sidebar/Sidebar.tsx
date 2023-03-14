@@ -49,8 +49,9 @@ const Sidebar = ({
           <Image src={shopNameImage} w="100%" />
         </Flex>
         <SocialIconsWrapper>
-          <IconComponent src={discordIcon} />
-
+          <a href="https://discord.gg/supercuteworld" target="_blank">
+            <IconComponent src={discordIcon} />
+          </a>
           <a href="https://www.supercuteworld.com" target="_blank">
             <IconComponent src={webIcon} />
           </a>
@@ -79,7 +80,7 @@ const Sidebar = ({
           onClick={() => {
             selectTag("");
           }}
-          color={filterBy === "" ?"#121314" : "#b3b3b3"  }
+          color={filterBy === "" ? "#121314" : "#b3b3b3"}
         >
           All
         </Text16px>
@@ -90,7 +91,7 @@ const Sidebar = ({
               onClick={() => {
                 selectTag(tag);
               }}
-              color={filterBy === tag ?"#121314" : "#b3b3b3" }
+              color={filterBy === tag ? "#121314" : "#b3b3b3"}
             >
               {tag}
             </Text16px>
