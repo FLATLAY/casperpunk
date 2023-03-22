@@ -12,6 +12,7 @@ import {
   Text24px,
   BurgerIconComponent,
   Text16px,
+  Text18px
 } from "./Sidebar-style";
 import { useShop } from "../../../../hooks/useShop/useShop";
 
@@ -46,19 +47,20 @@ const Sidebar = ({
         <LogoComponent src={logoImage} />
         <Box mb="18px" />
         <Flex w="100%" justifyContent="center" alignItems="center">
-          <Image src={shopNameImage} w="100%" />
+          {/* <Image src={shopNameImage} w="100%" /> */}
+          <Text18px>Casperpunks</Text18px>
         </Flex>
         <SocialIconsWrapper>
-          <a href="https://discord.gg/supercuteworld" target="_blank">
+          <a href="https://discord.com/invite/casperpunks" target="_blank">
             <IconComponent src={discordIcon} />
           </a>
-          <a href="https://www.supercuteworld.com" target="_blank">
+          <a href="https://casperpunks.io" target="_blank">
             <IconComponent src={webIcon} />
           </a>
-          <a href="https://www.instagram.com/supercuteofficial" target="_blank">
+          <a href="" target="_blank">
             <IconComponent src={instagramIcon} />
           </a>
-          <a href="https://twitter.com/supercutenft" target="_blank">
+          <a href="https://twitter.com/casperpunks_" target="_blank">
             <IconComponent src={twitterIcon} />
           </a>
         </SocialIconsWrapper>
@@ -66,7 +68,7 @@ const Sidebar = ({
       <Line />
       <SearchBox value={filterText} setValue={setFilterText} />
       <Box mb="18px" />
-      <FilterSectionWrapper>
+      {/* <FilterSectionWrapper>
         <Flex
           w="100%"
           justifyContent="space-between"
@@ -97,7 +99,7 @@ const Sidebar = ({
             </Text16px>
           );
         })}
-      </FilterSectionWrapper>
+      </FilterSectionWrapper> */}
     </SidebarWrapper>
   );
 };

@@ -92,3 +92,15 @@ export const Text16px = chakra("p", {
     cursor:'pointer'
   },
 });
+
+
+export const Text18px = chakra("p", {
+  baseStyle: {
+    fontFamily: 'Manrope',
+    color:'#000000',
+    fontWeight: "700",
+    fontSize: "18px",
+    height: '32px',
+   // cursor:'pointer'
+  },
+});
