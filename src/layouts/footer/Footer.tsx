@@ -9,7 +9,7 @@ import {
   Text14W400,
 } from "./Footer-style";
 
-import shopIcon from "../../assets/images/header-logo.svg";
+//import shopIcon from "../../assets/images/header-logo.svg";
 
 const Footer = () => {
 
@@ -26,7 +26,7 @@ const Footer = () => {
         pb="24px"
         borderBottom="1px solid #E9E9E2"
       >
-        <FooterIcon src={shopIcon} />
+        {/* <FooterIcon src={shopIcon} /> */}
         <Flex
           flexDir={{ base: "column", md: "row" }}
           alignItems={{ base: "start", md: "center" }}

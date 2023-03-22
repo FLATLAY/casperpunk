@@ -1,4 +1,4 @@
-import { Flex } from "@chakra-ui/react";
+import { Flex, Text } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
 
 import {
@@ -9,7 +9,7 @@ import {
   // SearchIcon,
 } from "./Header-style";
 
-import headerLogo from "../../assets/images/header-logo.svg";
+//import headerLogo from "../../assets/images/header-logo.svg";
 import Profile from "./components/profile/Profile";
 //import Notification from "./components/notification/Notification";
 import Cart from "./components/cart/Cart";
@@ -21,7 +21,37 @@ const Header = () => {
 
   return (
     <HeaderWrapper>
-      <HeaderContentWrapper>
+      <Flex
+        w="270px"
+        alignItems="center"
+        justifyContent="center"
+        bg="#161F2F"
+        py="21px"
+        h="100%"
+      >
+        <Text
+          fontFamily="Montserrat"
+          fontStyle="normal"
+          fontWeight="700"
+          fontSize="23px"
+          color="#FFFFFF"
+        >
+          MERCH
+        </Text>
+      </Flex>
+      <Flex
+        w="calc(100% -  270px)"
+        alignItems="center"
+        justifyContent="end"
+        bg="#ecb049"
+        py="21px"
+        h="100%"
+        pr='34px'
+      >
+  <Cart />
+          <Profile />
+      </Flex>
+      {/* <HeaderContentWrapper>
         <Flex alignItems="center">
           <ShopLogo
             bg="transparent"
@@ -30,16 +60,22 @@ const Header = () => {
           />
         </Flex>
         <Flex alignItems="center">
-          {/* <SearchIcon src={seacrhIcon} />
-     
-       */}
-          {/* <Notification /> */}
+
           <Cart />
           <Profile />
         </Flex>
-      </HeaderContentWrapper>
+      </HeaderContentWrapper> */}
     </HeaderWrapper>
   );
 };
 
 export default Header;
+
+{
+  /* <SearchIcon src={seacrhIcon} />
+     
+       */
+}
+{
+  /* <Notification /> */
+}

@@ -3,14 +3,14 @@ import { chakra } from "@chakra-ui/react";
 export const HeaderWrapper = chakra("header", {
   baseStyle: {
     w: "100%",
-    px: { base: "21px", xl: "160px" },
-    py: { base: "8px", xl: "0px" },
-    h: { base: "50px", xl: "85px" },
+   // px: { base: "21px", xl: "160px" },
+   // py: { base: "8px", xl: "0px" },
+    h: { base: "50px", xl: "68px" },
     maxH: { base: "50px", xl: "85px" },
     display: "flex",
     alignItems: "center",
     bg: "#fff",
-    boxSize: "border-box",
+    boxSize: "border-box"
   },
 });
 
@@ -21,6 +21,7 @@ export const HeaderContentWrapper = chakra("div", {
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
+    border:'3px solid black'
   },
 });
 
