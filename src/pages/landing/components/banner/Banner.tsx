@@ -1,7 +1,7 @@
 import { Box, Button, Image } from "@chakra-ui/react";
 
-import desktopBanner from "../../../../assets/images/banner-desktop.svg";
-import mobileBanner from "../../../../assets/images/banner-mobile.svg";
+
+import bannerImage from "../../../../assets/images/banner-image.svg";
 
 const Banner = () => {
   
@@ -15,19 +15,19 @@ const Banner = () => {
   return (
     <Box w="100%" h="auto" maxH="470px" position="relative">
       <Image
-        src={desktopBanner}
+        src={bannerImage}
         w="100%"
         h="auto"
         display={{ base: "none", md: "block" }}
       />
-      <Box
+      {/* <Box
         backgroundImage={mobileBanner}
         w="100%"
         h="470px"
         backgroundSize="cover"
         backgroundRepeat="no-repeat"
         display={{ base: "block", md: "none" }}
-      />
+      /> */}
       <Button
         position="absolute"
         bg="#C00E1A"
