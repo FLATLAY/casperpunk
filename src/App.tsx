@@ -7,6 +7,8 @@ import { useShop } from "./hooks/useShop/useShop";
 import { useProfile } from "./hooks/useProfile/useProfile";
 import { useCart } from "./hooks/useCart/useCart";
 
+
+import Navbar from "./layouts/navbar/Navbar";
 import Header from "./layouts/header/Header";
 import Footer from "./layouts/footer/Footer";
 import Event from "./layouts/Event/Event";
@@ -42,6 +44,7 @@ function App() {
       minH="100vh"
       overflowX="hidden"
     >
+      <Navbar />
       <Event />
       <Header />
       <Box w="100%" h="auto" minH="calc(100vh - 400px)" bg='#F9F9F6' >
