@@ -37,7 +37,7 @@ const Landing = () => {
 
   const getProducts = async () => {
     setLoadin(true);
-    let result = await getApi(getCollectionsByShopname("testmerchproof"));
+    let result = await getApi(getCollectionsByShopname("casper"));
     setLoadin(false);
     if (result) {
       let resultProducts = [];
@@ -62,7 +62,6 @@ const Landing = () => {
   const ProductsComponent = () =>
     products
       .filter((product) => getProductTitle(product).includes(filterText))
-      .filter((product) => product.shopifyData.tags.includes(filterBy))
       .map((product) => <Product product={product} />);
 
   if (!shopData) return <></>;
