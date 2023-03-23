@@ -20,18 +20,17 @@ type Props = {
 const ButtonsComponent = ({ product, selectedSku, quantity }: Props) => {
   //states
   const [showWalletModal, setShowWalletModal] = useState(false);
-  const [showEmailModal, setShowEmailModal] = useState(false);
+  //const [showEmailModal, setShowEmailModal] = useState(false);
 
   // hooks
-  const { errorToast, successToast } = useToastify();
-  const { addShopifyItemToCart } = useCart();
+  const { errorToast } = useToastify();
+  const { addItemToCart } = useCart();
   const { profile } = useProfile();
-  console.log('profile ' ,profile);
-  
+  //console.log("selectedSku ", selectedSku);
 
   // functions
   const toggleModal = () => setShowWalletModal((p) => !p);
-  const toggleEmailModal = () => setShowEmailModal((p) => !p);
+  //const toggleEmailModal = () => setShowEmailModal((p) => !p);
 
   // return true if has problem
   const isNotValid = () => {
@@ -50,28 +49,32 @@ const ButtonsComponent = ({ product, selectedSku, quantity }: Props) => {
     return resutl;
   };
 
-  const addToCartFunction = async () => {
-    addShopifyItemToCart(product, selectedSku, quantity);
-    successToast("Added successfully");
-    return true;
-  };
+  // const addToCartFunction = async () => {
+  //    addItemToCart(product, selectedSku, quantity);
+
+  //   successToast("Added successfully");
+  //   return true;
+  // };
 
   const addSkuToCart = async () => {
     if (isNotValid()) return false;
-
-    return addToCartFunction();
+    await addItemToCart(selectedSku._id, quantity);
   };
-
 
   return (
     <>
-      <BuyButton bg="white" color="#121314" onClick={addSkuToCart} mb={{base:'60px' , lg:'0px'}}>
+      <BuyButton
+        bg="white"
+        color="#121314"
+        onClick={addSkuToCart}
+        mb={{ base: "60px", lg: "0px" }}
+      >
         ADD TO CART
       </BuyButton>
       {showWalletModal && (
         <WalletModal show={showWalletModal} close={toggleModal} />
       )}
-      <EmailModal show={showEmailModal} close={toggleEmailModal} />
+      {/* <EmailModal show={showEmailModal} close={toggleEmailModal} /> */}
     </>
   );
 };

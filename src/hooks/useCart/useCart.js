@@ -20,6 +20,8 @@ import {
   deleteCart,
 } from "../../apis/cartApi";
 import { IMS_TYPES } from "../../constant/ims-types";
+import { useProfile } from "../useProfile/useProfile"
+import { useToastify } from "../../context/ToastifyContext/ToastifyContext";
 
 // const client = Client.buildClient({
 //   storefrontAccessToken: "37cb11f9036adb12ba968aff9b8f7ca2",
@@ -29,7 +31,9 @@ import { IMS_TYPES } from "../../constant/ims-types";
 export function useCart() {
   const { getApi, deleteApi, patchApi, postApi } = useApi();
   const dispatch = useDispatch();
+  const { errorToast, successToast } = useToastify();
   const { shopName } = useParams();
+  const { walletAddress } = useProfile()
   const navigate = useNavigate();
 
   const cartItems = useSelector(selectCurrentCartItems);
@@ -67,48 +71,12 @@ export function useCart() {
     dispatch(setCurrentCart({ items: newCartItems, type: IMS_TYPES.SHOPIFY }));
   };
 
-  const addShopifyItemToCart = async (product, variant, quantity) => {
-    let itemsArray = [];
-
-    const pushFirstProduct = () => {
-      itemsArray.push({
-        product: product,
-        variant: variant,
-        quantity: quantity,
-      });
-    };
-
-    if (cartItems.length == 0) {
-      pushFirstProduct();
-    } else {
-      if (cartItems[0].product.shopifyShopDomain != product.shopifyShopDomain) {
-        pushFirstProduct();
-      } else {
-        let newCartItems = cartItems.map((item) =>
-          item.variant.id == variant.id
-            ? { ...item, quantity: quantity }
-            : { ...item }
-        );
-
-        if (!cartItems.find((item) => item.variant.id == variant.id)) {
-          newCartItems.push({
-            product: product,
-            variant: variant,
-            quantity: quantity,
-          });
-        }
-
-        itemsArray = newCartItems;
-      }
+  const addItemToCart = async (skuID, quantity) => {
+    let result = await postApi(postAddSkuToCart(skuID ,quantity , walletAddress))
+    if(result){
+      successToast("Added successfully");
+      updateCart()
     }
-
-    dispatch(
-      setCurrentCart({
-        shopDomain: product.shopifyShopDomain,
-        items: itemsArray,
-        type: IMS_TYPES.SHOPIFY,
-      })
-    );
   };
 
   const isShopifyCart = () => true
@@ -157,7 +125,7 @@ export function useCart() {
     cartType,
     cart,
     isShopifyCart,
-    addShopifyItemToCart,
+    addItemToCart,
     continueShopping,
     checkout,
     discardCart,
