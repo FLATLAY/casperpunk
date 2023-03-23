@@ -26,6 +26,8 @@ const ButtonsComponent = ({ product, selectedSku, quantity }: Props) => {
   const { errorToast, successToast } = useToastify();
   const { addShopifyItemToCart } = useCart();
   const { profile } = useProfile();
+  console.log('profile ' ,profile);
+  
 
   // functions
   const toggleModal = () => setShowWalletModal((p) => !p);
@@ -40,8 +42,8 @@ const ButtonsComponent = ({ product, selectedSku, quantity }: Props) => {
       resutl = true;
     }
 
-    if (profile && !profile.email) {
-      toggleEmailModal();
+    if (!profile) {
+      toggleModal();
       resutl = true;
     }
 
