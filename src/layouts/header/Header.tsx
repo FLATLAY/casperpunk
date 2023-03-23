@@ -26,14 +26,14 @@ const Header = () => {
         alignItems="center"
         justifyContent="center"
         bg="#161F2F"
-        py="21px"
-        h="100%"
+        // py={{base:"18px" , xl:"21px"}}
+        height={{ base: "60px", xl: "68px" }}
       >
         <Text
           fontFamily="Montserrat"
           fontStyle="normal"
           fontWeight="700"
-          fontSize="23px"
+          fontSize={{ base: "18px", xl: "23px" }}
           color="#FFFFFF"
         >
           MERCH
@@ -44,12 +44,14 @@ const Header = () => {
         alignItems="center"
         justifyContent="end"
         bg="#ecb049"
-        py="21px"
+        // py="21px"
         h="100%"
-        pr='34px'
+        minH="100%"
+        pr="34px"
+        height={{ base: "60px", xl: "68px" }}
       >
-  <Cart />
-          <Profile />
+        <Cart />
+        <Profile />
       </Flex>
       {/* <HeaderContentWrapper>
         <Flex alignItems="center">
