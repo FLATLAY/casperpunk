@@ -16,7 +16,7 @@ const Profile = () => {
   return (
     <>
       <WalletIconWrapper
-        bg={showModal ? "#fff" : "transparent"}
+        //bg={showModal ? "#fff" : "transparent"}
         onClick={toggleModal}
       >
         <WalletIconComponent src={profileIcon} />
