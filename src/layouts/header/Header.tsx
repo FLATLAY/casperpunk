@@ -22,33 +22,33 @@ const Header = () => {
   return (
     <HeaderWrapper>
       <Flex
-        w="270px"
+        w={{ base: "110px", md: "200px", xl: "270px" }}
         alignItems="center"
         justifyContent="center"
         bg="#161F2F"
         // py={{base:"18px" , xl:"21px"}}
-        height={{ base: "60px", xl: "68px" }}
+        height={{ base: "49px", md: "60px", xl: "68px" }}
       >
         <Text
           fontFamily="Montserrat"
           fontStyle="normal"
           fontWeight="700"
-          fontSize={{ base: "18px", xl: "23px" }}
+          fontSize={{ base: "16px", md: "18px", xl: "23px" }}
           color="#FFFFFF"
         >
           MERCH
         </Text>
       </Flex>
       <Flex
-        w="calc(100% -  270px)"
+        w="100%"
         alignItems="center"
         justifyContent="end"
         bg="#ecb049"
         // py="21px"
         h="100%"
         minH="100%"
-        pr="34px"
-        height={{ base: "60px", xl: "68px" }}
+        pr={{ base: "12px", md: "34px" }}
+        height={{ base: "49px", md: "60px", xl: "68px" }}
       >
         <Cart />
         <Profile />
