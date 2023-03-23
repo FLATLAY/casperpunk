@@ -28,10 +28,7 @@ import ButtonsComponent from "./ButtonsComponent";
 
 import minusIcon from "../../../../assets/icons/minus-icon.svg";
 import plusIcon from "../../../../assets/icons/plus-icon.svg";
-import madeIcon from "../../../../assets/icons/made-icon.svg";
-import leafIcon from "../../../../assets/icons/leaf-icon.svg";
-import sizeIcon from "../../../../assets/icons/size-icon.svg";
-import ultraIcon from "../../../../assets/icons/ultra-icon.svg";
+
 
 const Detail = ({ product }) => {
   // states
