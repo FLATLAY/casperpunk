@@ -20,7 +20,7 @@ import {
   deleteCart,
 } from "../../apis/cartApi";
 import { IMS_TYPES } from "../../constant/ims-types";
-import { useProfile } from "../useProfile/useProfile"
+import { useProfile } from "../useProfile/useProfile";
 import { useToastify } from "../../context/ToastifyContext/ToastifyContext";
 
 // const client = Client.buildClient({
@@ -33,7 +33,7 @@ export function useCart() {
   const dispatch = useDispatch();
   const { errorToast, successToast } = useToastify();
   const { shopName } = useParams();
-  const { walletAddress } = useProfile()
+  const { walletAddress } = useProfile();
   const navigate = useNavigate();
 
   const cartItems = useSelector(selectCurrentCartItems);
@@ -45,6 +45,10 @@ export function useCart() {
     //  let localCart = JSON.parse(localStorage.getItem("cart"));
     //  if (!localCart) {
     //  }
+    const result = await getApi(getCart());
+    if (result) {
+      if (Object.keys(result).length === 0) dispatch(clearCurrentCart());
+    }
   };
 
   const deleteItemFromCart = async (skuId) => {
@@ -72,14 +76,16 @@ export function useCart() {
   };
 
   const addItemToCart = async (skuID, quantity) => {
-    let result = await postApi(postAddSkuToCart(skuID ,quantity , walletAddress))
-    if(result){
+    let result = await postApi(
+      postAddSkuToCart(skuID, quantity, walletAddress)
+    );
+    if (result) {
       successToast("Added successfully");
-      updateCart()
+      updateCart();
     }
   };
 
-  const isShopifyCart = () => true
+  const isShopifyCart = () => true;
 
   const continueShopping = () => navigate(`/`);
 
