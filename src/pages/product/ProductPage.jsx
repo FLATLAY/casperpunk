@@ -44,7 +44,7 @@ const ProductPage = () => {
         <Flex flexDir={{ base: "column", lg: "row" }}>
           <ProductImage product={product} />
           <Box w={{ base: "100%", xl: "calc(100% - 575px)" }}>
-            {/* <Detail product={product} /> */}
+            <Detail product={product} />
           </Box>
         </Flex>
         <LineComponent />

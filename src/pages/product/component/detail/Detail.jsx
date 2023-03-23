@@ -41,7 +41,7 @@ const Detail = ({ product }) => {
   // hooks
 
   // constants
-  const options = useMemo(() => getOptions(product), []);
+ // const options = useMemo(() => getOptions(product), []);
   const productTitle = useMemo(() => getProductTitle(product), []);
   const productPrice = useMemo(
     () => getPrice(product.type, selectedSku),
@@ -54,10 +54,10 @@ const Detail = ({ product }) => {
     if (quantity > 1) setQuantity((p) => p - 1);
   };
 
-  const changeOption = (variantId, value) => {
-    let newSku = getSelectedSku(product, selectedSku, variantId, value);
-    setSelectedSku(newSku);
-  };
+  // const changeOption = (variantId, value) => {
+  //   let newSku = getSelectedSku(product, selectedSku, variantId, value);
+  //   setSelectedSku(newSku);
+  // };
 
   return (
     <Box w="100%">
@@ -68,7 +68,7 @@ const Detail = ({ product }) => {
         Pay in 4 interest-free installments of $16.25 with ShopPay.
         <b style={{ cursor: "pointer" }}>Learn more</b>
       </AdsText>
-      {options.length > 0 &&
+      {/* {options.length > 0 &&
         options.map((option, i) => {
           return (
             <Box key={i} mb={{ base: "18px", lg: "32px" }}>
@@ -89,16 +89,16 @@ const Detail = ({ product }) => {
               )}
             </Box>
           );
-        })}
+        })} */}
       <QuantityTitle>Quantity</QuantityTitle>
       <QuantityCounter>
         <QuantityIcons src={minusIcon} onClick={decreaseQuantity} />
         <QuantityNumber>{quantity}</QuantityNumber>
         <QuantityIcons src={plusIcon} onClick={increaseQuantity} />
       </QuantityCounter>
-      <Box w='100%' maxW='100%' p='20px 10px' display={{ base: "block", lg: "none" }} mb='24px' >
+      {/* <Box w='100%' maxW='100%' p='20px 10px' display={{ base: "block", lg: "none" }} mb='24px' >
         <Text color='#121314' fontSize='16px' fontWeight='400'  maxW='100%'   dangerouslySetInnerHTML={{ __html: product.shopifyData.body_html }}></Text>
-      </Box>
+      </Box> */}
       <ButtonsComponent
         product={product}
         selectedSku={selectedSku}
