@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 // const currentTime = new Date(2023, 2, 8, 21, 30, 0);
 import bannerDesktop from "../../assets/images/banner-desktop-image.svg";
-import bannerMobile from "../../assets/images/banner-mobile-image.svg";
+//import bannerMobile from "../../assets/images/banner-mobile-image.svg";
 import dotIcon from "../../assets/icons/dot-dot.svg";
 import multipliedIcon from "../../assets/icons/multiplied-icon.svg";
 
@@ -54,7 +54,7 @@ const Event = () => {
       w="100%"
       as={motion.div}
       animation={activeAnimation ? animation : ""}
-      bgImage={{ base: bannerMobile, xl: bannerDesktop }}
+   //   bgImage={{ base: bannerMobile, xl: bannerDesktop }}
       display={showBanner === false ? "none" : "flex"}
       flexDir={{ base: "column", xl: "row" }}
       h={{ base: "100px", xl: "80px" }}
