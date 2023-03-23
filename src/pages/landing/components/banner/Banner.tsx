@@ -17,41 +17,39 @@ const Banner = () => {
         w="100%"
         h="auto"
         display={{ base: "none", md: "block" }}
-        maxH="100%"
+        //  maxH="500px"
       />
-      <Text
-        fontFamily="Montserrat"
-        fontWeight="800"
-        fontSize="56px"
-        color="#FFFFFF"
-        position="absolute"
-        top="15%"
-        left="15%"
-      >
-        Explore The
-        <br /> CasperPunks <br /> Collection
-      </Text>
-      <Button
-        position="absolute"
-        bg="#161F2F"
-        w="256px"
-        borderRadius="4px"
-        padding="16px"
-        left={{ base: "50%", md: "15%" }}
-        mr={{ base: "50%", md: "0" }}
-        transform={{ base: "translate(-50%, -50%)", md: "translate(0%, 0%)" }}
-        top={{ base: "400px", md: "65%" }}
-        fontWeight="800"
-        fontSize="16px"
-        color="white"
-        h="56px"
-        _hover={{
-          bg: "#333",
-        }}
-        onClick={clickOnButton}
-      >
-        GET YOUR TEE
-      </Button>
+      <Box position="absolute" top="15%" left="15%">
+        <Text
+          fontFamily="Montserrat"
+          fontWeight="800"
+          fontSize={{base:'48px',md:'36px',lg:'44px',xl:"56px",'2xl':"72px"}}
+          color="#FFFFFF"
+          mb="20px"
+        >
+          Explore The
+          <br /> CasperPunks <br /> Collection
+        </Text>
+        <Button
+          bg="#161F2F"
+          w={{base:"200px" ,xl:'256px' ,'2xl':"320px" }}
+          borderRadius="4px"
+          padding={{md:'12px',lg:'14px',xl:"16px"}}
+          //mr={{ base: "50%", md: "0" }}
+          transform={{ base: "translate(-50%, -50%)", md: "translate(0%, 0%)" }}
+          fontWeight="800"
+          fontSize={{base:"16px" , '2xl':"24px"}}
+          color="white"
+          h={{md:'40px',lg:'48px',xl:"56px" , '2xl':"72px"}}
+          _hover={{
+            bg: "#333",
+          }}
+          onClick={clickOnButton}
+        >
+          GET YOUR TEE
+        </Button>
+      </Box>
+
       {/* <Image
         src={mobileBanner}
         w="100%"
