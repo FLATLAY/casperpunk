@@ -6,9 +6,10 @@ import { getCartShippingRates } from "../../apis/checkoutsApi";
 
 import PageContainer from "../../components/page-container/PageContainer";
 import Loading, { LOADING_SIZE } from "../../components/loading/Loading";
+import ShippingItem from "./components/shipping-item/ShippingItem";
 
 const Shipping = () => {
-  const [shippings, setShippings] = useState(null);
+  const [shippings, setShippings] = useState<any>(null);
   // const [loading, setLoading] = useState(false);
 
   const { getApi } = useApi();
@@ -17,6 +18,9 @@ const Shipping = () => {
     const result = await getApi(getCartShippingRates());
     if (result) setShippings(result.shippingPrice);
   };
+
+  console.log('shippings  ' , shippings);
+  
 
   useEffect(() => {
     getShippings();
@@ -38,7 +42,11 @@ const Shipping = () => {
         alignItems="center"
         flexDir="column"
         w="100%"
-      ></Flex>
+      >
+        {shippings.map((shipping:any ,i:number) =>{
+            return <ShippingItem key={i} shipping={shipping} />
+        })}
+      </Flex>
     </PageContainer>
   );
 };
