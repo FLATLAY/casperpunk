@@ -47,11 +47,12 @@ const CartPage = () => {
   // };
 
   const onClickCheckout = async () => {
-    if (!profile) {
-      toggleAddressModal();
-    } else {
-      navigate(`/address`);
-    }
+    // if (!profile) {
+    //   toggleAddressModal();
+    // } else {
+    //   navigate(`/address`);
+    // }
+    navigate(`/address`);
   };
 
   return (
