@@ -47,7 +47,12 @@ export function useCart() {
     //  }
     const result = await getApi(getCart());
     if (result) {
-      if (Object.keys(result).length === 0) dispatch(clearCurrentCart());
+      if (Object.keys(result).length === 0) {
+        dispatch(clearCurrentCart());
+      } else {  
+        console.log('cart result ' , result);
+        dispatch(setCurrentCart({ ...result, type: IMS_TYPES.DROPLINKED }));
+      }
     }
   };
 
