@@ -6,7 +6,7 @@ import { useState } from "react";
 import BasicButton, {
   BUTTON_TYPE,
 } from "../../../components/basic-button/BasicButton";
-// import { useCart } from "../../../hooks/useCart/useCart";
+ import { useCart } from "../../../hooks/useCart/useCart";
 // import { getShopifyData } from "./address-utils";
 import { useApi } from "../../../hooks/useApi/useApi";
 // import { postCreatCheckout } from "../../../apis/shopifyApi";
@@ -21,7 +21,7 @@ const AddressPageButtons = ({ selectedAddress }: { selectedAddress: any }) => {
   const navigate = useNavigate();
  // const { shopName } = useParams();
   const { postApi } = useApi();
-  //const { cartItems, isShopifyCart } = useCart();
+const { updateCart } = useCart();
   const { errorToast } = useToastify();
  // const profile = useSelector(selectCurrentUser);
 
@@ -51,9 +51,11 @@ const AddressPageButtons = ({ selectedAddress }: { selectedAddress: any }) => {
     //   if(result) navigate(`/shipping`);
     // }
     setLoading(true);
-    let result = await postApi(postAddCheckoutAddress(selectedAddress._id))
+    const result = await postApi(postAddCheckoutAddress(selectedAddress._id))
+    await updateCart()
     setLoading(false);
     if(result) navigate(`/shipping`);
+    if(result === false) navigate(`/shipping`);
   };
 
   const navigateToCart = () => navigate(`/cart`);
