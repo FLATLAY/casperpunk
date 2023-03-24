@@ -22,3 +22,5 @@ export const getProductColors = (product: any) => {
     return null;
   }
 };
+
+
