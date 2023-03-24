@@ -10,6 +10,7 @@ import ShippingItem from "./components/shipping-item/ShippingItem";
 
 const Shipping = () => {
   const [shippings, setShippings] = useState<any>(null);
+  const [selectedShipping, setSelectedShippings] = useState<any>(null);
   // const [loading, setLoading] = useState(false);
 
   const { getApi } = useApi();
@@ -20,6 +21,7 @@ const Shipping = () => {
   };
 
   console.log('shippings  ' , shippings);
+  console.log('selectedShipping  ' , selectedShipping);
   
 
   useEffect(() => {
@@ -44,7 +46,7 @@ const Shipping = () => {
         w="100%"
       >
         {shippings.map((shipping:any ,i:number) =>{
-            return <ShippingItem key={i} shipping={shipping} />
+            return <ShippingItem key={i} shipping={shipping} selectedShipping={selectedShipping} setSelectedShippings={setSelectedShippings} />
         })}
       </Flex>
     </PageContainer>
