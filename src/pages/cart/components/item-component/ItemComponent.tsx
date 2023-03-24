@@ -29,6 +29,9 @@ const ItemComponent = ({ item }: any) => {
   const { deleteItemFromCart, increaseItemQuantity, decreaseItemQuantity } =
     useCart();
 
+console.log('item ' ,item);
+
+
   const prodcutImage = useMemo(() => getProductImage(item.product), [item]);
   const prodcutTitle = useMemo(() => getProductTitle(item.product), [item]);
   const productPrice = useMemo(
@@ -66,20 +69,20 @@ const ItemComponent = ({ item }: any) => {
     }
   };
 
-  const getVariants = () => {
-    return item.product.type == IMS_TYPES.DROPLINKED
-      ? item.skuID.options.map((option: any) => (
-          <SkuText>
-            {option.variantID == "62a989e21f2c2bbc5b1e7154" ? "Color" : "Size"}:{" "}
-            {option.value}
-          </SkuText>
-        ))
-      : item.variant.option_values.map((option: any) => (
-          <SkuText>
-            {option.name}: {option.value}
-          </SkuText>
-        ));
-  };
+  // const getVariants = () => {
+  //   return item.product.type == IMS_TYPES.DROPLINKED
+  //     ? item.skuID.options.map((option: any) => (
+  //         <SkuText>
+  //           {option.variantID == "62a989e21f2c2bbc5b1e7154" ? "Color" : "Size"}:{" "}
+  //           {option.value}
+  //         </SkuText>
+  //       ))
+  //     : item.variant.option_values.map((option: any) => (
+  //         <SkuText>
+  //           {option.name}: {option.value}
+  //         </SkuText>
+  //       ));
+  // };
   //<Spinner size="sm" thickness="3px" color="#121314" />
   return (
     <>
@@ -88,7 +91,7 @@ const ItemComponent = ({ item }: any) => {
           <ProductImage src={prodcutImage} />
           <Flex flexDir="column" justifyContent="center">
             <ProductTitle>{prodcutTitle}</ProductTitle>
-            {getVariants()}
+            {/* {getVariants()} */}
           </Flex>
         </ProductComponent>
         <td>
@@ -125,7 +128,7 @@ const ItemComponent = ({ item }: any) => {
           <ProductImage src={prodcutImage} />
           <Flex flexDir="column" justifyContent="center">
             <ProductTitle>{prodcutTitle}</ProductTitle>
-            {getVariants()}
+            {/* {getVariants()} */}
           </Flex>
           <DeleteIcon onClick={deleteItem}>
             <Image src={deleteIcon} w="20px" h="20px" />

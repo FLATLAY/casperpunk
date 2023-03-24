@@ -10,6 +10,7 @@ import {
   selectCurrentCartType,
   selectCurrentNumberOfItems,
   selectCurrentCart,
+  selectCurrentCartTotalPrice
 } from "../../store/cart/cart.selector";
 
 import {
@@ -39,6 +40,7 @@ export function useCart() {
   const cartItems = useSelector(selectCurrentCartItems);
   const cart = useSelector(selectCurrentCart);
   const cartType = useSelector(selectCurrentCartType);
+  const cartTotalPrice = useSelector(selectCurrentCartTotalPrice);
   const numberOfItems = useSelector(selectCurrentNumberOfItems);
 
   const updateCart = async () => {
@@ -135,6 +137,7 @@ export function useCart() {
     cartItems,
     cartType,
     cart,
+    cartTotalPrice,
     isShopifyCart,
     addItemToCart,
     continueShopping,

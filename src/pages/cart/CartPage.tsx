@@ -22,27 +22,29 @@ import AddressEmailModal from "../../modals/address-email-modal/AddressEmailModa
 import PageContainer from "../../components/page-container/PageContainer";
 
 const CartPage = () => {
-  const { cartItems, cartType, continueShopping, discardCart } = useCart();
+
+  const { cartItems, cartType, cartTotalPrice ,continueShopping, discardCart } = useCart();
   const { shopName } = useParams();
   const { profile } = useProfile();
   const navigate = useNavigate();
 
+  
   const [loading, setLoading] = useState<boolean>(false);
   const [showAddressModal, setShowAddressModal] = useState<boolean>(false);
 
   const toggleAddressModal = () => setShowAddressModal((p) => !p);
 
-  const getTotalPrice = () => {
-    if (cartItems.length == 0) return 0.0;
+  // const getTotalPrice = () => {
+  //   //if (cartItems.length == 0) return 0.0;
 
-    let total = 0;
+  //   let total = 0;
 
-    cartItems.forEach(
-      (item: any) => (total += parseFloat(item.variant.price) * item.quantity)
-    );
+  //   // cartItems.forEach(
+  //   //   (item: any) => (total += parseFloat(item.variant.price) * item.quantity)
+  //   // );
 
-    return total.toFixed(2);
-  };
+  //   return total.toFixed(2);
+  // };
 
   const onClickCheckout = async () => {
     if (!profile) {
@@ -86,7 +88,7 @@ const CartPage = () => {
 
           <Flex w="100%" justifyContent="end" alignItems="end" mb="16px">
             <SuttotalText>Subtotal: </SuttotalText>
-            <TotalPriceText>${getTotalPrice()}</TotalPriceText>
+            <TotalPriceText>${cartTotalPrice.toFixed(2)}</TotalPriceText>
           </Flex>
           <ShippingText>Taxes and shipping calculated at checkout</ShippingText>
           <Flex justifyContent="end" gap={{ base: "8px", md: "32px" }}>
