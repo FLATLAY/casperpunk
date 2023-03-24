@@ -11,9 +11,9 @@ const ProductsComponent = ({ cartItems }: { cartItems: any }) => {
   return (
     <Box w="100%" maxW="600px" bg="#fff" borderRadius="16px" p="32px">
       <Text
-        font-family="Manrope"
-        font-weight="700"
-        font-size="24px "
+        fontFamily="Manrope"
+        fontWeight="700"
+        fontSize="24px "
         color="#262626 "
         w="100%"
         textAlign="center"
@@ -27,25 +27,25 @@ const ProductsComponent = ({ cartItems }: { cartItems: any }) => {
           <Flex w="100%" alignItems="center" justifyContent="space-between" mb='16px'>
             <Image src={getProductImage(item.product)} w="64px" h="64px" />
             <Text
-              font-family="Manrope"
-              font-weight="600"
-              font-size="16px"
+              fontFamily="Manrope"
+              fontWeight="600"
+              fontSize="16px"
               color="#262626"
             >
               {getProductTitle(item.product)}
             </Text>
             <Text
-              font-family="Manrope"
-              font-weight="600"
-              font-size="16px"
+              fontFamily="Manrope"
+              fontWeight="600"
+              fontSize="16px"
               color="#262626"
             >
              x{item.quantity}
             </Text>
             <Text
-              font-family="Manrope"
-              font-weight="600"
-              font-size="16px"
+              fontFamily="Manrope"
+              fontWeight="600"
+              fontSize="16px"
               color="#262626"
             >
               ${item.skuID.price}
