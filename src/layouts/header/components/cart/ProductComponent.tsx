@@ -12,6 +12,7 @@ const ProductComponent = ({ item }: any) => {
   const productTitle = useMemo(() => getProductTitle(item.product), [item]);
 
   const productImage = useMemo(() => getProductImage(item.product), [item]);
+ 
 
   return (
     <Flex w="100%" mb="8px">
@@ -26,7 +27,7 @@ const ProductComponent = ({ item }: any) => {
         >
           <b> {productTitle}</b>
         </Text>
-        {item.product.type == IMS_TYPES.DROPLINKED && (
+        {/* {item.product.type == IMS_TYPES.DROPLINKED && (
           <>
             {item.skuID.options.map((option: any, i: number) => {
               return (
@@ -41,9 +42,9 @@ const ProductComponent = ({ item }: any) => {
               );
             })}
           </>
-        )}
+        )} */}
 
-        {item.product.type == IMS_TYPES.SHOPIFY && (
+        {/* {item.product.type == IMS_TYPES.SHOPIFY && (
           <>
             {item.variant.option_values.map((option: any, i: number) => {
               return (
@@ -55,7 +56,7 @@ const ProductComponent = ({ item }: any) => {
               );
             })}
           </>
-        )}
+        )} */}
       </Box>
     </Flex>
   );
