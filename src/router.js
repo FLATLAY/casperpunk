@@ -7,6 +7,7 @@ import AddressPage from "./pages/address/Address";
 import CartPage from "./pages/cart/CartPage";
 import PoliciesPage from "./pages/policies/PoliciesPage"
 import Shipping from "./pages/shipping/Shipping"; 
+import Checkout from "./pages/checkout/Checkout";
 import App from "./App";
 
 export const router = createBrowserRouter([
@@ -25,6 +26,10 @@ export const router = createBrowserRouter([
         {
           path: "cart",
           element: <CartPage />,
+        },
+        {
+          path: "checkout",
+          element: <Checkout />,
         },
         {
           path: "shipping",
