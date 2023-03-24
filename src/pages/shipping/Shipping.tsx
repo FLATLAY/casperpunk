@@ -7,6 +7,7 @@ import { getCartShippingRates } from "../../apis/checkoutsApi";
 import PageContainer from "../../components/page-container/PageContainer";
 import Loading, { LOADING_SIZE } from "../../components/loading/Loading";
 import ShippingItem from "./components/shipping-item/ShippingItem";
+import ButtonsComponent from "./components/buttons-component/ButtonsComponent";
 
 const Shipping = () => {
   const [shippings, setShippings] = useState<any>(null);
@@ -19,9 +20,6 @@ const Shipping = () => {
     const result = await getApi(getCartShippingRates());
     if (result) setShippings(result.shippingPrice);
   };
-
-  console.log('shippings  ' , shippings);
-  console.log('selectedShipping  ' , selectedShipping);
   
 
   useEffect(() => {
@@ -48,6 +46,7 @@ const Shipping = () => {
         {shippings.map((shipping:any ,i:number) =>{
             return <ShippingItem key={i} shipping={shipping} selectedShipping={selectedShipping} setSelectedShippings={setSelectedShippings} />
         })}
+        <ButtonsComponent selectedShipping={selectedShipping} />
       </Flex>
     </PageContainer>
   );
