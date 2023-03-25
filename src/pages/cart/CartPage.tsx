@@ -14,18 +14,18 @@ import {
   ButtonComponent,
 } from "./CartPage-style";
 import { useCart } from "../../hooks/useCart/useCart";
-import { IMS_TYPES } from "../../constant/ims-types";
-import { useProfile } from "../../hooks/useProfile/useProfile";
+// import { IMS_TYPES } from "../../constant/ims-types";
+// import { useProfile } from "../../hooks/useProfile/useProfile";
 
 import ItemComponent from "./components/item-component/ItemComponent";
 import AddressEmailModal from "../../modals/address-email-modal/AddressEmailModal";
 import PageContainer from "../../components/page-container/PageContainer";
 
 const CartPage = () => {
-  const { cartItems, cartType, cartTotalPrice, continueShopping, discardCart } =
+  const { cartItems, cartTotalPrice, continueShopping, discardCart } =
     useCart();
-  const { shopName } = useParams();
-  const { profile } = useProfile();
+  //const { shopName } = useParams();
+ // const { profile } = useProfile();
   const navigate = useNavigate();
 
   const [loading, setLoading] = useState<boolean>(false);
@@ -45,14 +45,7 @@ const CartPage = () => {
   //   return total.toFixed(2);
   // };
 
-  const onClickCheckout = async () => {
-    // if (!profile) {
-    //   toggleAddressModal();
-    // } else {
-    //   navigate(`/address`);
-    // }
-    navigate(`/address`);
-  };
+  const onClickCheckout = async () => navigate(`/address`);
 
   const clickOnDiscard = async () => {
     setLoading(true);
@@ -104,7 +97,7 @@ const CartPage = () => {
               borderColor="transparent"
               onClick={clickOnDiscard}
             >
-              {loading ? "Discard" : <Spinner size="md" color="#121314" />}
+              {loading ? <Spinner size="md" color="#121314" /> : "Discard"}
             </ButtonComponent>
             <ButtonComponent
               color="#121314"
