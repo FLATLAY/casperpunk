@@ -53,5 +53,7 @@ async function customerPayment1(sender_publicKey, reciver_publicKey, amount_in_u
 }
 export { customerPayment1 } 
 
+// reciver_publicKey : 01f69e226f7273624489e5a4f0ec5ee623232d0ce75d4d488b5829b54d8e1a14ca
+
 // usage : 
 //console.log(await customerPayment1("0144f5adf499591351807bc83490314262bd6846beee80a16269a83c9901ecec8a", "01eb9b0e8e73de521f86f40666d985529ae316aff5ace6c4049a42364f442e0e76", 1));
