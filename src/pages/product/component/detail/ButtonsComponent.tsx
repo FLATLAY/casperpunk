@@ -1,5 +1,6 @@
 // global dependency
 import { useState } from "react";
+import { Spinner } from "@chakra-ui/react";
 
 // internall dependency
 import { BuyButton } from "./Detail-style";
@@ -20,6 +21,7 @@ type Props = {
 const ButtonsComponent = ({ product, selectedSku, quantity }: Props) => {
   //states
   const [showWalletModal, setShowWalletModal] = useState(false);
+  const [loading, setLoading] = useState(false);
   //const [showEmailModal, setShowEmailModal] = useState(false);
 
   // hooks
@@ -58,7 +60,9 @@ const ButtonsComponent = ({ product, selectedSku, quantity }: Props) => {
 
   const addSkuToCart = async () => {
     if (isNotValid()) return false;
+    setLoading(true);
     await addItemToCart(selectedSku._id, quantity);
+    setLoading(false);
   };
 
   return (
@@ -69,7 +73,7 @@ const ButtonsComponent = ({ product, selectedSku, quantity }: Props) => {
         onClick={addSkuToCart}
         mb={{ base: "60px", lg: "0px" }}
       >
-        ADD TO CART
+        {loading ? <Spinner size="md" color="black" /> : "ADD TO CART"}
       </BuyButton>
       {showWalletModal && (
         <WalletModal show={showWalletModal} close={toggleModal} />
