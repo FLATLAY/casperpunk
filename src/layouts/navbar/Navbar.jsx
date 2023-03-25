@@ -8,7 +8,7 @@ const Navbar = () => {
   return (
     <Flex
       w="100%"
-      p={{base:'20px',md:"30px 24px 30px 100px"}}
+      p={{base:'20px',md:"30px 24px 30px 40px" ,xl:"30px 24px 30px 100px"}}
       alignItems="center"
       justifyContent="space-between"
     >
@@ -34,7 +34,7 @@ const TextComponent = ({ children, color }) => {
     <Text
       fontFamily="Montserrat"
       fontWeight="700"
-      fontSize={{base:"4px" ,md:'8px' , xl:'15px'}}
+      fontSize={{base:"4px" ,md:'10px' , xl:'15px' }}
       color={color ? color : "#161F2F"}
       cursor='pointer'
     >
