@@ -1,8 +1,10 @@
 import { Flex } from "@chakra-ui/react";
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 import { useApi } from "../../hooks/useApi/useApi";
 import { getCartShippingRates } from "../../apis/checkoutsApi";
+import { useProfile } from "../../hooks/useProfile/useProfile";
 
 import PageContainer from "../../components/page-container/PageContainer";
 import Loading, { LOADING_SIZE } from "../../components/loading/Loading";
@@ -15,15 +17,17 @@ const Shipping = () => {
   // const [loading, setLoading] = useState(false);
 
   const { getApi } = useApi();
+  const { profile } = useProfile();
+  const navigate = useNavigate();
 
   const getShippings = async () => {
     const result = await getApi(getCartShippingRates());
     if (result) setShippings(result.shippingPrice);
   };
-  
 
   useEffect(() => {
-    getShippings();
+    if (!profile) navigate("/");
+    else getShippings();
   }, []);
 
   if (!shippings)
@@ -43,8 +47,15 @@ const Shipping = () => {
         flexDir="column"
         w="100%"
       >
-        {shippings.map((shipping:any ,i:number) =>{
-            return <ShippingItem key={i} shipping={shipping} selectedShipping={selectedShipping} setSelectedShippings={setSelectedShippings} />
+        {shippings.map((shipping: any, i: number) => {
+          return (
+            <ShippingItem
+              key={i}
+              shipping={shipping}
+              selectedShipping={selectedShipping}
+              setSelectedShippings={setSelectedShippings}
+            />
+          );
         })}
         <ButtonsComponent selectedShipping={selectedShipping} />
       </Flex>
