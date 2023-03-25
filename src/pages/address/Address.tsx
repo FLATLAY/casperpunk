@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
 import { Flex, Box, Image } from "@chakra-ui/react";
+import { useNavigate } from "react-router-dom";
 
 import { AddressButton, AddressButtonText } from "./Address-style";
 import { getAddressBooks } from "../../apis/addressApi";
 import { useApi } from "../../hooks/useApi/useApi";
+import { useProfile } from "../../hooks/useProfile/useProfile";
 
 
 import plusIcon from "../../assets/icons/plus-icon.svg";
@@ -15,6 +17,8 @@ import PageContainer from "../../components/page-container/PageContainer";
 
 const AddressPage = () => {
   const { getApi } = useApi();
+  const { profile } = useProfile();
+  const navigate = useNavigate();
 
 
   const [addressList, setAddressList] = useState<Array<any> | null>(null);
@@ -30,7 +34,8 @@ const AddressPage = () => {
   };
 
   useEffect(() => {
-    getAddressList();
+    if(!profile) navigate('/')
+    else getAddressList();
   }, [showAddressModal]);
 
   const selectAddress = (address: any) => setSelectedAddress(address);

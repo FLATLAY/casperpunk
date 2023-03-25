@@ -1,6 +1,9 @@
+import { useEffect } from "react";
 import { Flex, Box } from "@chakra-ui/react";
+import { useNavigate } from "react-router-dom";
 
 import { useCart } from "../../hooks/useCart/useCart";
+import { useProfile } from "../../hooks/useProfile/useProfile";
 
 import PageContainer from "../../components/page-container/PageContainer";
 import ProductsComponent from "./components/products-component/ProductsComponent";
@@ -8,8 +11,13 @@ import PriceComponent from "./components/price-component/PriceComponent";
 import ButtonComponent from "./components/buttons-component/ButtonComponent";
 
 const Checkout = () => {
-  const { cart, cartItems } = useCart();
-  console.log("cart ", cart);
+  const { cartItems } = useCart();
+  const { profile } = useProfile();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!profile) navigate("/");
+  }, []);
 
   return (
     <PageContainer>
