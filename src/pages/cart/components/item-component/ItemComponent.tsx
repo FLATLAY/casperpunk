@@ -29,8 +29,6 @@ const ItemComponent = ({ item }: any) => {
   const { deleteItemFromCart, increaseItemQuantity, decreaseItemQuantity } =
     useCart();
 
-  console.log("item ", item);
-
   const prodcutImage = useMemo(() => getProductImage(item.product), [item]);
   const prodcutTitle = useMemo(() => getProductTitle(item.product), [item]);
   const productPrice = useMemo(
@@ -50,11 +48,11 @@ const ItemComponent = ({ item }: any) => {
   ).toFixed(2);
 
   const increaseQuantity = async () => {
-    increaseItemQuantity(item);
+   // increaseItemQuantity(item);
   };
 
   const decreaseQuantity = async () => {
-    decreaseItemQuantity(item);
+   // decreaseItemQuantity(item);
   };
 
   const deleteItem = async () => {
