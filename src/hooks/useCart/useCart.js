@@ -126,7 +126,7 @@ export function useCart() {
 
   const discardCart = async () => {
     await deleteApi(deleteCart());
-    updateCart();
+    await updateCart();
     // dispatch(clearCurrentCart());
   };
 

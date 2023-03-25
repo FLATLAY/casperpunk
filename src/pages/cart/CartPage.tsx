@@ -1,4 +1,4 @@
-import { Flex, Box } from "@chakra-ui/react";
+import { Flex, Box, Spinner } from "@chakra-ui/react";
 import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
@@ -22,13 +22,12 @@ import AddressEmailModal from "../../modals/address-email-modal/AddressEmailModa
 import PageContainer from "../../components/page-container/PageContainer";
 
 const CartPage = () => {
-
-  const { cartItems, cartType, cartTotalPrice ,continueShopping, discardCart } = useCart();
+  const { cartItems, cartType, cartTotalPrice, continueShopping, discardCart } =
+    useCart();
   const { shopName } = useParams();
   const { profile } = useProfile();
   const navigate = useNavigate();
 
-  
   const [loading, setLoading] = useState<boolean>(false);
   const [showAddressModal, setShowAddressModal] = useState<boolean>(false);
 
@@ -53,6 +52,12 @@ const CartPage = () => {
     //   navigate(`/address`);
     // }
     navigate(`/address`);
+  };
+
+  const clickOnDiscard = async () => {
+    setLoading(true);
+    await discardCart();
+    setLoading(false);
   };
 
   return (
@@ -97,9 +102,9 @@ const CartPage = () => {
               color="#121314"
               bg="transparent"
               borderColor="transparent"
-              onClick={discardCart}
+              onClick={clickOnDiscard}
             >
-              Discard
+              {loading ? "Discard" : <Spinner size="md" color="#121314" />}
             </ButtonComponent>
             <ButtonComponent
               color="#121314"
