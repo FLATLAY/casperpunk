@@ -10,7 +10,7 @@ import {
   selectCurrentCartType,
   selectCurrentNumberOfItems,
   selectCurrentCart,
-  selectCurrentCartTotalPrice
+  selectCurrentCartTotalPrice,
 } from "../../store/cart/cart.selector";
 
 import {
@@ -51,8 +51,8 @@ export function useCart() {
     if (result) {
       if (Object.keys(result).length === 0) {
         dispatch(clearCurrentCart());
-      } else {  
-        console.log('cart result ' , result);
+      } else {
+        console.log("cart result ", result);
         dispatch(setCurrentCart({ ...result, type: IMS_TYPES.DROPLINKED }));
       }
     }
@@ -124,8 +124,10 @@ export function useCart() {
     // }
   };
 
-  const discardCart = () => {
-    dispatch(clearCurrentCart());
+  const discardCart = async () => {
+    await deleteApi(deleteCart());
+    updateCart();
+    // dispatch(clearCurrentCart());
   };
 
   return {
