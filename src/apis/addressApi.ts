@@ -37,3 +37,13 @@ export const putUpdateAddress = (addressObject: any, addressId: string) => {
   };
   return { ...apiObj };
 };
+
+export const deleteAddressBook = (addressId: string) => {
+  const token = JSON.parse(localStorage.getItem("token") || "");
+  let apiObj = {
+    url: `address-book/${addressId}`,
+    token: token,
+    body: null,
+  };
+  return { ...apiObj };
+};

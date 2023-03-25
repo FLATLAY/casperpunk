@@ -2,6 +2,8 @@ import { Box, Flex } from "@chakra-ui/react";
 import { useState, useEffect } from "react";
 
 import { ComponentWrapper, Text700, Text400 } from "./AddressComponent-style";
+import { useApi } from "../../../hooks/useApi/useApi";
+import { deleteAddressBook } from "../../../apis/addressApi";
 
 import BasicButton, {
   BUTTON_TYPE,
@@ -21,6 +23,9 @@ const AddressComponent = ({
   updateList: () => void;
 }) => {
   const [showModal, setShowModal] = useState(false);
+  const [loading, setLoding] = useState(false);
+
+  const { deleteApi } = useApi();
 
   const selectFunction = () => selectAddress(address);
   const toggleModal = () => setShowModal((p) => !p);
@@ -28,6 +33,13 @@ const AddressComponent = ({
   useEffect(() => {
     updateList();
   }, [showModal]);
+
+  const deleteAddress = async () => {
+    setLoding(true);
+    await deleteApi(deleteAddressBook(address._id));
+    updateList();
+    setLoding(false);
+  };
 
   return (
     <ComponentWrapper
@@ -76,10 +88,11 @@ const AddressComponent = ({
           </Box>
           <Box w={{ base: "auto", md: "200px" }}>
             <BasicButton
-              click={() => {}}
+              click={deleteAddress}
               type={BUTTON_TYPE.LIGHT}
               width="100%"
               maxWidth="100%"
+              loading={loading}
             >
               Delete
             </BasicButton>
