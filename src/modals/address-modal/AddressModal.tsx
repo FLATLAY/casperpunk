@@ -1,5 +1,5 @@
 import { Box } from "@chakra-ui/react";
-import { useState } from "react";
+import { useState, useEffect, useReducer } from "react";
 
 // internal dependency
 import {
@@ -11,6 +11,7 @@ import {
 } from "./AddressModal-style";
 import { postAddressBook } from "../../apis/addressApi";
 import { useApi } from "../../hooks/useApi/useApi";
+import { initialState, reducer } from "./reducer";
 // components
 import ModalWrapper from "../modal-wrapper/ModalWrapper";
 import TextInput from "../../components/text-input/TextInput";
@@ -23,11 +24,18 @@ import closeIcon from "../../assets/icons/multiplied-icon.svg";
 const AddressModal = ({
   show,
   close,
+  initialAddress,
 }: {
   show: boolean;
   close: () => void;
+  initialAddress?: any;
 }) => {
   const { postApi } = useApi();
+
+
+
+  //const [addressObject, dispatch] = useReducer(reducer, initialState);
+  const [addressObject, dispatch] = useReducer(reducer, initialState);
 
   // STATES
   const [addressLine1, setAddressLine1] = useState("");
@@ -39,24 +47,38 @@ const AddressModal = ({
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    if (initialAddress !== undefined )
+      dispatch({ type: "INITIALIZE", payload: initialAddress });
+  }, [initialAddress]);
+  console.log("addressObject ", addressObject);
   // functions
-  const changeAddressLine1 = (e: React.ChangeEvent<HTMLInputElement>) =>
-    setAddressLine1(e.target.value);
-  const changeAddressLine2 = (e: React.ChangeEvent<HTMLInputElement>) =>
-    setAddressLine2(e.target.value);
-  const changeCountry = (e: React.ChangeEvent<HTMLInputElement>) =>
-    setCountry(e.target.value);
-  const changeCity = (e: React.ChangeEvent<HTMLInputElement>) =>
-    setCity(e.target.value);
-  const changeState = (e: React.ChangeEvent<HTMLInputElement>) =>
-    setState(e.target.value);
-  const changeZip = (e: React.ChangeEvent<HTMLInputElement>) =>
-    setZip(e.target.value);
-  const changeFirstName = (e: React.ChangeEvent<HTMLInputElement>) =>
-    setFirstName(e.target.value);
-  const changeLastName = (e: React.ChangeEvent<HTMLInputElement>) =>
-    setLastName(e.target.value);
-  // "addressType": "SHOP"
+  const changeAddressLine1 = (e: React.ChangeEvent<HTMLInputElement>) =>{
+    dispatch({ type: "SET_ADDRESS_LINE_1", payload: e.target.value });
+  }
+    //setAddressLine1();
+  const changeAddressLine2 = (e: React.ChangeEvent<HTMLInputElement>) =>{
+    dispatch({ type: "SET_ADDRESS_LINE_2", payload: e.target.value });
+  }
+  const changeCountry = (e: React.ChangeEvent<HTMLInputElement>) =>{
+    dispatch({ type: "SET_COUNTRY", payload: e.target.value });
+  }
+  const changeCity = (e: React.ChangeEvent<HTMLInputElement>) =>{
+    dispatch({ type: "SET_CITY", payload: e.target.value });
+  }
+  const changeState = (e: React.ChangeEvent<HTMLInputElement>) =>{
+    dispatch({ type: "SET_STATE", payload: e.target.value });
+  }
+  const changeZip = (e: React.ChangeEvent<HTMLInputElement>) =>{
+    dispatch({ type: "SET_ZIP", payload: e.target.value });
+  }
+  const changeFirstName = (e: React.ChangeEvent<HTMLInputElement>) =>{
+    dispatch({ type: "SET_FIRST_NAME", payload: e.target.value });
+  }
+  const changeLastName = (e: React.ChangeEvent<HTMLInputElement>) =>{
+    dispatch({ type: "SET_LAST_NAME", payload: e.target.value });
+  }
 
   const submitForm = async () => {
     const addressObj = {
@@ -76,6 +98,15 @@ const AddressModal = ({
     if (result) close();
   };
 
+  // addressLine1: "",
+  // addressLine2: "",
+  // country: "",
+  // city: "",
+  // state: "",
+  // zip: "",
+  // firstName: "",
+  // lastName: "",
+
   return (
     <ModalWrapper show={show} close={close}>
       <AddressModalContainer>
@@ -86,14 +117,14 @@ const AddressModal = ({
         <TextInput
           label="Address line 1"
           placeholder="Address line 1"
-          value={addressLine1}
+          value={addressObject.addressLine1}
           change={changeAddressLine1}
         />
         <Box mb="16px"></Box>
         <TextInput
           label="Address line 2"
           placeholder="Address line 2"
-          value={addressLine2}
+          value={addressObject.addressLine2}
           change={changeAddressLine2}
         />
         <Box mb="16px"></Box>
@@ -101,13 +132,13 @@ const AddressModal = ({
           <TextInput
             label="Country"
             placeholder="Country"
-            value={country}
+            value={addressObject.country}
             change={changeCountry}
           />
           <TextInput
             label="State/province"
             placeholder="State/province"
-            value={state}
+            value={addressObject.state}
             change={changeState}
           />
         </FlexRow>
@@ -115,13 +146,13 @@ const AddressModal = ({
           <TextInput
             label="City"
             placeholder="City"
-            value={city}
+            value={addressObject.city}
             change={changeCity}
           />
           <TextInput
             label="Zip Code"
             placeholder="Zip Code"
-            value={zip}
+            value={addressObject.zip}
             change={changeZip}
           />
         </FlexRow>
@@ -129,13 +160,13 @@ const AddressModal = ({
           <TextInput
             label="Name"
             placeholder="Name"
-            value={firstName}
+            value={addressObject.firstName}
             change={changeFirstName}
           />
           <TextInput
             label="Last Name"
             placeholder="Last Name"
-            value={lastName}
+            value={addressObject.lastName}
             change={changeLastName}
           />
         </FlexRow>

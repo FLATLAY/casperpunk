@@ -6,7 +6,8 @@ import { ComponentWrapper, Text700, Text400 } from "./AddressComponent-style";
 import BasicButton, {
   BUTTON_TYPE,
 } from "../../../components/basic-button/BasicButton";
-import EditAddressModal from "./EditAddressModal";
+//import EditAddressModal from "./EditAddressModal";
+import AddressModal from "../../../modals/address-modal/AddressModal";
 
 const AddressComponent = ({
   selectedAddress,
@@ -20,7 +21,8 @@ const AddressComponent = ({
   const [showModal, setShowModal] = useState(false);
 
   const selectFunction = () => selectAddress(address);
-const toggleModal = () =>  setShowModal(p => !p)
+  const toggleModal = () => setShowModal((p) => !p);
+
   return (
     <ComponentWrapper
       borderColor={
@@ -58,7 +60,7 @@ const toggleModal = () =>  setShowModal(p => !p)
         <Flex alignItems="center" gap={{ base: "8px", md: "15px" }}>
           <Box w={{ base: "auto", md: "200px" }}>
             <BasicButton
-              click={() => {}}
+              click={toggleModal}
               type={BUTTON_TYPE.DARK}
               width="100%"
               maxWidth="100%"
@@ -78,10 +80,10 @@ const toggleModal = () =>  setShowModal(p => !p)
           </Box>
         </Flex>
       </Flex>
-      <EditAddressModal
-        showModal={showModal}
+      <AddressModal
+        show={showModal}
         close={toggleModal}
-        addressId={address._id}
+        initialAddress={address}
       />
     </ComponentWrapper>
   );

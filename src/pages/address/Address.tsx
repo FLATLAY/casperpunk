@@ -44,6 +44,7 @@ const AddressPage = () => {
         alignItems="center"
         flexDir="column"
         w="100%"
+        pt='150px'
       >
         <Loading size={LOADING_SIZE.LARGE} />
       </Flex>
