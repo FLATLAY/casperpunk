@@ -59,8 +59,10 @@ export function useCart() {
   };
 
   const deleteItemFromCart = async (skuId) => {
-    let newCartItems = cartItems.filter((item) => item.variant.id != skuId);
-    dispatch(setCurrentCart({ items: newCartItems, type: IMS_TYPES.SHOPIFY }));
+    await deleteApi(deleteSkuFromCart(skuId));
+    await updateCart();
+    // let newCartItems = cartItems.filter((item) => item.variant.id != skuId);
+    // dispatch(setCurrentCart({ items: newCartItems, type: IMS_TYPES.SHOPIFY }));
   };
 
   const increaseItemQuantity = async (item) => {

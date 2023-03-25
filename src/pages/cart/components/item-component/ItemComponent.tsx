@@ -29,8 +29,7 @@ const ItemComponent = ({ item }: any) => {
   const { deleteItemFromCart, increaseItemQuantity, decreaseItemQuantity } =
     useCart();
 
-console.log('item ' ,item);
-
+  console.log("item ", item);
 
   const prodcutImage = useMemo(() => getProductImage(item.product), [item]);
   const prodcutTitle = useMemo(() => getProductTitle(item.product), [item]);
@@ -59,14 +58,9 @@ console.log('item ' ,item);
   };
 
   const deleteItem = async () => {
-    if(loading) return
-    if (item.product.type == IMS_TYPES.DROPLINKED) {
-      setLoading(true);
-      await deleteItemFromCart(item.skuID._id);
-      setLoading(false);
-    } else {
-      deleteItemFromCart(item.variant.id);
-    }
+    setLoading(true);
+    await deleteItemFromCart(item.skuID._id);
+    setLoading(false);
   };
 
   // const getVariants = () => {
