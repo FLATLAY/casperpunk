@@ -32,80 +32,50 @@ const AddressModal = ({
 }) => {
   const { postApi } = useApi();
 
-
-
   //const [addressObject, dispatch] = useReducer(reducer, initialState);
   const [addressObject, dispatch] = useReducer(reducer, initialState);
 
   // STATES
-  const [addressLine1, setAddressLine1] = useState("");
-  const [addressLine2, setAddressLine2] = useState("");
-  const [country, setCountry] = useState("");
-  const [city, setCity] = useState("");
-  const [state, setState] = useState("");
-  const [zip, setZip] = useState("");
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    if (initialAddress !== undefined )
+    if (initialAddress !== undefined)
       dispatch({ type: "INITIALIZE", payload: initialAddress });
   }, [initialAddress]);
+
   console.log("addressObject ", addressObject);
   // functions
-  const changeAddressLine1 = (e: React.ChangeEvent<HTMLInputElement>) =>{
+  const changeAddressLine1 = (e: React.ChangeEvent<HTMLInputElement>) => {
     dispatch({ type: "SET_ADDRESS_LINE_1", payload: e.target.value });
-  }
-    //setAddressLine1();
-  const changeAddressLine2 = (e: React.ChangeEvent<HTMLInputElement>) =>{
+  };
+  const changeAddressLine2 = (e: React.ChangeEvent<HTMLInputElement>) => {
     dispatch({ type: "SET_ADDRESS_LINE_2", payload: e.target.value });
-  }
-  const changeCountry = (e: React.ChangeEvent<HTMLInputElement>) =>{
+  };
+  const changeCountry = (e: React.ChangeEvent<HTMLInputElement>) => {
     dispatch({ type: "SET_COUNTRY", payload: e.target.value });
-  }
-  const changeCity = (e: React.ChangeEvent<HTMLInputElement>) =>{
+  };
+  const changeCity = (e: React.ChangeEvent<HTMLInputElement>) => {
     dispatch({ type: "SET_CITY", payload: e.target.value });
-  }
-  const changeState = (e: React.ChangeEvent<HTMLInputElement>) =>{
+  };
+  const changeState = (e: React.ChangeEvent<HTMLInputElement>) => {
     dispatch({ type: "SET_STATE", payload: e.target.value });
-  }
-  const changeZip = (e: React.ChangeEvent<HTMLInputElement>) =>{
+  };
+  const changeZip = (e: React.ChangeEvent<HTMLInputElement>) => {
     dispatch({ type: "SET_ZIP", payload: e.target.value });
-  }
-  const changeFirstName = (e: React.ChangeEvent<HTMLInputElement>) =>{
+  };
+  const changeFirstName = (e: React.ChangeEvent<HTMLInputElement>) => {
     dispatch({ type: "SET_FIRST_NAME", payload: e.target.value });
-  }
-  const changeLastName = (e: React.ChangeEvent<HTMLInputElement>) =>{
+  };
+  const changeLastName = (e: React.ChangeEvent<HTMLInputElement>) => {
     dispatch({ type: "SET_LAST_NAME", payload: e.target.value });
-  }
+  };
 
   const submitForm = async () => {
-    const addressObj = {
-      addressLine1: addressLine1,
-      addressLine2: addressLine2,
-      country: country,
-      city: city,
-      state: state,
-      zip: zip,
-      firstName: firstName,
-      lastName: lastName,
-      addressType: "CUSTOMER",
-    };
     setLoading(true);
-    let result = await postApi(postAddressBook(addressObj));
+    let result = await postApi(postAddressBook(addressObject));
     setLoading(false);
     if (result) close();
   };
-
-  // addressLine1: "",
-  // addressLine2: "",
-  // country: "",
-  // city: "",
-  // state: "",
-  // zip: "",
-  // firstName: "",
-  // lastName: "",
 
   return (
     <ModalWrapper show={show} close={close}>
