@@ -1,5 +1,5 @@
 import { Box, Flex } from "@chakra-ui/react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import { ComponentWrapper, Text700, Text400 } from "./AddressComponent-style";
 
@@ -13,15 +13,21 @@ const AddressComponent = ({
   selectedAddress,
   address,
   selectAddress,
+  updateList,
 }: {
   selectedAddress: any;
   address: any;
   selectAddress: (id: string) => void;
+  updateList: () => void;
 }) => {
   const [showModal, setShowModal] = useState(false);
 
   const selectFunction = () => selectAddress(address);
   const toggleModal = () => setShowModal((p) => !p);
+
+  useEffect(() => {
+    updateList();
+  }, [showModal]);
 
   return (
     <ComponentWrapper

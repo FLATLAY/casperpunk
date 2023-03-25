@@ -60,6 +60,7 @@ const AddressPage = () => {
             selectedAddress={selectedAddress}
             address={address}
             selectAddress={selectAddress}
+            updateList={getAddressList}
           />
           <Box mb="32px" />
         </>

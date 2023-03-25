@@ -9,7 +9,7 @@ import {
   CloseIconComponent,
   CloseIconImg,
 } from "./AddressModal-style";
-import { postAddressBook } from "../../apis/addressApi";
+import { postAddressBook, putUpdateAddress } from "../../apis/addressApi";
 import { useApi } from "../../hooks/useApi/useApi";
 import { initialState, reducer } from "./reducer";
 // components
@@ -30,11 +30,10 @@ const AddressModal = ({
   close: () => void;
   initialAddress?: any;
 }) => {
-  const { postApi } = useApi();
+  const { postApi, putApi } = useApi();
 
-  //const [addressObject, dispatch] = useReducer(reducer, initialState);
+ 
   const [addressObject, dispatch] = useReducer(reducer, initialState);
-
   // STATES
   const [loading, setLoading] = useState(false);
 
@@ -43,7 +42,6 @@ const AddressModal = ({
       dispatch({ type: "INITIALIZE", payload: initialAddress });
   }, [initialAddress]);
 
-  console.log("addressObject ", addressObject);
   // functions
   const changeAddressLine1 = (e: React.ChangeEvent<HTMLInputElement>) => {
     dispatch({ type: "SET_ADDRESS_LINE_1", payload: e.target.value });
@@ -72,7 +70,14 @@ const AddressModal = ({
 
   const submitForm = async () => {
     setLoading(true);
-    let result = await postApi(postAddressBook(addressObject));
+    let result;
+    if (initialAddress === undefined) {
+      result = await postApi(postAddressBook(addressObject));
+    } else {
+      result = await putApi(
+        putUpdateAddress(addressObject, initialAddress._id)
+      );
+    }
     setLoading(false);
     if (result) close();
   };
