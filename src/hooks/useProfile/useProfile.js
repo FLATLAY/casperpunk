@@ -49,7 +49,7 @@ export function useProfile() {
         )
       );
       localStorage.setItem("token", JSON.stringify(result.access_token));
-      localStorage.setItem("user", JSON.stringify(result.user));
+      localStorage.setItem("user", JSON.stringify({...result.user , publicKey:account_info.publicKey}));
       dispatch(setCurrentUser({...result.user , publicKey:account_info.publicKey}));
     });
   }
