@@ -55,10 +55,10 @@ interface Props {
         <WalletDropdownComponent onClick={handleChildClick}>
           <DropdownButton>{walletAddressText}</DropdownButton>
           <Box mb="8px"></Box>
-          <DropdownButton>Purchase History</DropdownButton>
+          {/* <DropdownButton>Purchase History</DropdownButton>
           <Box mb="8px"></Box>
           <DropdownButton onClick={navigateToSetting}>Settings</DropdownButton>
-          <Box mb="8px"></Box>
+          <Box mb="8px"></Box> */}
   
           <DropdownButton onClick={logout}>Logout</DropdownButton>
         </WalletDropdownComponent>
