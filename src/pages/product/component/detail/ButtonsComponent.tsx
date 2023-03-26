@@ -9,8 +9,7 @@ import { useProfile } from "../../../../hooks/useProfile/useProfile";
 import { useCart } from "../../../../hooks/useCart/useCart";
 
 // components
-import WalletModal from "../../../../modals/wallet-modal/WalletModal";
-import EmailModal from "../../../../modals/email-modal/EmailModal";
+
 
 type Props = {
   product: any;
@@ -20,19 +19,14 @@ type Props = {
 
 const ButtonsComponent = ({ product, selectedSku, quantity }: Props) => {
   //states
-  const [showWalletModal, setShowWalletModal] = useState(false);
   const [loading, setLoading] = useState(false);
-  //const [showEmailModal, setShowEmailModal] = useState(false);
 
   // hooks
   const { errorToast } = useToastify();
   const { addItemToCart } = useCart();
-  const { profile } = useProfile();
-  //console.log("selectedSku ", selectedSku);
+  const { profile, openCasperWallet } = useProfile();
 
   // functions
-  const toggleModal = () => setShowWalletModal((p) => !p);
-  //const toggleEmailModal = () => setShowEmailModal((p) => !p);
 
   // return true if has problem
   const isNotValid = () => {
@@ -44,7 +38,7 @@ const ButtonsComponent = ({ product, selectedSku, quantity }: Props) => {
     }
 
     if (!profile) {
-      toggleModal();
+      openCasperWallet();
       resutl = true;
     }
 
@@ -66,20 +60,14 @@ const ButtonsComponent = ({ product, selectedSku, quantity }: Props) => {
   };
 
   return (
-    <>
-      <BuyButton
-        bg="white"
-        color="#121314"
-        onClick={addSkuToCart}
-        mb={{ base: "60px", lg: "0px" }}
-      >
-        {loading ? <Spinner size="md" color="black" /> : "ADD TO CART"}
-      </BuyButton>
-      {showWalletModal && (
-        <WalletModal show={showWalletModal} close={toggleModal} />
-      )}
-      {/* <EmailModal show={showEmailModal} close={toggleEmailModal} /> */}
-    </>
+    <BuyButton
+      bg="white"
+      color="#121314"
+      onClick={addSkuToCart}
+      mb={{ base: "60px", lg: "0px" }}
+    >
+      {loading ? <Spinner size="md" color="black" /> : "ADD TO CART"}
+    </BuyButton>
   );
 };
 
