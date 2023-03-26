@@ -7,11 +7,11 @@ import { useApi } from "../../../../hooks/useApi/useApi";
 import { postCreateCheckout } from "../../../../apis/checkoutsApi";
 
 import CheckoutForm from "./CheckoutForm";
+import CasperButton from "./CasperButton";
 
 const stripePromise = loadStripe(`${process.env.REACT_APP_STRIPE_KEY}`);
 
 const ButtonComponent = () => {
-    
   const [clientSecret, setClientSecret] = useState(null);
 
   const { postApi } = useApi();
@@ -31,21 +31,24 @@ const ButtonComponent = () => {
           <CheckoutForm />
         </Elements>
       ) : (
-        <Button
-          //  display="flex"
-          //  justifyContent="center"
-          //  alignItems="center"
-          padding="16px 60px"
-          gap="8px"
-          width="77px"
-          height="55px"
-          background="#27262B"
-          borderRadius="4px"
-          color="white"
-          onClick={clickOnPay}
-        >
-          Pay Now
-        </Button>
+        <>
+          <Button
+            //  display="flex"
+            //  justifyContent="center"
+            //  alignItems="center"
+            padding="16px 60px"
+            gap="8px"
+            width="77px"
+            height="55px"
+            background="#27262B"
+            borderRadius="4px"
+            color="white"
+            onClick={clickOnPay}
+          >
+            Pay Now
+          </Button>
+          <CasperButton />
+        </>
       )}
     </Flex>
   );

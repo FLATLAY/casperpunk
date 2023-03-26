@@ -38,3 +38,13 @@ export const postAddShippingRate = (rateId: string) => {
   };
   return { ...apiObj };
 };
+
+export const postCreateCasperCheckout = () => {
+  const token = JSON.parse(localStorage.getItem("token") || "");
+  let apiObj = {
+    url: `checkout/casper`,
+    body: {},
+    token: token,
+  };
+  return { ...apiObj };
+};
