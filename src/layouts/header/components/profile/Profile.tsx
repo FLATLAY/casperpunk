@@ -9,24 +9,29 @@ import profileIcon from "../../../../assets/icons/profile-icon.svg";
 
 const Profile = () => {
   const [showModal, setShowModal] = useState(false);
-  const { profile } = useProfile();
+  const { profile, openCasperWallet } = useProfile();
 
   const toggleModal = () => setShowModal((p) => !p);
+
+  const clickOnIcon = () => {
+    if(profile) toggleModal()
+    else openCasperWallet()
+  }
 
   return (
     <>
       <WalletIconWrapper
         //bg={showModal ? "#fff" : "transparent"}
-        onClick={toggleModal}
+        onClick={clickOnIcon}
       >
         <WalletIconComponent src={profileIcon} />
-    
       </WalletIconWrapper>
-      {profile ? (
-          <ProfileDropdown show={showModal} close={toggleModal} />
-        ) : (
-          <WalletModal show={showModal} close={toggleModal} />
-        )}
+      <ProfileDropdown show={showModal} close={toggleModal} />
+      {/* {profile ? (
+        <ProfileDropdown show={showModal} close={toggleModal} />
+      ) : (
+        <WalletModal show={showModal} close={toggleModal} />
+      )} */}
     </>
   );
 };
