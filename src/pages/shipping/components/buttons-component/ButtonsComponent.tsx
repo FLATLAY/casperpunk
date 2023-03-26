@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { useApi } from "../../../../hooks/useApi/useApi";
 import { useCart } from "../../../../hooks/useCart/useCart";
 import { postAddShippingRate } from "../../../../apis/checkoutsApi";
+import { useToastify } from "../../../../context/ToastifyContext/ToastifyContext";
 
 import BasicButton, {
   BUTTON_TYPE,
@@ -21,8 +22,13 @@ const ButtonsComponent = ({
   const { postApi } = useApi()
   const { updateCart } =useCart()
   const navigate = useNavigate();
+  const { errorToast } = useToastify()
 
   const checkout = async() => {
+    if(selectedShipping === null){
+      errorToast("Shipping")
+      return
+    }
     setLoading(true)
     const reslut =  await postApi(postAddShippingRate(selectedShipping))
     if(reslut){
