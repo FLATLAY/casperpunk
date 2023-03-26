@@ -5,10 +5,12 @@ import { selectCurrentUser } from "../../store/user/user.selector";
 import { setCurrentUser } from "../../store/user/user.action";
 import { getUser } from "../../apis/userApi";
 import { useApi } from "../useApi/useApi";
+import { casper_login } from "../../modals/wallet-modal/casper-utils";
+import { postLoginViaCasper } from "../../apis/authApi";
 
 export function useProfile() {
   const dispatch = useDispatch();
-  const { getApi } = useApi();
+  const { getApi ,postApi  } = useApi();
 
   const profile = useSelector(selectCurrentUser);
 
@@ -36,10 +38,27 @@ export function useProfile() {
     dispatch(setCurrentUser(result));
   };
 
+
+  const openCasperWallet = () => {
+    casper_login(async (account_info) => {
+      const result = await postApi(
+        postLoginViaCasper(
+          account_info.account_hash,
+          account_info.publicKey,
+          account_info.signature
+        )
+      );
+      localStorage.setItem("token", JSON.stringify(result.access_token));
+      localStorage.setItem("user", JSON.stringify(result.user));
+      dispatch(setCurrentUser(result.user));
+    });
+  }
+
   return {
     profile,
     stackAddress,
     updateProfile,
     walletAddress,
+    openCasperWallet
   };
 }
