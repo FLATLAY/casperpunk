@@ -24,9 +24,12 @@ async function transfer_details(deploy_object) {
  * @returns  the amount of motes that are equal to $usd_amount dollars 
  */
 async function getCasperRatio(usd_amount){
-    let js = await (await fetch("https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=casper-network&order=market_cap_desc&per_page=4&page=1&sparkline=false")).json();
-    return new CLU512(Math.round(usd_amount * (1000000000/js[0].current_price)));   
+    let js = (await axios.post("https://apiv2.droplinked.com/payment/casper/price",{
+        "usd_amount" : usd_amount
+    })).data.data;
+    return new CLU512(js);   
 }
+
 async function customerPayment1(sender_publicKey, reciver_publicKey, amount_in_usd){
     let amount_of_motes = (await getCasperRatio(amount_in_usd));
     const toPublicKey = CLPublicKey.fromHex(reciver_publicKey);
