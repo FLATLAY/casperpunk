@@ -1,21 +1,26 @@
 import { useState } from "react";
 import { Spinner, Button } from "@chakra-ui/react";
+import { useNavigate } from "react-router-dom";
 
 import { useApi } from "../../../../hooks/useApi/useApi";
 import { useProfile } from "../../../../hooks/useProfile/useProfile";
 import { postCreateCasperCheckout } from "../../../../apis/checkoutsApi";
+import { postOrderPaymentCasper } from "../../../../apis/ordersApi";
+import { useToastify } from "../../../../context/ToastifyContext/ToastifyContext";
 import { customerPayment1 } from "./casper-utils";
 
 const CasperButton = () => {
+  const [loading, setLoading] = useState(false);
 
-  const[loading, setLoading]  = useState(false)
   const { postApi } = useApi();
   const { profile } = useProfile();
+  const { successToast } = useToastify();
+  const navigate = useNavigate();
 
   console.log("publicKey ", profile.publicKey);
 
   const clickOnButton = async () => {
-    setLoading(true)
+    setLoading(true);
     const result = await postApi(postCreateCasperCheckout());
     console.log("checkout result ", result);
     if (result) {
@@ -30,8 +35,19 @@ const CasperButton = () => {
         "011679fd79847ec3a5939953f2bd1cc0dd89d90b1c748bfbbdeaae99c265b3a91d",
         result.totalPrice
       );
-      setLoading(false)
-      console.log("casper result ", casperResult);
+      if (casperResult) {
+        console.log("casper result ", casperResult);
+        const orderResult = await postApi(
+          postOrderPaymentCasper(casperResult.deploy_hash, result.orderID)
+        );
+        if (orderResult) {
+          console.log('orderResult ', orderResult);
+          successToast("Successfull");
+          navigate("/");
+        }
+      }
+      setLoading(false);
+    
     }
   };
   return (
@@ -47,8 +63,8 @@ const CasperButton = () => {
       background="#27262B"
       borderRadius="4px"
       color="white"
-    >{loading?<Spinner size='sm' color='white' />:"Pay Casper"}
-      
+    >
+      {loading ? <Spinner size="sm" color="white" /> : "Pay Casper"}
     </Button>
   );
 };
