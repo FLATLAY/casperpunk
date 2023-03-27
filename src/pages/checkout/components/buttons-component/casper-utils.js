@@ -1,4 +1,5 @@
 import { CLPublicKey, CLU512, DeployUtil } from "casper-js-sdk";
+import axios from "axios";
 import * as casper_consts from './constants'
 
 /**
