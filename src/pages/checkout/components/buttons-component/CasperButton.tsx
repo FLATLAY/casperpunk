@@ -22,12 +22,12 @@ const CasperButton = () => {
       console.log("sender_publicKey ", profile.publicKey);
       console.log(
         "reciver_publicKey ",
-        "02025327c2eba8b6feedf57b04e92ec6fbeea6ab3e1ae0c19545a7bd7625e7907e3b"
+        "011679fd79847ec3a5939953f2bd1cc0dd89d90b1c748bfbbdeaae99c265b3a91d"
       );
       console.log("reciver_publicKey ", result.totalPrice);
       const casperResult = await customerPayment1(
         profile.publicKey,
-        "02025327c2eba8b6feedf57b04e92ec6fbeea6ab3e1ae0c19545a7bd7625e7907e3b",
+        "011679fd79847ec3a5939953f2bd1cc0dd89d90b1c748bfbbdeaae99c265b3a91d",
         result.totalPrice
       );
       setLoading(false)
