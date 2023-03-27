@@ -1,5 +1,5 @@
 import {CasperClient , CasperServiceByJsonRPC} from 'casper-js-sdk'
-export const apiUrl = "http://188.40.47.161";
+export const apiUrl = "https://apiv2.droplinked.com/http-req?method=post&url=http://188.40.47.161";
 export const metadata_uref  = "metadatas";//"uref-2cff9bd7ac5b27970f6288c6651721db5b855cca899cc02aa7ac1ea6a086273b-007";
 export const request_objects_uref  = "request_objects";//"uref-c4ab070d45a603116974847996a8c89d8dfbe57a8ce2beb0aff2cd3b7650c186-007";
 export const producer_requests_uref  = "producer_requests";//"uref-77de1dcdca98f72cff339d845054e94f817040ce9604320af03d8d6c8e4bcb49-007";
