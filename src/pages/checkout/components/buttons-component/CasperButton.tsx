@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 import { useApi } from "../../../../hooks/useApi/useApi";
 import { useProfile } from "../../../../hooks/useProfile/useProfile";
+import { useCart } from "../../../../hooks/useCart/useCart";
 import { postCreateCasperCheckout } from "../../../../apis/checkoutsApi";
 import { postOrderPaymentCasper } from "../../../../apis/ordersApi";
 import { useToastify } from "../../../../context/ToastifyContext/ToastifyContext";
@@ -15,6 +16,7 @@ const CasperButton = () => {
   const { postApi } = useApi();
   const { profile } = useProfile();
   const { successToast } = useToastify();
+  const { updateCart } = useCart()
   const navigate = useNavigate();
 
   console.log("publicKey ", profile.publicKey);
@@ -43,6 +45,7 @@ const CasperButton = () => {
         if (orderResult) {
           console.log('orderResult ', orderResult);
           successToast("Successfull");
+          updateCart()
           navigate("/");
         }
       }
