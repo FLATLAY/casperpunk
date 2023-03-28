@@ -6,7 +6,7 @@ import BottomComponent from "./components/bottom-component/BottomComponent"
 const Footer = () => {
   return (
     <Box w="100%">
-      <TopSection />
+      {/* <TopSection /> */}
       <BottomComponent />
     </Box>
   );
