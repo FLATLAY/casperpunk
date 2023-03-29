@@ -47,7 +47,7 @@ const TopComponent = ({
       mb={{ base: "25px", xl: "50px" }}
       position="relative"
     >
-      <CollectionNameText>Cutefits for the Whole Family</CollectionNameText>
+      <CollectionNameText>Grab your punk while they last</CollectionNameText>
       <Flex
         alignItems="center"
         gap="16px"
