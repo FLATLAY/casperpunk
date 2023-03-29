@@ -45,7 +45,7 @@ const ButtonComponent = () => {
             color="white"
             onClick={clickOnPay}
           >
-            Pay Now
+            Fiat payment
           </Button>
           <CasperButton />
         </>
