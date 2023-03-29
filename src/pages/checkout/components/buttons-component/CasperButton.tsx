@@ -56,18 +56,19 @@ const CasperButton = () => {
   return (
     <Button
       onClick={clickOnButton}
-      //  display="flex"
-      //  justifyContent="center"
-      //  alignItems="center"
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
       padding="16px 60px"
+      maxW='150px'
       gap="8px"
-      width="77px"
+      width="auto"
       height="55px"
       background="#27262B"
       borderRadius="4px"
       color="white"
     >
-      {loading ? <Spinner size="sm" color="white" /> : "Pay Casper"}
+      {loading ? <Spinner size="sm" color="white" /> : "Casper payment"}
     </Button>
   );
 };

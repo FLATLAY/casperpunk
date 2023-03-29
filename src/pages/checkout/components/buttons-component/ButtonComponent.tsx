@@ -22,7 +22,7 @@ const ButtonComponent = () => {
   };
 
   return (
-    <Flex w="100%" alignItems="center" justifyContent="end">
+    <Flex w="100%" alignItems="center" justifyContent="end" gap='40px' >
       {clientSecret ? (
         <Elements
           stripe={stripePromise}
